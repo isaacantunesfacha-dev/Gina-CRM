@@ -95,7 +95,7 @@ export default {
       "agent": "Numbers"
     }
   ],
-  "sJ": "03b — 360° journey",
+  "sJ": "04 — 360° journey",
   "hJa": "Gina walks every channel to",
   "hJi": "know one customer.",
   "pJ": "Each channel answers one question about the customer. No channel repeats another one's job, and every answer goes back into the same profile.",
@@ -213,7 +213,7 @@ export default {
       "v": "The second purchase is the real conversion. Repeat and Advocate are where small businesses grow, and where they almost never measure."
     }
   ],
-  "s4": "04 — Win-back journey",
+  "s4": "05 — Win-back journey",
   "h5a": "One journey, written down",
   "h5i": "like a contract.",
   "wf": {
@@ -235,7 +235,7 @@ export default {
     "exitT": "Silent for 21 days → marked dormant and left alone for 90. Fewer messages keep the list warm.",
     "run": "Run by @Win-back. A/B test: \"your usual\" vs. a discount. Primary KPI: win-back rate."
   },
-  "sM": "05 — Mobile-first product",
+  "sM": "06 — Mobile-first product",
   "hMa": "Designed for the",
   "hMi": "thumb,",
   "hMb": "between two customers.",
@@ -356,7 +356,7 @@ export default {
       }
     ]
   },
-  "s5": "06 — CRM maturity",
+  "s5": "07 — CRM maturity",
   "h6a": "Four levels. Most businesses",
   "h6i": "skip the first one.",
   "lv": [
@@ -377,7 +377,7 @@ export default {
       "d": "RFV segments and a churn risk score tell the owner who to call this week, before they leave."
     }
   ],
-  "s6": "07 — What I measure",
+  "s6": "08 — What I measure",
   "h7n": "6",
   "h7a": "numbers, defined",
   "h7i": "before the first dashboard.",
@@ -413,7 +413,7 @@ export default {
       "why": "If this one is low, every other number on this list is wrong."
     }
   ],
-  "s7": "08 — Engagement",
+  "s7": "09 — Engagement",
   "h8a": "Ninety days,",
   "h8i": "then your team owns it.",
   "phases": [
@@ -433,7 +433,7 @@ export default {
       "o": "Operating dashboard, first A/B results, monthly review ritual, written playbook."
     }
   ],
-  "s8": "09 — Self-critique",
+  "s8": "10 — Self-critique",
   "h9a": "Where this method",
   "h9i": "falls short.",
   "critLead": "The method above assumes a team. For a business of one, parts of it are too heavy, and a method that can't admit that isn't mature yet. These are the gaps I see and what I'd change.",
@@ -476,7 +476,7 @@ export default {
       "fix": "Hand over a 15-minute weekly ritual the owner can run alone."
     }
   ],
-  "s9": "10 — Zero-budget version",
+  "s9": "11 — Zero-budget version",
   "zeroLead": "The same retention logic on free tools: an AI chat bot playing Gina, a spreadsheet as the CRM and one weekly message that says who to call. It costs time, not money, and it gets a business to maturity level 2 without a licence.",
   "stack": [
     {
@@ -574,6 +574,7 @@ export default {
     "rfv": "RFV",
     "orders": "{n} orders",
     "own": "Try it with your own list",
+    "contactK": "Contact this week",
     "calmK": "No message this week",
     "daysAgo": "{n} days ago",
     "today": "today",

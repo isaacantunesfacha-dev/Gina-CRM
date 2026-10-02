@@ -91,8 +91,8 @@ It runs entirely in the browser. No AI model, nothing is sent or stored. The rul
 ## What the page covers
 
 `01` Why CRMs get abandoned · `02` A five-step method, tool-agnostic · `03` Lifecycle model with an entry rule per stage ·
-`03b` The 360° journey · `04` Win-back journey · `05` Mobile-first product screens · `06` CRM maturity in four levels ·
-`07` Six metrics, defined before the first dashboard · `08` A 90-day engagement · `09` **Self-critique** · `10` **Gina Zero**, the same logic for R$0
+`04` The 360° journey · `05` Win-back journey · `06` Mobile-first product screens · `07` CRM maturity in four levels ·
+`08` Six metrics, defined before the first dashboard · `09` A 90-day engagement · `10` **Self-critique** · `11` **Gina Zero**, the same logic for R$0
 
 ## Built with
 
@@ -111,10 +111,12 @@ index.html, pt/index.html   generated pages (EN, PT)
 css/styles.css              tokens and components
 js/keyed-video.js           hero video with the background removed live
 js/journey.js               360° journey animation
+js/nav.js                   section bar: highlights the section on screen
 js/gina.js                  the method as code: rhythm, RFV, status, next action
 js/demo.js                  demo interface
 demo/, pt/demo/             generated demo pages (EN, PT)
-assets/                     Gina art, walk frames, hero video
+404.html                    generated not-found page
+assets/                     Gina art (WebP, plus a PNG for link previews), walk frames, hero video
 src/content/                all copy, one file per language
 src/site.mjs                contact, legal text, public URL
 src/markup.mjs              shared pieces: channel mocks, phones, win-back flow

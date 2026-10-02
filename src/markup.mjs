@@ -53,7 +53,7 @@ export const phoneScreens = (m, asset) => [
           <p class="screen-lock__day">${esc(m.day)}</p>
           <p class="screen-lock__time">8:41</p>
           <div class="push">
-            <div class="push__app"><img src="${asset('assets/gina-flat.png')}" alt="" loading="lazy"><span>Gina</span><span>${esc(m.now)}</span></div>
+            <div class="push__app"><img src="${asset('assets/gina-flat.webp')}" alt="" loading="lazy"><span>Gina</span><span>${esc(m.now)}</span></div>
             <p class="push__t">${esc(m.pushT)}</p>
             <p class="push__b">${esc(m.pushB)}</p>
             <div class="push__actions"><span>${esc(m.pushA)}</span><span>${esc(m.pushL)}</span></div>
@@ -104,6 +104,6 @@ export const winbackFlow = (wf, asset) => `<div class="grid flow">
         <div class="node node--signal node--big"><p>${esc(wf.goalT)}</p></div>
         <p class="label">${esc(wf.exit)}</p>
         <div class="node node--light"><p>${esc(wf.exitT)}</p></div>
-        <div class="flow__run"><img src="${asset('assets/gina-flat.png')}" alt="" width="64" height="75" loading="lazy"><p>${esc(wf.run)}</p></div>
+        <div class="flow__run"><img src="${asset('assets/gina-flat.webp')}" alt="" width="64" height="75" loading="lazy"><p>${esc(wf.run)}</p></div>
       </div>
     </div>`;

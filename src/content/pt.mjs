@@ -95,7 +95,7 @@ export default {
       "agent": "Números"
     }
   ],
-  "sJ": "03b — Jornada 360°",
+  "sJ": "04 — Jornada 360°",
   "hJa": "A Gina percorre cada canal para",
   "hJi": "conhecer um cliente.",
   "pJ": "Cada canal responde uma pergunta sobre o cliente. Nenhum canal faz o trabalho do outro, e toda resposta volta para o mesmo perfil.",
@@ -213,7 +213,7 @@ export default {
       "v": "A conversão que importa é a segunda compra. Recompra e Promotor são onde o pequeno negócio cresce, e onde quase ninguém mede."
     }
   ],
-  "s4": "04 — Régua de reativação",
+  "s4": "05 — Régua de reativação",
   "h5a": "Uma régua, escrita",
   "h5i": "como um contrato.",
   "wf": {
@@ -235,7 +235,7 @@ export default {
     "exitT": "Silêncio por 21 dias → marcado como inativo e deixado em paz por 90. Menos mensagem mantém a base quente.",
     "run": "Operada pela @Reativação. Teste A/B: \"o de sempre\" contra desconto. KPI principal: taxa de reativação."
   },
-  "sM": "05 — Produto mobile-first",
+  "sM": "06 — Produto mobile-first",
   "hMa": "Feito pro",
   "hMi": "polegar,",
   "hMb": "entre um cliente e outro.",
@@ -356,7 +356,7 @@ export default {
       }
     ]
   },
-  "s5": "06 — Maturidade de CRM",
+  "s5": "07 — Maturidade de CRM",
   "h6a": "Quatro níveis. A maioria",
   "h6i": "pula o primeiro.",
   "lv": [
@@ -377,7 +377,7 @@ export default {
       "d": "Segmentos RFV e um score de risco de churn dizem pro dono quem ligar esta semana, antes de o cliente ir embora."
     }
   ],
-  "s6": "07 — O que eu meço",
+  "s6": "08 — O que eu meço",
   "h7n": "6",
   "h7a": "números, definidos",
   "h7i": "antes do primeiro painel.",
@@ -413,7 +413,7 @@ export default {
       "why": "Se este estiver baixo, todos os outros números da lista estão errados."
     }
   ],
-  "s7": "08 — Projeto",
+  "s7": "09 — Projeto",
   "h8a": "Noventa dias,",
   "h8i": "depois é do seu time.",
   "phases": [
@@ -433,7 +433,7 @@ export default {
       "o": "Painel de operação, primeiros resultados de teste A/B, ritual mensal de revisão, playbook escrito."
     }
   ],
-  "s8": "09 — Autocrítica",
+  "s8": "10 — Autocrítica",
   "h9a": "Onde este método",
   "h9i": "não dá conta.",
   "critLead": "O método acima parte do princípio de que existe uma equipe. Para um negócio de uma pessoa só, parte dele pesa demais, e método que não admite isso ainda não está maduro. Estes são os buracos que eu vejo e o que eu mudaria.",
@@ -476,7 +476,7 @@ export default {
       "fix": "Entregar um ritual semanal de 15 minutos que o dono faz sozinho."
     }
   ],
-  "s9": "10 — Versão sem orçamento",
+  "s9": "11 — Versão sem orçamento",
   "zeroLead": "A mesma lógica de retenção com ferramentas gratuitas: um bot de IA fazendo o papel da Gina, uma planilha como CRM e uma mensagem por semana dizendo quem chamar. Custa tempo, não dinheiro, e leva o negócio até o nível 2 de maturidade sem pagar licença.",
   "stack": [
     {
@@ -574,6 +574,7 @@ export default {
     "rfv": "RFV",
     "orders": "{n} pedidos",
     "own": "Testar com a sua lista",
+    "contactK": "Chamar esta semana",
     "calmK": "Sem mensagem esta semana",
     "daysAgo": "há {n} dias",
     "today": "hoje",

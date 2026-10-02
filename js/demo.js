@@ -18,6 +18,7 @@
   const errorsEl = $('[data-errors]'), bubble = $('[data-bubble]');
   const reportEl = $('[data-report]'), reportLines = $('[data-report-lines]');
   const results = $('[data-results]'), rows = $('[data-rows]');
+  const rowsK = $('[data-rows-k]');
   const calm = $('[data-calm]'), calmList = $('[data-calm-list]'), own = $('[data-own]');
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const QUIET_ACTIONS = ['rest', 'none'];
@@ -96,6 +97,7 @@
     const active = customers.filter((c) => !QUIET_ACTIONS.includes(c.action));
     const quiet = customers.filter((c) => QUIET_ACTIONS.includes(c.action));
     rows.innerHTML = active.map(card).join('');
+    rowsK.hidden = !active.length;
     calmList.innerHTML = quiet.map(calmItem).join('');
     calm.hidden = !quiet.length;
     results.hidden = false;

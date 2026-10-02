@@ -9,7 +9,7 @@
 (function () {
   'use strict';
 
-  const FRAMES = 9;        // assets/gina-walk/f1–f9.png
+  const FRAMES = 9;        // assets/gina-walk/f1–f9.webp
   const STOPS = [10, 30, 50, 70, 90]; // % along the track, matches the dots
   const TICK_MS = 110;     // one animation frame
   const WALK = 12;         // ticks spent walking between stops
@@ -22,7 +22,7 @@
     const cards = section.querySelectorAll('[data-channel]');
     const traits = section.querySelectorAll('[data-trait]');
     const base = walker.dataset.frames;
-    const frames = Array.from({ length: FRAMES }, (_, i) => `${base}f${i + 1}.png`);
+    const frames = Array.from({ length: FRAMES }, (_, i) => `${base}f${i + 1}.webp`);
     frames.forEach((src) => { new Image().src = src; }); // preload
 
     let current = null;
