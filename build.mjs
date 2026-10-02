@@ -40,6 +40,16 @@ const ogTags = (lang, title, desc, path) => {
   ].join('\n  ');
 };
 
+// Canonical and language alternates, absolute; English is the x-default.
+const seoLinks = (lang, pathFor) => {
+  const url = (code) => `${SITE_URL.replace(/\/$/, '')}/${pathFor(code)}`;
+  return [
+    `<link rel="canonical" href="${url(lang)}">`,
+    ...Object.entries(LANGS).map(([code, l]) => `<link rel="alternate" hreflang="${l.html}" href="${url(code)}">`),
+    `<link rel="alternate" hreflang="x-default" href="${url('en')}">`,
+  ].join('\n  ');
+};
+
 const mailtoFor = (lang) => `mailto:${EMAIL}?subject=${encodeURIComponent(MAIL_SUBJECT[lang])}`;
 
 function footer(lang) {
@@ -97,7 +107,7 @@ function page(lang) {
   <meta name="copyright" content="© 2026 ${AUTHOR}">
   <meta name="theme-color" content="#061f16">
   ${ogTags(lang, ui.ogTitle, ui.ogDesc, LANGS[lang].path.replace('index.html', ''))}
-  ${Object.values(LANGS).map((l) => `<link rel="alternate" hreflang="${l.html}" href="${hrefFor(l)}">`).join('\n  ')}
+  ${seoLinks(lang, (code) => LANGS[code].path.replace('index.html', ''))}
   <link rel="icon" href="${a('assets/gina-icon.png')}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -154,7 +164,7 @@ function page(lang) {
 
 <section class="section wrap" aria-labelledby="s1">
   <p class="eyebrow">${esc(t.s1)}</p>
-  <h2 class="title title--narrow" id="s1">${esc(t.h2a)} <span class="strike">${esc(t.h2s)}</span> <span class="em em--accent">${esc(t.h2i)}</span></h2>
+  <h2 class="title title--narrow" id="s1">${esc(t.h2a)} <s class="strike">${esc(t.h2s)}</s> <span class="em em--accent">${esc(t.h2i)}</span></h2>
   <div class="grid hairline breaks">${each(t.breaks, (b) => `
     <article class="break">
       <span class="break__k">${b.k}</span>
@@ -347,7 +357,7 @@ function page(lang) {
       <h2 class="close__title" id="close">${esc(t.closeA)} <span class="em">${esc(t.closeI)}</span></h2>
       <p class="close__p">${esc(t.closeP)}</p>
       <a class="btn btn--dark" href="${mailto}">${esc(t.cta)}</a>
-      <p class="close__tools">HubSpot · RD Station · Pipedrive · Kommo · Zoho · Google Sheets</p>
+      <p class="close__tools">${esc(t.closeTools)}</p>
     </div>
     <img class="close__art" src="${a('assets/gina-flat.webp')}" alt="Gina" width="460" height="539" loading="lazy">
   </div>
@@ -391,6 +401,7 @@ function demoPage(lang) {
   <title>${esc(d.title)}</title>
   <meta name="description" content="${esc(d.intro)}">
   ${ogTags(lang, d.title, d.intro, demoPath(lang).replace('index.html', ''))}
+  ${seoLinks(lang, (code) => demoPath(code).replace('index.html', ''))}
   <meta name="author" content="${AUTHOR}">
   <meta name="copyright" content="© 2026 ${AUTHOR}">
   <meta name="theme-color" content="#061f16">
@@ -449,7 +460,7 @@ function demoPage(lang) {
         <button class="btn btn--line" type="button" data-example>${esc(d.example)}</button>
         <button class="btn btn--line" type="button" data-clear>${esc(d.clear)}</button>
       </div>
-      <ul class="demo__errors" data-errors></ul>
+      <ul class="demo__errors" data-errors aria-live="polite"></ul>
     </form>
   </details>
 

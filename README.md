@@ -47,8 +47,8 @@ the business changes and the journey stays.
 
 | Channel | When | What Gina learns | Behavior principle |
 |---|---|---|---|
-| **Email marketing** | Day 0–14 | What they open, what they click, which category pulls them back. | Mere exposure: three useful emails beat one big offer. |
-| **Newsletter** | Every 2 weeks | Which topics hold attention, and how far they read. | Reciprocity: give something useful before asking for anything. |
+| **Email marketing** | Day 0–14 | What they open, what they click, which category pulls them back. | Mere exposure, as a hypothesis: three useful emails before one big offer. Test it. |
+| **Newsletter** | Every 2 weeks | Which topics they click, and which links they open. | Reciprocity: give something useful before asking for anything. |
 | **Push** | On behavior | The hour they act, and how many nudges they tolerate. | Notification budget: two a week, cut on the first dismissal. |
 | **SMS** | Urgent only | Whether they need a nudge to finish what they started. | Loss aversion: “your order is held until 6pm.” |
 | **In-story** | Status · stories | How they react to new products before they are on sale. | Social proof: real customers, not ads. |
@@ -62,7 +62,7 @@ flowchart LR
   T["Customer misses their<br/>own usual repurchase date"] --> B{"High value and<br/>buys often?"}
   B -- yes --> Y1["Owner sends a personal<br/>WhatsApp within 48 h"] --> W7(["wait 7 days"]) --> Y2["No reply: the owner calls<br/>and logs the outcome"]
   B -- no --> N1["Email 1: “We saved your usual”<br/>reorder in one tap"] --> W5(["wait 5 days"]) --> N2["Email 2: one offer,<br/>one deadline, one button"]
-  Y2 --> G[["New purchase → stage = Repeat"]]
+  Y2 --> G[["New purchase → back to active"]]
   N2 --> G
   Y2 -. silent 21 days .-> X["Dormant · left alone for 90 days"]
   N2 -. silent 21 days .-> X
@@ -78,7 +78,7 @@ A/B test: “your usual” against a discount. Primary KPI: win-back rate.
 ## Gina, running the method
 
 The [demo](https://isaacantunesfacha-dev.github.io/gina-crm/demo/) turns the rules above into working code.
-Paste a list of orders (name, date, amount) or use the example bakery, and Gina:
+Paste a list of orders (name, date, amount, or id, name, date, amount) or use the example bakery, and Gina:
 
 - reads each customer's own rhythm: the median days between their orders;
 - scores RFV and flags who missed their usual date, who went quiet and who is new;
@@ -87,6 +87,19 @@ Paste a list of orders (name, date, amount) or use the example bakery, and Gina:
 
 It runs entirely in the browser. No AI model, nothing is sent or stored. The rules live in
 [`js/gina.js`](js/gina.js), apart from the interface, so they can be read and checked.
+
+**What the demo does not do.** It recommends the next step; it does not send messages or run the
+timed win-back journey above. Before real use, sending needs consent and per-channel preferences
+checked in the CRM. Known limits, each covered by a test:
+
+- Without an ID column, customers are matched by name, so two people with the same name are merged.
+  "Lucia" and "Lúcia" are two customers.
+- RFV thirds are relative to the list. With fewer than three customers, nobody is high value.
+- Frequency counts every order; the rhythm counts distinct days. Two orders on the same day are
+  two orders but no rhythm yet. Whether that is right depends on the business.
+- A line with any field it can't read is skipped and listed, never partly read. Exact repeats are
+  kept and flagged. Quoted fields work; a separator inside quotes does not. Refunds (negative
+  amounts) are rejected.
 
 ## What the page covers
 
@@ -121,10 +134,12 @@ src/content/                all copy, one file per language
 src/site.mjs                contact, legal text, public URL
 src/markup.mjs              shared pieces: channel mocks, phones, win-back flow
 build.mjs                   renders both pages from src/
+tests/                      rules engine tests (node:test)
 docs/                       images for this README
 ```
 
 Edit `src/`, then run `node build.mjs`. Don't edit the generated HTML by hand.
+Run the rules engine tests with `node --test` (Node 20+, no dependencies).
 Preview locally with `python3 -m http.server`; opening the file directly keeps the hero as a still image.
 
 </details>

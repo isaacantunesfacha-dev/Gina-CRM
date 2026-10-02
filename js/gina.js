@@ -34,9 +34,19 @@
     return back.getUTCDate() === +d && back.getUTCMonth() === +m - 1 ? t : null;
   }
 
+  // Header words recognised in the first line, in English and Portuguese.
+  const HEADER = /^(id|customer[ _]?id|id[ _]?cliente|name|nome|customer|cliente|date|data|amount|valor|total)$/i;
+
+  /** A field without the quotes a spreadsheet export may add. */
+  const unquote = (raw) => raw.trim().replace(/^"(.*)"$/, '$1').replace(/""/g, '"').trim();
+
+  /**
+   * Only a plain number, with an optional currency symbol. Anything else
+   * ("48abc", "-10", "10 to 12") is rejected, never partly read.
+   */
   function parseAmount(raw) {
-    let s = raw.replace(/[^\d.,-]/g, '');
-    if (!s) return null;
+    let s = unquote(raw).replace(/^(R\$|US\$|\$|€|£)\s*/i, '').replace(/\s*(R\$|\$|€|£)$/, '');
+    if (!/^\d[\d.,]*$/.test(s)) return null;
     const lastComma = s.lastIndexOf(','), lastDot = s.lastIndexOf('.');
     // The separator that comes last is the decimal one; the other is thousands.
     if (lastComma > lastDot) s = s.replace(/\./g, '').replace(',', '.');
@@ -46,27 +56,45 @@
   }
 
   /**
-   * One order per line: name, date, amount. Accepts ";" or tab as separator
-   * (so "48,50" can be a decimal), otherwise ",".
-   * Returns { orders, errors: [{ line, reason }] }; a header row is skipped silently.
+   * One order per line: name, date, amount, or id, name, date, amount when the
+   * list has a customer ID. Accepts ";" or tab as separator (so "48,50" can be
+   * a decimal), otherwise ",". Fields may be wrapped in double quotes, but a
+   * separator inside quotes is not supported.
+   *
+   * Returns { orders, errors, warnings }. A line with any field it cannot read
+   * is skipped and reported in errors; nothing is partly read. The first line
+   * is skipped as a header only when it has header words and no date.
+   * An exact repeat of an earlier line is kept (two equal orders on the same
+   * day are possible) and reported in warnings.
    */
   function parseOrders(text, today) {
-    const orders = [], errors = [];
+    const orders = [], errors = [], warnings = [];
+    const seen = new Map();
+    let first = true;
     text.split(/\r?\n/).forEach((line, i) => {
       if (!line.trim()) return;
+      const isFirst = first;
+      first = false;
       const sep = line.includes(';') ? ';' : line.includes('\t') ? '\t' : ',';
-      const [name = '', date = '', ...rest] = line.split(sep);
-      const amountRaw = sep === ',' ? rest.join('.') : rest.join(sep);
+      const parts = line.split(sep);
+      // The date sits second without an ID column and third with one.
+      const withId = !parseDate(unquote(parts[1] || '')) && parts.length >= 4 && parseDate(unquote(parts[2])) !== null;
+      const [id = '', name = '', date = '', ...rest] = withId ? parts.map(unquote) : ['', ...parts.map(unquote)];
       const t = parseDate(date);
-      if (!t && i === 0) return; // header
-      if (!name.trim()) return errors.push({ line: i + 1, reason: 'name' });
-      if (!t) return errors.push({ line: i + 1, reason: 'date' });
-      if (t > today) return errors.push({ line: i + 1, reason: 'future' });
-      const amount = parseAmount(amountRaw);
-      if (amount === null) return errors.push({ line: i + 1, reason: 'amount' });
-      orders.push({ name: name.trim().replace(/\s+/g, ' '), date: t, amount });
+      if (isFirst && !t && parts.some((f) => HEADER.test(unquote(f)))) return;
+      const err = (reason) => errors.push({ line: i + 1, reason });
+      if (!name) return err('name');
+      if (!t) return err('date');
+      if (t > today) return err('future');
+      const amount = parseAmount(sep === ',' ? rest.join('.') : rest.join(sep));
+      if (amount === null) return err('amount');
+      const o = { id: id || null, name: name.replace(/\s+/g, ' '), date: t, amount };
+      const key = [o.id, o.name.toLocaleLowerCase(), t, amount].join('|');
+      if (seen.has(key)) warnings.push({ line: i + 1, reason: 'duplicate', of: seen.get(key) });
+      else seen.set(key, i + 1);
+      orders.push(o);
     });
-    return { orders, errors };
+    return { orders, errors, warnings };
   }
 
   const median = (xs) => {
@@ -86,17 +114,25 @@
     return (c) => best.get(c[key]);
   }
 
+  /**
+   * Who an order belongs to: the customer ID when there is one. Without an ID
+   * the name is the only key, so two people with the same name are merged.
+   */
+  const customerKey = (o) => (o.id ? 'id:' + o.id : 'name:' + o.name.toLocaleLowerCase());
+
   function analyse(orders, today) {
-    const byName = new Map();
+    const byKey = new Map();
     for (const o of orders) {
-      const k = o.name.toLocaleLowerCase();
-      if (!byName.has(k)) byName.set(k, { name: o.name, dates: [], spend: 0 });
-      const c = byName.get(k);
+      const k = customerKey(o);
+      if (!byKey.has(k)) byKey.set(k, { id: o.id || null, name: o.name, latest: o.date, dates: [], spend: 0 });
+      const c = byKey.get(k);
+      // Same ID, different spelling: the most recent order's name wins.
+      if (o.date >= c.latest) { c.latest = o.date; c.name = o.name; }
       c.dates.push(o.date);
       c.spend += o.amount;
     }
 
-    const customers = [...byName.values()].map((c) => {
+    const customers = [...byKey.values()].map((c) => {
       const dates = [...new Set(c.dates)].sort((a, b) => a - b);
       const gaps = dates.slice(1).map((d, i) => Math.round((d - dates[i]) / DAY));
       const last = dates[dates.length - 1];
@@ -107,7 +143,7 @@
       else if (recency <= usual * MISSED) status = 'rhythm';
       else if (recency <= usual * DORMANT) status = 'missed';
       else status = 'dormant';
-      return { name: c.name, first: c.name.split(' ')[0], orders: c.dates.length, frequency: c.dates.length, spend: c.spend, recency, negRecency: -recency, usual, status };
+      return { id: c.id, name: c.name, first: c.name.split(' ')[0], orders: c.dates.length, frequency: c.dates.length, spend: c.spend, recency, negRecency: -recency, usual, status };
     });
 
     const r = terciles(customers, 'negRecency'), f = terciles(customers, 'frequency'), m = terciles(customers, 'spend');
