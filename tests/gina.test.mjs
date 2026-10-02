@@ -173,3 +173,128 @@ test('example bakery keeps each customer\'s rhythm', () => {
   assert.equal(c['Jorge Lima'].usual, 7);
   assert.equal(c['Lúcia Prado'].usual, null);
 });
+
+// ── input integrity ──────────────────────────────────────
+
+test('never reads an amount partly', () => {
+  const { orders, errors } = parseOrders([
+    'Ana, 2026-09-01, 48abc',
+    'Ana; 2026-09-01; 10 a 12',
+    'Ana; 2026-09-01; 48; extra',
+    'Ana; 2026-09-01; abc',
+  ].join('\n'), TODAY);
+  assert.equal(orders.length, 0);
+  assert.deepEqual(errors.map((e) => e.reason), ['amount', 'amount', 'amount', 'amount']);
+});
+
+test('accepts currency symbols and quoted fields', () => {
+  const { orders, errors } = parseOrders([
+    'Ana; 2026-09-01; R$ 48,50',
+    'Ana, 2026-09-01, $48.50',
+    '"Ana Souza";"2026-09-01";"48,50"',
+    '"Ana", "2026-09-01", "48,50"',
+  ].join('\n'), TODAY);
+  assert.deepEqual(errors, []);
+  assert.deepEqual(orders.map((o) => o.amount), [48.5, 48.5, 48.5, 48.5]);
+  assert.equal(orders[2].name, 'Ana Souza');
+});
+
+test('keeps accents and special characters in names', () => {
+  const { orders } = parseOrders('Lúcia D\'Ávila & Filhos, 2026-09-01, 10', TODAY);
+  assert.equal(orders[0].name, 'Lúcia D\'Ávila & Filhos');
+});
+
+test('a bad date on the first line is an error, not a header', () => {
+  const { orders, errors } = parseOrders('Ana, 31/02/2026, 10\nAna, 2026-09-01, 10', TODAY);
+  assert.equal(orders.length, 1);
+  assert.deepEqual(errors, [{ line: 1, reason: 'date' }]);
+});
+
+test('recognises headers by their words, in English and Portuguese', () => {
+  for (const header of ['name, date, amount', 'nome;data;valor', '"Cliente";"Data";"Total"', 'customer_id, name, date, amount']) {
+    const { orders, errors } = parseOrders(`${header}\nAna, 2026-09-01, 10`, TODAY);
+    assert.deepEqual(errors, [], header);
+    assert.equal(orders.length, 1, header);
+  }
+});
+
+test('a header after blank lines is still a header', () => {
+  const { errors } = parseOrders('\n\nnome;data;valor\nAna;01/09/2026;10', TODAY);
+  assert.deepEqual(errors, []);
+});
+
+test('only blank input gives no orders and no errors', () => {
+  assert.deepEqual(parseOrders('  \n\n', TODAY), { orders: [], errors: [], warnings: [] });
+});
+
+test('repeated lines are kept and reported', () => {
+  const { orders, warnings } = parseOrders('Ana, 2026-09-01, 10\nana , 2026-09-01, 10\nAna, 2026-09-01, 12', TODAY);
+  assert.equal(orders.length, 3);
+  assert.deepEqual(warnings, [{ line: 2, reason: 'duplicate', of: 1 }]);
+});
+
+// ── customer identity ────────────────────────────────────
+
+test('reads an optional customer ID column', () => {
+  const { orders, errors } = parseOrders('C1, Ana Souza, 2026-09-01, 48,50\nC2; Ana Souza; 02/09/2026; 10', TODAY);
+  assert.deepEqual(errors, []);
+  assert.deepEqual(orders.map((o) => [o.id, o.name, o.amount]), [['C1', 'Ana Souza', 48.5], ['C2', 'Ana Souza', 10]]);
+});
+
+test('lines without an ID have id null', () => {
+  assert.equal(parseOrders('Ana, 2026-09-01, 10', TODAY).orders[0].id, null);
+});
+
+test('same name, different IDs: two customers', () => {
+  const orders = parseOrders('C1, Ana Souza, 2026-09-01, 10\nC2, Ana Souza, 2026-09-20, 10', TODAY).orders;
+  const customers = analyse(orders, TODAY);
+  assert.equal(customers.length, 2);
+  assert.deepEqual(customers.map((c) => c.id).sort(), ['C1', 'C2']);
+});
+
+test('same ID, different names: one customer, latest name', () => {
+  const orders = parseOrders('C1, Ana Souza, 2026-09-01, 10\nC1, Ana S. Lima, 2026-09-20, 10\nC1, ana souza, 2026-09-10, 10', TODAY).orders;
+  const customers = analyse(orders, TODAY);
+  assert.equal(customers.length, 1);
+  assert.equal(customers[0].name, 'Ana S. Lima');
+  assert.equal(customers[0].orders, 3);
+});
+
+test('without IDs, the same name is one customer (known limitation)', () => {
+  const orders = parseOrders('Ana Souza, 2026-09-01, 10\nANA  SOUZA, 2026-09-20, 10', TODAY).orders;
+  assert.equal(analyse(orders, TODAY).length, 1);
+});
+
+test('a line with an ID and one without are kept apart', () => {
+  const orders = parseOrders('C1, Ana, 2026-09-01, 10\nAna, 2026-09-20, 10', TODAY).orders;
+  assert.equal(analyse(orders, TODAY).length, 2);
+});
+
+// ── thresholds ───────────────────────────────────────────
+
+test('missed and dormant boundaries with an odd rhythm', () => {
+  // Rhythm 7: 1.5× is 10.5 days, 3× is 21 days.
+  const at = (since) => analyse(regular('Ana', 7, 4, since), TODAY)[0].status;
+  assert.equal(at(10), 'rhythm');
+  assert.equal(at(11), 'missed');
+  assert.equal(at(21), 'missed');
+  assert.equal(at(22), 'dormant');
+});
+
+test('usual rhythm rounds the median of an even number of gaps', () => {
+  // Gaps 6 and 9: median 7.5, rounded to 8.
+  const [c] = analyse([order('Ana', 0), order('Ana', 6), order('Ana', 15)], TODAY);
+  assert.equal(c.usual, 8);
+});
+
+test('first purchase versus repeat purchase', () => {
+  const c = byName(analyse([order('Once', 40), ...regular('Twice', 10, 2, 5)], TODAY));
+  assert.equal(c.Once.action, 'second');
+  assert.equal(c.Twice.usual, 10);
+  assert.equal(c.Twice.action, 'none');
+});
+
+test('nobody is high value with fewer than three customers', () => {
+  const two = analyse([...regular('A', 7, 6, 20, 50), ...regular('B', 7, 2, 20, 5)], TODAY);
+  assert.ok(two.every((c) => !c.highValue));
+});
