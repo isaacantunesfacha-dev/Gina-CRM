@@ -1,0 +1,125 @@
+<p align="center">
+  <a href="https://isaacantunesfacha-dev.github.io/gina-crm/">
+    <img src="docs/cover.jpg" alt="Lifecycle CRM, told by Gina: a green @ mascot beside email, newsletter, push, SMS and story pieces" width="100%">
+  </a>
+</p>
+
+<h1 align="center">Gina · Lifecycle CRM</h1>
+
+<p align="center">
+  <b>Small businesses don't grow by chasing new customers every morning.<br>They grow when the ones who already came come back.</b>
+</p>
+
+<p align="center">
+  <a href="https://isaacantunesfacha-dev.github.io/gina-crm/"><b>Open the page</b></a>
+  &nbsp;·&nbsp;
+  <a href="https://isaacantunesfacha-dev.github.io/gina-crm/pt/">Versão em português</a>
+  &nbsp;·&nbsp;
+  <a href="https://www.linkedin.com/in/isaacnandes/">Isaac Antunes on LinkedIn</a>
+</p>
+
+---
+
+## Why Gina exists
+
+The idea came from long stretches of running operations and strategy at the same time.
+CRM was always the thing that could help and the thing nobody wanted to open.
+Gina is how I explain it: a character who walks the customer journey, asks one question
+per channel and hands back one decision at a time. The business in the examples changes
+with each client. The method doesn't.
+
+Most CRMs get abandoned for the same reason: stages nobody agreed on, data with no owner,
+automation built before the process. The software is rarely the problem. The model is.
+This repository is the strategy page behind Gina: the method, the journey, the screens and
+an honest list of where the method falls short.
+
+## Gina walks one customer through five channels
+
+<p align="center">
+  <img src="docs/journey.gif" alt="Gina walks along a line of five channels; at each stop a new trait of the customer profile lights up" width="100%">
+</p>
+
+Each channel answers one question about the customer. No channel repeats another one's job,
+and every answer feeds the same profile. The examples use a fictional bakery; with each client,
+the business changes and the journey stays.
+
+| Channel | When | What Gina learns | Behavior principle |
+|---|---|---|---|
+| **Email marketing** | Day 0–14 | What they open, what they click, which category pulls them back. | Mere exposure: three useful emails beat one big offer. |
+| **Newsletter** | Every 2 weeks | Which topics hold attention, and how far they read. | Reciprocity: give something useful before asking for anything. |
+| **Push** | On behavior | The hour they act, and how many nudges they tolerate. | Notification budget: two a week, cut on the first dismissal. |
+| **SMS** | Urgent only | Whether they need a nudge to finish what they started. | Loss aversion: “your order is held until 6pm.” |
+| **In-story** | Status · stories | How they react to new products before they are on sale. | Social proof: real customers, not ads. |
+
+## One journey, written like a contract
+
+The win-back journey starts from each customer's own rhythm, not from a fixed number of days.
+
+```mermaid
+flowchart LR
+  T["Customer misses their<br/>own usual repurchase date"] --> B{"High value and<br/>buys often?"}
+  B -- yes --> Y1["Owner sends a personal<br/>WhatsApp within 48 h"] --> W7(["wait 7 days"]) --> Y2["No reply: the owner calls<br/>and logs the outcome"]
+  B -- no --> N1["Email 1: “We saved your usual”<br/>reorder in one tap"] --> W5(["wait 5 days"]) --> N2["Email 2: one offer,<br/>one deadline, one button"]
+  Y2 --> G[["New purchase → stage = Repeat"]]
+  N2 --> G
+  Y2 -. silent 21 days .-> X["Dormant · left alone for 90 days"]
+  N2 -. silent 21 days .-> X
+  classDef default fill:#e9efe2,stroke:#1e6b2e,color:#0d1a14
+  classDef goal fill:#7fc453,stroke:#1e6b2e,color:#061f16
+  classDef trigger fill:#061f16,stroke:#061f16,color:#f5f3ed
+  class G goal
+  class T trigger
+```
+
+A/B test: “your usual” against a discount. Primary KPI: win-back rate.
+
+## What the page covers
+
+`01` Why CRMs get abandoned · `02` A five-step method, tool-agnostic · `03` Lifecycle model with an entry rule per stage ·
+`03b` The 360° journey · `04` Win-back journey · `05` Mobile-first product screens · `06` CRM maturity in four levels ·
+`07` Six metrics, defined before the first dashboard · `08` A 90-day engagement · `09` **Self-critique** · `10` **Gina Zero**, the same logic for R$0
+
+## Built with
+
+Plain HTML, CSS and JavaScript. No framework, no dependencies, no tracking.
+
+- The hero video loses its paper background live, frame by frame, in a canvas.
+- The journey animation is one small script that only runs while it's on screen.
+- Reduced motion shows the finished journey. Without JavaScript, the page still reads in full.
+- English and Portuguese are written separately, not translated.
+
+<details>
+<summary><b>Structure and build</b></summary>
+
+```
+index.html, pt/index.html   generated pages (EN, PT)
+css/styles.css              tokens and components
+js/keyed-video.js           hero video with the background removed live
+js/journey.js               360° journey animation
+assets/                     Gina art, walk frames, hero video
+src/content/                all copy, one file per language
+src/site.mjs                contact, legal text, public URL
+src/markup.mjs              shared pieces: channel mocks, phones, win-back flow
+build.mjs                   renders both pages from src/
+docs/                       images for this README
+```
+
+Edit `src/`, then run `node build.mjs`. Don't edit the generated HTML by hand.
+Preview locally with `python3 -m http.server`; opening the file directly keeps the hero as a still image.
+
+</details>
+
+## Work with me
+
+In consulting, I use Gina to map your journey, fix the model and get the first journeys running
+on the tool you already have. Start with a 30-minute diagnosis: you leave with the three changes
+I'd make first, whether we work together or not.
+
+[iantunessp@gmail.com](mailto:iantunessp@gmail.com?subject=CRM%20diagnosis%20-%20Gina) · [LinkedIn](https://www.linkedin.com/in/isaacnandes/)
+
+## Rights
+
+© 2026 Isaac Antunes. All rights reserved: Gina's name, character and illustrations, the method,
+the copy, the design and the code. See [LICENSE](LICENSE).
+
+Concept project. Forno da Vila, Doce Lar Bakery and every customer shown are fictional.
