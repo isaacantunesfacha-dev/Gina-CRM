@@ -12,7 +12,7 @@ export default {
   "h1a": "Seu CRM deveria",
   "h1i": "conhecer seus clientes",
   "h1b": "tão bem quanto você.",
-  "lead": "Pequeno negócio não cresce buscando cliente novo todo dia. Cresce quando o cliente que já veio volta.\n\nO problema é que quase ninguém organiza isso. Eu organizo: quem são seus clientes, em que fase cada um está e o que dizer, e quando, pra ele voltar a comprar. Roda no CRM que você já usa, do HubSpot ao RD Station.\n\nE quem faz o trabalho pesado? A Gina: uma equipe de agentes que cabe numa frase.",
+  "lead": "Pequeno negócio cresce quando o cliente que já veio volta. Não precisa correr atrás de cliente novo todo dia.\n\nSó que, na correria do dia a dia, quase não sobra tempo pra organizar isso. É aí que eu ajudo: a gente descobre junto quem são seus clientes, em que fase cada um está e o que dizer, e quando, pra eles voltarem. Funciona no CRM que você já usa, do HubSpot ao RD Station, ou até numa planilha.\n\nE o trabalho pesado fica com a Gina: uma equipe de agentes que cabe numa frase.",
   "cta": "Agendar diagnóstico (30 min)",
   "cta2": "Ver o método",
   "s1": "01 — Por que o CRM fica abandonado",
