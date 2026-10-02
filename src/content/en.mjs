@@ -563,14 +563,10 @@ export default {
       "quiet": "Went quiet, leave alone: {list}.",
       "rhythm": "{n} on rhythm. Don't interrupt."
     },
-    "cols": {
-      "customer": "Customer",
-      "last": "Last order",
-      "usual": "Usual rhythm",
-      "rfv": "RFV",
-      "status": "Status",
-      "action": "Next action"
-    },
+    "rfv": "RFV",
+    "orders": "{n} orders",
+    "own": "Try it with your own list",
+    "calmK": "No message this week",
     "daysAgo": "{n} days ago",
     "today": "today",
     "every": "every {n} days",

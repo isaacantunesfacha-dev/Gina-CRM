@@ -387,11 +387,31 @@ function demoPage(lang) {
   </div>
 </header>
 
-<main id="main" class="section demo">
-  <div class="wrap demo__grid">
+<main id="main" class="demo">
+  <section class="wrap demo__top" aria-live="polite">
+    <div class="demo__speaker">
+      <img src="${a('assets/gina-flat.png')}" alt="Gina" width="120" height="141">
+      <p class="demo__bubble" data-bubble>${esc(d.empty)}</p>
+    </div>
+    <div class="profile demo__report" data-report hidden>
+      <p class="eyebrow">${esc(d.reportK)}</p>
+      <ul data-report-lines></ul>
+    </div>
+  </section>
+
+  <section class="wrap demo__results" data-results hidden>
+    <ol class="demo-cards" data-rows></ol>
+    <div class="demo__calm" data-calm hidden>
+      <h2 class="label">${esc(d.calmK)}</h2>
+      <ul data-calm-list></ul>
+    </div>
+  </section>
+
+  <details class="wrap demo__own" data-own>
+    <summary>${esc(d.own)}</summary>
     <form class="demo__form" data-form>
       <label class="label" for="orders">${esc(d.inputLabel)}</label>
-      <textarea id="orders" rows="12" spellcheck="false" autocomplete="off" aria-describedby="orders-help"></textarea>
+      <textarea id="orders" rows="10" spellcheck="false" autocomplete="off" aria-describedby="orders-help"></textarea>
       <p class="demo__help" id="orders-help">${esc(d.inputHelp)} <span>${esc(d.exampleShop)}</span></p>
       <div class="demo__buttons">
         <button class="btn btn--dark" type="submit">${esc(d.run)}</button>
@@ -400,28 +420,7 @@ function demoPage(lang) {
       </div>
       <ul class="demo__errors" data-errors></ul>
     </form>
-
-    <aside class="demo__gina" aria-live="polite">
-      <div class="demo__speaker">
-        <img src="${a('assets/gina-flat.png')}" alt="Gina" width="120" height="141">
-        <p class="demo__bubble" data-bubble>${esc(d.empty)}</p>
-      </div>
-      <div class="profile demo__report" data-report hidden>
-        <p class="eyebrow">${esc(d.reportK)}</p>
-        <ul data-report-lines></ul>
-      </div>
-    </aside>
-  </div>
-
-  <div class="wrap demo__results" data-results hidden>
-    <table class="demo-table">
-      <thead><tr>
-        <th scope="col">${esc(d.cols.customer)}</th><th scope="col">${esc(d.cols.last)}</th><th scope="col">${esc(d.cols.usual)}</th>
-        <th scope="col">${esc(d.cols.rfv)}</th><th scope="col">${esc(d.cols.status)}</th><th scope="col">${esc(d.cols.action)}</th>
-      </tr></thead>
-      <tbody data-rows></tbody>
-    </table>
-  </div>
+  </details>
 
   <div class="wrap demo__rules">
     <h2 class="label">${esc(d.rulesK)}</h2>

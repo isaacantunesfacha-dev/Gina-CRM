@@ -3,7 +3,9 @@
  * © 2026 Isaac Antunes. All rights reserved.
  *
  * Reads the pasted orders, runs window.Gina (js/gina.js) and renders the
- * Monday report and one row per customer. Nothing leaves the browser.
+ * Monday report, one card per customer to contact and a short list of those
+ * who get no message. Mobile-first: results come before the input.
+ * Nothing leaves the browser.
  */
 (function () {
   'use strict';
@@ -16,6 +18,9 @@
   const errorsEl = $('[data-errors]'), bubble = $('[data-bubble]');
   const reportEl = $('[data-report]'), reportLines = $('[data-report-lines]');
   const results = $('[data-results]'), rows = $('[data-rows]');
+  const calm = $('[data-calm]'), calmList = $('[data-calm-list]'), own = $('[data-own]');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const QUIET_ACTIONS = ['rest', 'none'];
 
   // Everything that came from the textarea goes through esc() before innerHTML.
   const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -36,32 +41,39 @@
     input.value = G.exampleOrders(G.todayUTC()).map((o) => [o.name, dateText(o.date), o.amount].join(sep)).join('\n');
   }
 
-  function row(c) {
-    const act = copy.actions[c.action];
-    const msg = act.msg ? fill(act.msg, { first: c.first, days: c.recency }) : '';
+  function meta(c) {
     const last = c.recency === 0 ? copy.today : fill(copy.daysAgo, { n: c.recency });
     const usual = c.usual ? fill(copy.every, { n: c.usual }) : copy.once;
-    return `<tr class="is-${c.action}">
-      <td data-label="${esc(copy.cols.customer)}"><strong>${esc(c.name)}</strong><span class="demo-table__meta">${c.orders} · ${money.format(c.spend)}</span></td>
-      <td data-label="${esc(copy.cols.last)}">${esc(last)}</td>
-      <td data-label="${esc(copy.cols.usual)}">${esc(usual)}</td>
-      <td data-label="${esc(copy.cols.rfv)}"><span class="mono">${c.rfv.r}·${c.rfv.f}·${c.rfv.v}</span></td>
-      <td data-label="${esc(copy.cols.status)}"><span class="tag tag--${c.status}">${esc(copy.status[c.status])}</span></td>
-      <td data-label="${esc(copy.cols.action)}" class="demo-table__action">
-        <p class="act__name">${esc(act.name)}</p>
-        <p class="act__channel">${esc(act.channel)}</p>
-        ${msg ? `<blockquote class="act__msg">${esc(msg)}</blockquote>
-        <button class="act__copy" type="button" data-copy="${esc(msg)}">${esc(copy.copy)}</button>` : ''}
-        <p class="act__why">${esc(act.why)}</p>
-      </td>
-    </tr>`;
+    return [last, usual, `${copy.rfv} ${c.rfv.r}·${c.rfv.f}·${c.rfv.v}`, fill(copy.orders, { n: c.orders })].join(' · ');
   }
 
-  function run() {
+  const tag = (c) => `<span class="tag tag--${c.status}">${esc(copy.status[c.status])}</span>`;
+
+  function card(c, i) {
+    const act = copy.actions[c.action];
+    const msg = fill(act.msg, { first: c.first, days: c.recency });
+    return `<li class="card" style="--i:${i}">
+      <div class="card__head"><h3 class="card__name">${esc(c.name)}</h3>${tag(c)}</div>
+      <p class="card__meta">${esc(meta(c))}</p>
+      <p class="act__name">${esc(act.name)}</p>
+      <p class="act__channel">${esc(act.channel)}</p>
+      <blockquote class="act__msg">${esc(msg)}</blockquote>
+      <button class="act__copy" type="button" data-copy="${esc(msg)}">${esc(copy.copy)}</button>
+      <p class="act__why">${esc(act.why)}</p>
+    </li>`;
+  }
+
+  function calmItem(c) {
+    const act = copy.actions[c.action];
+    return `<li><span class="calm__name">${esc(c.name)}</span>${tag(c)}<span class="calm__why">${esc(act.why)}</span></li>`;
+  }
+
+  function run(fromUser) {
     const today = G.todayUTC();
     const { orders, errors } = G.parseOrders(input.value, today);
 
     errorsEl.innerHTML = errors.map((e) => `<li>${esc(fill(copy.skipped, { n: e.line, reason: copy.reasons[e.reason] }))}</li>`).join('');
+    if (errors.length) own.open = true;
 
     if (!orders.length) {
       bubble.textContent = copy.empty;
@@ -81,13 +93,20 @@
     reportLines.innerHTML = lines.map((l) => `<li>${esc(l)}</li>`).join('');
     reportEl.hidden = false;
 
-    rows.innerHTML = customers.map(row).join('');
+    const active = customers.filter((c) => !QUIET_ACTIONS.includes(c.action));
+    const quiet = customers.filter((c) => QUIET_ACTIONS.includes(c.action));
+    rows.innerHTML = active.map(card).join('');
+    calmList.innerHTML = quiet.map(calmItem).join('');
+    calm.hidden = !quiet.length;
     results.hidden = false;
+
+    // After a run the user started, bring Gina's answer into view.
+    if (fromUser) $('.demo__top').scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
   }
 
-  form.addEventListener('submit', (e) => { e.preventDefault(); run(); });
-  $('[data-example]').addEventListener('click', () => { loadExample(); run(); });
-  $('[data-clear]').addEventListener('click', () => { input.value = ''; run(); input.focus(); });
+  form.addEventListener('submit', (e) => { e.preventDefault(); run(true); });
+  $('[data-example]').addEventListener('click', () => { loadExample(); run(true); });
+  $('[data-clear]').addEventListener('click', () => { input.value = ''; run(false); input.focus(); });
 
   rows.addEventListener('click', (e) => {
     const btn = e.target.closest('[data-copy]');
@@ -98,5 +117,5 @@
 
   // Open with the example already running, so the demo shows itself.
   loadExample();
-  run();
+  run(false);
 })();

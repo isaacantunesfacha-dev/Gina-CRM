@@ -563,14 +563,10 @@ export default {
       "quiet": "Sumiram, deixar em paz: {list}.",
       "rhythm": "{n} no ritmo. Não atrapalhe."
     },
-    "cols": {
-      "customer": "Cliente",
-      "last": "Último pedido",
-      "usual": "Ritmo de sempre",
-      "rfv": "RFV",
-      "status": "Situação",
-      "action": "Próxima ação"
-    },
+    "rfv": "RFV",
+    "orders": "{n} pedidos",
+    "own": "Testar com a sua lista",
+    "calmK": "Sem mensagem esta semana",
     "daysAgo": "há {n} dias",
     "today": "hoje",
     "every": "a cada {n} dias",
