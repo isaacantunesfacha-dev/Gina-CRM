@@ -3,6 +3,7 @@
 
 export default {
   "kicker": "Lifecycle marketing · customer retention",
+  "closeTools": "HubSpot · RD Station · Pipedrive · Kommo · Zoho · Google Sheets",
   "tools": "Tool-agnostic · CRM or spreadsheet",
   "fun": "A fun way to grow through CRM.",
   "whoK": "Who's behind this",
@@ -12,7 +13,7 @@ export default {
   "h1a": "Your CRM should",
   "h1i": "know your customers",
   "h1b": "as well as you do.",
-  "lead": "Small businesses grow when the customers they already have come back. No need to chase new ones every morning.\n\nBut between one customer and the next, there's rarely time to organise that. That's where I help: together we figure out who your customers are, what stage each one is in, and what to say, and when, to bring them back. It runs on the CRM you already use, from HubSpot to RD Station, or even a spreadsheet.\n\nAnd the heavy lifting goes to Gina: a crew of agents you can explain in one sentence.",
+  "lead": "Small businesses grow when the customers they already have come back. No need to chase new ones every morning.\n\nBut between one customer and the next, there's rarely time to organise that. That's where I help: together we figure out who your customers are, what stage each one is in, and what to say, and when, to bring them back. It runs on the CRM you already use, from HubSpot to RD Station, or even a spreadsheet.\n\nThe heavy lifting goes to Gina: a set of agent roles, each with a job that fits in one sentence. The demo runs her decision rules in your browser; the agents are the proposal, not a live product.",
   "cta": "Book a 30-min diagnosis",
   "cta2": "See Gina at work",
   "jump": {
@@ -24,9 +25,9 @@ export default {
     "contact": "Contact"
   },
   "s1": "01 — Why CRMs get abandoned",
-  "h2a": "The software is rarely the problem. The",
-  "h2s": "tool",
-  "h2i": "model is.",
+  "h2a": "The problem is rarely the",
+  "h2s": "software.",
+  "h2i": "It's the model.",
   "breaks": [
     {
       "k": "A",
@@ -44,7 +45,7 @@ export default {
       "k": "C",
       "a": "Automation",
       "i": "before process",
-      "d": "A drip campaign built on an undefined funnel sends the wrong message to the right person, on schedule. That is the fastest way to teach customers to ignore you."
+      "d": "A drip campaign built on an undefined funnel sends the wrong message to the right person, on schedule. That's a quick way to teach customers to ignore you."
     }
   ],
   "s2": "02 — Method",
@@ -129,15 +130,15 @@ export default {
       "name": "Email marketing",
       "when": "Day 0–14",
       "learn": "What they open, what they click, which category pulls them back.",
-      "why": "Mere exposure: three useful emails beat one big offer.",
+      "why": "Mere exposure, as a hypothesis: three useful emails before one big offer. Test it.",
       "trait": "Clicks on savory, ignores sweets"
     },
     {
       "name": "Newsletter",
       "when": "Every 2 weeks",
-      "learn": "Which topics hold attention, and how far they read.",
+      "learn": "Which topics they click, and which links they open.",
       "why": "Reciprocity: give something useful before asking for anything.",
-      "trait": "Reads recipes to the end"
+      "trait": "Clicks on recipes"
     },
     {
       "name": "Push",
@@ -210,7 +211,7 @@ export default {
     },
     {
       "k": "Rule 3",
-      "v": "The second purchase is the real conversion. Repeat and Advocate are where small businesses grow, and where they almost never measure."
+      "v": "For a business like the one in this example, the second purchase is the conversion to watch. Repeat and Advocate are where small businesses grow, and where they rarely measure."
     }
   ],
   "s4": "05 — Win-back journey",
@@ -230,18 +231,18 @@ export default {
     "w5": "wait 5 days",
     "n2": "Email 2: one offer, one deadline, one button.",
     "goal": "Goal",
-    "goalT": "New purchase → stage = Repeat, exit journey",
+    "goalT": "New purchase → back to active, exit journey",
     "exit": "Exit",
     "exitT": "Silent for 21 days → marked dormant and left alone for 90. Fewer messages keep the list warm.",
     "run": "Run by @Win-back. A/B test: \"your usual\" vs. a discount. Primary KPI: win-back rate."
   },
-  "sM": "06 — Mobile-first product",
+  "sM": "06 — Mobile-first product · concept",
   "hMa": "Designed for the",
   "hMi": "thumb,",
   "hMb": "between two customers.",
   "mLead": "Whether on WhatsApp or a dedicated app, owners run the business standing up, between two customers. Gina asks for no dashboard and no new software: she hands over 3 ready decisions, one thumb away.",
   "mob": {
-    "day": "Friday, 3 October",
+    "day": "Friday, 2 October",
     "now": "now",
     "pushT": "Ana missed her usual Friday order",
     "pushB": "She orders every 9 days. It has been 14. Send \"the usual\"?",
@@ -302,7 +303,7 @@ export default {
       },
       {
         "k": "Loss framing",
-        "v": "\"3 regulars at risk\" moves more owners than \"3 opportunities\". Same data, different decision."
+        "v": "\"3 regulars at risk\" is expected to move more owners than \"3 opportunities\". Same data, different decision. Worth an A/B test."
       },
       {
         "k": "Endowment",
@@ -385,7 +386,7 @@ export default {
     {
       "name": "Speed to lead",
       "f": "first reply − first message",
-      "why": "The cheapest conversion lever a small business has. Interest decays by the hour."
+      "why": "Usually one of the cheapest conversion levers a small business has. Interest fades fast."
     },
     {
       "name": "Stage conversion",
@@ -395,7 +396,7 @@ export default {
     {
       "name": "Repeat purchase rate",
       "f": "customers with 2+ orders ÷ all customers",
-      "why": "The real activation metric for retail and services. It decides if growth is healthy."
+      "why": "A strong activation signal for retail and services. Compare it with your own history before treating it as the goal."
     },
     {
       "name": "Churn rate",
@@ -604,7 +605,7 @@ export default {
         "name": "Second-purchase offer",
         "channel": "Email",
         "msg": "Hi {first}, thanks for your first order. This week only, your second one comes with a little extra. Valid until Sunday.",
-        "why": "The second purchase is the real conversion. One offer, one deadline."
+        "why": "In this scenario, the second purchase is the conversion to watch. One offer, one deadline."
       },
       "welcome": {
         "name": "Welcome and save a preference",

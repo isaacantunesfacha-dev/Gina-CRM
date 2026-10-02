@@ -47,8 +47,8 @@ the business changes and the journey stays.
 
 | Channel | When | What Gina learns | Behavior principle |
 |---|---|---|---|
-| **Email marketing** | Day 0–14 | What they open, what they click, which category pulls them back. | Mere exposure: three useful emails beat one big offer. |
-| **Newsletter** | Every 2 weeks | Which topics hold attention, and how far they read. | Reciprocity: give something useful before asking for anything. |
+| **Email marketing** | Day 0–14 | What they open, what they click, which category pulls them back. | Mere exposure, as a hypothesis: three useful emails before one big offer. Test it. |
+| **Newsletter** | Every 2 weeks | Which topics they click, and which links they open. | Reciprocity: give something useful before asking for anything. |
 | **Push** | On behavior | The hour they act, and how many nudges they tolerate. | Notification budget: two a week, cut on the first dismissal. |
 | **SMS** | Urgent only | Whether they need a nudge to finish what they started. | Loss aversion: “your order is held until 6pm.” |
 | **In-story** | Status · stories | How they react to new products before they are on sale. | Social proof: real customers, not ads. |
@@ -62,7 +62,7 @@ flowchart LR
   T["Customer misses their<br/>own usual repurchase date"] --> B{"High value and<br/>buys often?"}
   B -- yes --> Y1["Owner sends a personal<br/>WhatsApp within 48 h"] --> W7(["wait 7 days"]) --> Y2["No reply: the owner calls<br/>and logs the outcome"]
   B -- no --> N1["Email 1: “We saved your usual”<br/>reorder in one tap"] --> W5(["wait 5 days"]) --> N2["Email 2: one offer,<br/>one deadline, one button"]
-  Y2 --> G[["New purchase → stage = Repeat"]]
+  Y2 --> G[["New purchase → back to active"]]
   N2 --> G
   Y2 -. silent 21 days .-> X["Dormant · left alone for 90 days"]
   N2 -. silent 21 days .-> X

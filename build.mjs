@@ -154,7 +154,7 @@ function page(lang) {
 
 <section class="section wrap" aria-labelledby="s1">
   <p class="eyebrow">${esc(t.s1)}</p>
-  <h2 class="title title--narrow" id="s1">${esc(t.h2a)} <span class="strike">${esc(t.h2s)}</span> <span class="em em--accent">${esc(t.h2i)}</span></h2>
+  <h2 class="title title--narrow" id="s1">${esc(t.h2a)} <s class="strike">${esc(t.h2s)}</s> <span class="em em--accent">${esc(t.h2i)}</span></h2>
   <div class="grid hairline breaks">${each(t.breaks, (b) => `
     <article class="break">
       <span class="break__k">${b.k}</span>
@@ -347,7 +347,7 @@ function page(lang) {
       <h2 class="close__title" id="close">${esc(t.closeA)} <span class="em">${esc(t.closeI)}</span></h2>
       <p class="close__p">${esc(t.closeP)}</p>
       <a class="btn btn--dark" href="${mailto}">${esc(t.cta)}</a>
-      <p class="close__tools">HubSpot · RD Station · Pipedrive · Kommo · Zoho · Google Sheets</p>
+      <p class="close__tools">${esc(t.closeTools)}</p>
     </div>
     <img class="close__art" src="${a('assets/gina-flat.webp')}" alt="Gina" width="460" height="539" loading="lazy">
   </div>

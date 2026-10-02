@@ -3,6 +3,7 @@
 
 export default {
   "kicker": "CRM e retenção de clientes · régua de relacionamento",
+  "closeTools": "HubSpot · RD Station · Pipedrive · Kommo · Zoho · Planilhas Google",
   "tools": "Qualquer ferramenta · CRM ou planilha",
   "fun": "Um jeito divertido de crescer através do CRM.",
   "whoK": "Quem está por trás",
@@ -12,7 +13,7 @@ export default {
   "h1a": "Seu CRM deveria",
   "h1i": "conhecer seus clientes",
   "h1b": "tão bem quanto você.",
-  "lead": "Pequeno negócio cresce quando o cliente que já veio volta. Não precisa correr atrás de cliente novo todo dia.\n\nSó que, na correria do dia a dia, quase não sobra tempo pra organizar isso. É aí que eu ajudo: a gente descobre junto quem são seus clientes, em que fase cada um está e o que dizer, e quando, pra eles voltarem. Funciona no CRM que você já usa, do HubSpot ao RD Station, ou até numa planilha.\n\nE o trabalho pesado fica com a Gina: uma equipe de agentes que cabe numa frase.",
+  "lead": "Pequeno negócio cresce quando o cliente que já veio volta. Não precisa correr atrás de cliente novo todo dia.\n\nSó que, na correria do dia a dia, quase não sobra tempo pra organizar isso. É aí que eu ajudo: a gente descobre junto quem são seus clientes, em que fase cada um está e o que dizer, e quando, pra eles voltarem. Funciona no CRM que você já usa, do HubSpot ao RD Station, ou até numa planilha.\n\nE o trabalho pesado fica com a Gina: um conjunto de papéis de agente, cada um com uma função que cabe numa frase. A demo roda as regras de decisão dela no navegador; os agentes são a proposta, não um produto em operação.",
   "cta": "Agendar diagnóstico (30 min)",
   "cta2": "Ver a Gina funcionando",
   "jump": {
@@ -24,9 +25,9 @@ export default {
     "contact": "Contato"
   },
   "s1": "01 — Por que o CRM fica abandonado",
-  "h2a": "O problema quase nunca é o software. É o",
-  "h2s": "sistema",
-  "h2i": "modelo.",
+  "h2a": "O problema quase nunca é o",
+  "h2s": "software.",
+  "h2i": "É o modelo.",
   "breaks": [
     {
       "k": "A",
@@ -44,7 +45,7 @@ export default {
       "k": "C",
       "a": "Automação",
       "i": "antes do processo",
-      "d": "Disparo automático em cima de um funil indefinido manda a mensagem errada pra pessoa certa, no horário. É o jeito mais rápido de ensinar o cliente a te ignorar."
+      "d": "Disparo automático em cima de um funil indefinido manda a mensagem errada pra pessoa certa, no horário. É um jeito rápido de ensinar o cliente a te ignorar."
     }
   ],
   "s2": "02 — Método",
@@ -65,7 +66,7 @@ export default {
     {
       "n": "02",
       "name": "Modelar",
-      "what": "Definir cada etapa da jornada pelo behavior que leva o cliente até ela, e não por dias corridos. Combinar donos e campos obrigatórios.",
+      "what": "Definir cada etapa da jornada pelo comportamento que leva o cliente até ela, e não por dias corridos. Combinar donos e campos obrigatórios.",
       "tool": "Campo de etapa · funis · segmentos RFV · dicionário de dados",
       "out": "Mapa da jornada e dicionário de dados",
       "agent": "Gina"
@@ -81,7 +82,7 @@ export default {
     {
       "n": "04",
       "name": "Orquestrar",
-      "what": "Réguas disparadas por behavior: boas-vindas, follow-up e recuperação de clientes inativos. Cada mensagem é testada contra motivação, esforço e momento antes de sair.",
+      "what": "Réguas disparadas por comportamento: boas-vindas, follow-up e recuperação de clientes inativos. Cada mensagem é testada contra motivação, esforço e momento antes de sair.",
       "tool": "Automações · sequências · caixa compartilhada · tarefas",
       "out": "Biblioteca de réguas com meta e saída documentadas",
       "agent": "Follow-up"
@@ -129,15 +130,15 @@ export default {
       "name": "E-mail marketing",
       "when": "Dia 0–14",
       "learn": "O que abre, onde clica, qual categoria traz ele de volta.",
-      "why": "Mera exposição: três e-mails úteis rendem mais que uma oferta grande.",
+      "why": "Mera exposição, como hipótese: três e-mails úteis antes de uma oferta grande. Vale testar.",
       "trait": "Clica em salgado, ignora doce"
     },
     {
       "name": "Newsletter",
       "when": "A cada 15 dias",
-      "learn": "Quais assuntos prendem a atenção e até onde ele lê.",
+      "learn": "Quais assuntos geram clique e quais links ele abre.",
       "why": "Reciprocidade: entregar algo útil antes de pedir qualquer coisa.",
-      "trait": "Lê receita até o fim"
+      "trait": "Clica em receitas"
     },
     {
       "name": "Push",
@@ -210,7 +211,7 @@ export default {
     },
     {
       "k": "Regra 3",
-      "v": "A conversão que importa é a segunda compra. Recompra e Promotor são onde o pequeno negócio cresce, e onde quase ninguém mede."
+      "v": "Num negócio como o do exemplo, a conversão a acompanhar é a segunda compra. Recompra e Promotor são onde o pequeno negócio cresce, e onde quase ninguém mede."
     }
   ],
   "s4": "05 — Régua de reativação",
@@ -230,18 +231,18 @@ export default {
     "w5": "esperar 5 dias",
     "n2": "E-mail 2: uma oferta, um prazo, um botão.",
     "goal": "Meta",
-    "goalT": "Nova compra → etapa = Recompra, sai da régua",
+    "goalT": "Nova compra → cliente volta a ficar ativo e sai da régua",
     "exit": "Saída",
     "exitT": "Silêncio por 21 dias → marcado como inativo e deixado em paz por 90. Menos mensagem mantém a base quente.",
     "run": "Operada pela @Reativação. Teste A/B: \"o de sempre\" contra desconto. KPI principal: taxa de reativação."
   },
-  "sM": "06 — Produto mobile-first",
+  "sM": "06 — Produto mobile-first · conceito",
   "hMa": "Feito pro",
   "hMi": "polegar,",
   "hMb": "entre um cliente e outro.",
   "mLead": "Seja pelo WhatsApp ou numa interface dedicada, o dono toca o negócio em pé, entre um atendimento e outro. A Gina não exige abrir painel nem aprender software novo: ela entrega 3 decisões prontas no polegar.",
   "mob": {
-    "day": "Sexta, 3 de outubro",
+    "day": "Sexta, 2 de outubro",
     "now": "agora",
     "pushT": "A Ana não fez o pedido de sexta",
     "pushB": "Ela compra a cada 9 dias. Já são 14. Mandar \"o de sempre\"?",
@@ -260,7 +261,7 @@ export default {
       {
         "i": "JL",
         "n": "Jorge Lima",
-        "s": "Faltou 2 vezes",
+        "s": "Faltou duas vezes",
         "a": "Ligar"
       },
       {
@@ -290,7 +291,7 @@ export default {
     "s3k": "Recompensa · cliente",
     "s3t": "Repetir é mais fácil que ignorar",
     "s3d": "O cliente recebe o próprio histórico de volta com um botão de resposta. Dizer sim dá menos trabalho que não responder.",
-    "prinH": "Regras de behavior por tela",
+    "prinH": "Regras de comportamento por tela",
     "prin": [
       {
         "k": "B = MAP",
@@ -302,7 +303,7 @@ export default {
       },
       {
         "k": "Aversão à perda",
-        "v": "\"3 clientes fiéis em risco\" move mais donos que \"3 oportunidades\". O dado é o mesmo, a decisão muda."
+        "v": "\"3 clientes fiéis em risco\" tende a mover mais donos que \"3 oportunidades\". O dado é o mesmo, a decisão muda. Vale um teste A/B."
       },
       {
         "k": "Efeito dotação",
@@ -385,7 +386,7 @@ export default {
     {
       "name": "Tempo de primeira resposta",
       "f": "primeira resposta − primeira mensagem",
-      "why": "A alavanca de conversão mais barata que existe. O interesse esfria a cada hora."
+      "why": "Costuma ser uma das alavancas de conversão mais baratas. O interesse esfria rápido."
     },
     {
       "name": "Conversão por etapa",
@@ -395,7 +396,7 @@ export default {
     {
       "name": "Taxa de recompra",
       "f": "clientes com 2+ pedidos ÷ total de clientes",
-      "why": "A métrica de ativação de verdade pra varejo e serviço. É ela que diz se o crescimento é saudável."
+      "why": "Um bom sinal de ativação pra varejo e serviço. Compare com o seu próprio histórico antes de tratar como meta."
     },
     {
       "name": "Churn",
@@ -481,7 +482,7 @@ export default {
   "stack": [
     {
       "k": "CRM",
-      "v": "Google Planilhas",
+      "v": "Planilhas Google",
       "d": "Quatro abas: Contatos, Conversas, Pedidos, Esta semana. Quatro etapas, uma coluna de dono."
     },
     {
@@ -604,7 +605,7 @@ export default {
         "name": "Oferta de segunda compra",
         "channel": "E-mail",
         "msg": "Oi, {first}, obrigado pelo primeiro pedido. Só esta semana, o segundo vem com um agrado. Vale até domingo.",
-        "why": "A conversão que importa é a segunda compra. Uma oferta, um prazo."
+        "why": "Neste cenário, a segunda compra é a conversão a acompanhar. Uma oferta, um prazo."
       },
       "welcome": {
         "name": "Boas-vindas e uma preferência salva",
