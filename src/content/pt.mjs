@@ -548,12 +548,14 @@ export default {
     "privacy": "Roda inteiro no seu navegador. Sem modelo de IA, nada é enviado nem guardado.",
     "back": "← Voltar para a página",
     "inputLabel": "Pedidos · um por linha: nome, data, valor",
-    "inputHelp": "Datas como 30/09/2026 ou 2026-09-30. Separe com vírgula ou ponto e vírgula.",
+    "inputHelp": "Datas como 30/09/2026 ou 2026-09-30. Separe com vírgula ou ponto e vírgula. Se tiver código de cliente, coloque antes do nome (código, nome, data, valor) para não juntar pessoas com o mesmo nome.",
     "example": "Usar a padaria de exemplo",
     "clear": "Limpar",
     "run": "Rodar a Gina",
     "empty": "Cole alguns pedidos ou use o exemplo pra ver a Gina trabalhar.",
     "skipped": "Linha {n} ignorada: {reason}.",
+    "duplicate": "Linha {n} repete a linha {m}. Contada como outro pedido; apague se for cópia.",
+    "id": "Código {id}",
     "reasons": {
       "name": "falta o nome",
       "date": "data não reconhecida",
@@ -633,8 +635,10 @@ export default {
       "Ritmo de sempre: a mediana de dias entre os pedidos do próprio cliente.",
       "Passou da data: mais de 1,5× o próprio ritmo desde o último pedido. Aí começa a régua de reativação.",
       "Sumiu: mais de 3× o ritmo. A Gina deixa em paz por 90 dias.",
-      "Alto valor: terço de cima em frequência e em gasto. Recebe uma pessoa, não um e-mail.",
-      "Um pedido só: até 30 dias é Novo; depois disso, não voltou."
+      "Alto valor: terço de cima em frequência e em gasto, comparado ao resto desta lista. Recebe uma pessoa, não um e-mail. Com menos de três clientes, ninguém é.",
+      "Um pedido só: até 30 dias é Novo; depois disso, não voltou.",
+      "Quem é quem: o código do cliente, quando a lista tem; sem ele, o nome. Aí duas pessoas com o mesmo nome contam como uma.",
+      "A Gina recomenda o próximo passo. Enviar, e checar consentimento e preferência de canal, fica com você ou com o seu CRM."
     ],
     "exampleShop": "Forno da Vila · padaria de exemplo, fictícia"
   }

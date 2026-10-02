@@ -548,12 +548,14 @@ export default {
     "privacy": "Runs entirely in your browser. No AI model, nothing is sent or stored.",
     "back": "← Back to the page",
     "inputLabel": "Orders · one per line: name, date, amount",
-    "inputHelp": "Dates as 2026-09-30 or 30/09/2026. Separate with commas or semicolons.",
+    "inputHelp": "Dates as 2026-09-30 or 30/09/2026. Separate with commas or semicolons. If you have a customer ID, put it first (id, name, date, amount) so two people with the same name stay apart.",
     "example": "Use the example bakery",
     "clear": "Clear",
     "run": "Run Gina",
     "empty": "Paste some orders or use the example to see Gina work.",
     "skipped": "Line {n} skipped: {reason}.",
+    "duplicate": "Line {n} repeats line {m}. Counted as another order; delete it if it's a copy.",
+    "id": "ID {id}",
     "reasons": {
       "name": "missing name",
       "date": "date not recognised",
@@ -633,8 +635,10 @@ export default {
       "Usual rhythm: the median number of days between a customer's own orders.",
       "Missed: more than 1.5× their own rhythm since the last order. That starts the win-back journey.",
       "Went quiet: more than 3× their rhythm. Gina leaves them alone for 90 days.",
-      "High value: top third in both frequency and spend. They get a person, not an email.",
-      "One order only: under 30 days is New; after that, they didn't come back."
+      "High value: top third in both frequency and spend, compared with the rest of this list. They get a person, not an email. With fewer than three customers, nobody is.",
+      "One order only: under 30 days is New; after that, they didn't come back.",
+      "Who is who: the customer ID when the list has one; otherwise the name, so two people with the same name count as one.",
+      "Gina recommends the next step. Sending it, and checking consent and channel preferences, stays with you or your CRM."
     ],
     "exampleShop": "Forno da Vila · example bakery, fictional"
   }

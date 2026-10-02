@@ -44,8 +44,11 @@
 
   function meta(c) {
     const last = c.recency === 0 ? copy.today : fill(copy.daysAgo, { n: c.recency });
-    const usual = c.usual ? fill(copy.every, { n: c.usual }) : copy.once;
-    return [last, usual, `${copy.rfv} ${c.rfv.r}·${c.rfv.f}·${c.rfv.v}`, fill(copy.orders, { n: c.orders })].join(' · ');
+    // One order says "one order" once; several orders on a single day have no rhythm yet.
+    const usual = c.usual ? fill(copy.every, { n: c.usual }) : c.orders === 1 ? copy.once : null;
+    const count = c.orders === 1 ? null : fill(copy.orders, { n: c.orders });
+    const id = c.id ? fill(copy.id, { id: c.id }) : null;
+    return [id, last, usual, `${copy.rfv} ${c.rfv.r}·${c.rfv.f}·${c.rfv.v}`, count].filter(Boolean).join(' · ');
   }
 
   const tag = (c) => `<span class="tag tag--${c.status}">${esc(copy.status[c.status])}</span>`;
@@ -71,10 +74,13 @@
 
   function run(fromUser) {
     const today = G.todayUTC();
-    const { orders, errors } = G.parseOrders(input.value, today);
+    const { orders, errors, warnings } = G.parseOrders(input.value, today);
 
-    errorsEl.innerHTML = errors.map((e) => `<li>${esc(fill(copy.skipped, { n: e.line, reason: copy.reasons[e.reason] }))}</li>`).join('');
-    if (errors.length) own.open = true;
+    errorsEl.innerHTML = [
+      ...errors.map((e) => fill(copy.skipped, { n: e.line, reason: copy.reasons[e.reason] })),
+      ...warnings.map((w) => fill(copy.duplicate, { n: w.line, m: w.of })),
+    ].map((l) => `<li>${esc(l)}</li>`).join('');
+    if (errors.length || warnings.length) own.open = true;
 
     if (!orders.length) {
       bubble.textContent = copy.empty;

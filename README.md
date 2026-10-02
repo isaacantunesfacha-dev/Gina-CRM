@@ -78,7 +78,7 @@ A/B test: “your usual” against a discount. Primary KPI: win-back rate.
 ## Gina, running the method
 
 The [demo](https://isaacantunesfacha-dev.github.io/gina-crm/demo/) turns the rules above into working code.
-Paste a list of orders (name, date, amount) or use the example bakery, and Gina:
+Paste a list of orders (name, date, amount, or id, name, date, amount) or use the example bakery, and Gina:
 
 - reads each customer's own rhythm: the median days between their orders;
 - scores RFV and flags who missed their usual date, who went quiet and who is new;
@@ -87,6 +87,19 @@ Paste a list of orders (name, date, amount) or use the example bakery, and Gina:
 
 It runs entirely in the browser. No AI model, nothing is sent or stored. The rules live in
 [`js/gina.js`](js/gina.js), apart from the interface, so they can be read and checked.
+
+**What the demo does not do.** It recommends the next step; it does not send messages or run the
+timed win-back journey above. Before real use, sending needs consent and per-channel preferences
+checked in the CRM. Known limits, each covered by a test:
+
+- Without an ID column, customers are matched by name, so two people with the same name are merged.
+  "Lucia" and "Lúcia" are two customers.
+- RFV thirds are relative to the list. With fewer than three customers, nobody is high value.
+- Frequency counts every order; the rhythm counts distinct days. Two orders on the same day are
+  two orders but no rhythm yet. Whether that is right depends on the business.
+- A line with any field it can't read is skipped and listed, never partly read. Exact repeats are
+  kept and flagged. Quoted fields work; a separator inside quotes does not. Refunds (negative
+  amounts) are rejected.
 
 ## What the page covers
 
@@ -121,10 +134,12 @@ src/content/                all copy, one file per language
 src/site.mjs                contact, legal text, public URL
 src/markup.mjs              shared pieces: channel mocks, phones, win-back flow
 build.mjs                   renders both pages from src/
+tests/                      rules engine tests (node:test)
 docs/                       images for this README
 ```
 
 Edit `src/`, then run `node build.mjs`. Don't edit the generated HTML by hand.
+Run the rules engine tests with `node --test` (Node 20+, no dependencies).
 Preview locally with `python3 -m http.server`; opening the file directly keeps the hero as a still image.
 
 </details>
