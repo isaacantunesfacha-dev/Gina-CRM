@@ -12,7 +12,7 @@ export default {
   "h1a": "Your CRM should",
   "h1i": "know your customers",
   "h1b": "as well as you do.",
-  "lead": "Small businesses don't grow by chasing new customers every morning. They grow when existing buyers come back.\n\nMost teams never build a system for that. I do: who your buyers are, what stage they are in, and what to say, at the right moment, to bring them back. It runs on whatever CRM you already use, from HubSpot to RD Station.\n\nThe heavy lifting? That's Gina: a crew of agents you can explain in a single sentence.",
+  "lead": "Small businesses grow when the customers they already have come back. No need to chase new ones every morning.\n\nBut between one customer and the next, there's rarely time to organise that. That's where I help: together we figure out who your customers are, what stage each one is in, and what to say, and when, to bring them back. It runs on the CRM you already use, from HubSpot to RD Station, or even a spreadsheet.\n\nAnd the heavy lifting goes to Gina: a crew of agents you can explain in one sentence.",
   "cta": "Book a 30-min diagnosis",
   "cta2": "See the method",
   "s1": "01 — Why CRMs get abandoned",
