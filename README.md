@@ -116,7 +116,7 @@ js/gina.js                  the method as code: rhythm, RFV, status, next action
 js/demo.js                  demo interface
 demo/, pt/demo/             generated demo pages (EN, PT)
 404.html                    generated not-found page
-assets/                     Gina art (WebP, plus a PNG for link previews), walk frames, hero video
+assets/                     Gina art (WebP), walk frames, hero video, link-preview cards (og-en/og-pt.jpg)
 src/content/                all copy, one file per language
 src/site.mjs                contact, legal text, public URL
 src/markup.mjs              shared pieces: channel mocks, phones, win-back flow

@@ -22,6 +22,24 @@ const STAGE_COLORS = ['#e9efe2', '#d9e7cc', '#c3dcae', '#a8d08a', '#7fc453', '#3
 const STOPS = [10, 30, 50, 70, 90];
 
 
+// Link-preview card (LinkedIn, WhatsApp): 1200×627 image per language, absolute URL.
+const ogTags = (lang, title, desc, path) => {
+  const base = SITE_URL.replace(/\/$/, '');
+  const img = `${base}/assets/og-${lang}.jpg`;
+  return [
+    '<meta property="og:type" content="website">',
+    `<meta property="og:title" content="${esc(title)}">`,
+    `<meta property="og:description" content="${esc(desc)}">`,
+    `<meta property="og:url" content="${base}/${path}">`,
+    `<meta property="og:image" content="${img}">`,
+    '<meta property="og:image:width" content="1200">',
+    '<meta property="og:image:height" content="627">',
+    `<meta property="og:image:alt" content="${esc(title)}">`,
+    `<meta property="og:locale" content="${LANGS[lang].html.replace('-', '_')}">`,
+    '<meta name="twitter:card" content="summary_large_image">',
+  ].join('\n  ');
+};
+
 const mailtoFor = (lang) => `mailto:${EMAIL}?subject=${encodeURIComponent(MAIL_SUBJECT[lang])}`;
 
 function footer(lang) {
@@ -49,7 +67,6 @@ function page(lang) {
   const { html: htmlLang, root } = LANGS[lang];
   const a = (path) => root + path;
   const mailto = mailtoFor(lang);
-  const ogImage = SITE_URL ? `${SITE_URL.replace(/\/$/, '')}/assets/gina-flat.png` : a('assets/gina-flat.png');
   // First lead paragraph sits above the buttons; the rest follows them.
   const [leadFirst, ...leadMore] = t.lead.split('\n\n');
   const mocks = channelMocks(t.mk);
@@ -79,11 +96,7 @@ function page(lang) {
   <meta name="author" content="${AUTHOR}">
   <meta name="copyright" content="© 2026 ${AUTHOR}">
   <meta name="theme-color" content="#061f16">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="${esc(ui.ogTitle)}">
-  <meta property="og:description" content="${esc(ui.ogDesc)}">
-  <meta property="og:image" content="${ogImage}">
-  <meta property="og:locale" content="${htmlLang.replace('-', '_')}">
+  ${ogTags(lang, ui.ogTitle, ui.ogDesc, LANGS[lang].path.replace('index.html', ''))}
   ${Object.values(LANGS).map((l) => `<link rel="alternate" hreflang="${l.html}" href="${hrefFor(l)}">`).join('\n  ')}
   <link rel="icon" href="${a('assets/gina-icon.png')}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -377,6 +390,7 @@ function demoPage(lang) {
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>${esc(d.title)}</title>
   <meta name="description" content="${esc(d.intro)}">
+  ${ogTags(lang, d.title, d.intro, demoPath(lang).replace('index.html', ''))}
   <meta name="author" content="${AUTHOR}">
   <meta name="copyright" content="© 2026 ${AUTHOR}">
   <meta name="theme-color" content="#061f16">
