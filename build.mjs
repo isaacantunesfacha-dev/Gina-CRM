@@ -50,6 +50,8 @@ function page(lang) {
   const a = (path) => root + path;
   const mailto = mailtoFor(lang);
   const ogImage = SITE_URL ? `${SITE_URL.replace(/\/$/, '')}/assets/gina-flat.png` : a('assets/gina-flat.png');
+  // First lead paragraph sits above the buttons; the rest follows them.
+  const [leadFirst, ...leadMore] = t.lead.split('\n\n');
   const mocks = channelMocks(t.mk);
   const phones = phoneScreens(t.mob, a);
   const caption = (i) => {
@@ -90,6 +92,7 @@ function page(lang) {
   <link rel="stylesheet" href="${a('css/styles.css')}">
   <script src="${a('js/keyed-video.js')}" defer></script>
   <script src="${a('js/journey.js')}" defer></script>
+  <script src="${a('js/nav.js')}" defer></script>
 </head>
 <body>
 <a class="skip" href="#main">${ui.skip}</a>
@@ -100,14 +103,17 @@ function page(lang) {
   <div class="wrap">
     <div class="hero__meta"><span>${esc(t.kicker)}</span><span>${esc(t.tools)}</span></div>
     <div class="hero__grid">
-      <div>
+      <div class="hero__head">
         <p class="hero__fun">${esc(t.fun)}</p>
         <h1 class="hero__title">${esc(t.h1a)} <span class="em em--signal">${esc(t.h1i)}</span> ${esc(t.h1b)}</h1>
-        <div class="hero__lead">${each(t.lead.split('\n\n'), (p) => `<p>${esc(p)}</p>`)}</div>
+      </div>
+      <div class="hero__body">
+        <div class="hero__lead"><p>${esc(leadFirst)}</p></div>
         <div class="hero__ctas">
           <a class="btn btn--primary" href="${mailto}">${esc(t.cta)}</a>
-          <a class="btn btn--ghost" href="#method">${esc(t.cta2)}</a>
+          <a class="btn btn--ghost" href="demo/">${esc(t.cta2)}</a>
         </div>
+        <div class="hero__lead hero__lead--more">${each(leadMore, (p) => `<p>${esc(p)}</p>`)}</div>
         <div class="who">
           <p class="eyebrow">${esc(t.whoK)}</p>
           <p>${esc(t.whoA)} <span class="em">${AUTHOR}</span>${esc(t.whoV)}</p>
@@ -120,6 +126,16 @@ function page(lang) {
     </div>
   </div>
 </header>
+
+<nav class="jump" aria-label="${esc(t.jump.label)}" data-jump>
+  <div class="jump__inner">
+    <a href="#method">${esc(t.jump.method)}</a>
+    <a href="#journey">${esc(t.jump.journey)}</a>
+    <a href="demo/">${esc(t.jump.demo)}</a>
+    <a href="#critique">${esc(t.jump.critique)}</a>
+    <a href="#contact">${esc(t.jump.contact)}</a>
+  </div>
+</nav>
 
 <main id="main">
 
@@ -166,7 +182,7 @@ function page(lang) {
   </div>
 </section>
 
-<section class="section" aria-labelledby="sJ" data-journey>
+<section class="section" id="journey" aria-labelledby="sJ" data-journey>
   <div class="wrap">
     <p class="eyebrow">${esc(t.sJ)}</p>
     <h2 class="title" id="sJ">${esc(t.hJa)} <span class="em em--underline">${esc(t.hJi)}</span></h2>
@@ -269,7 +285,7 @@ function page(lang) {
   </ol>
 </section>
 
-<section class="section section--sand" aria-labelledby="s8">
+<section class="section section--sand" id="critique" aria-labelledby="s8">
   <div class="wrap">
     <p class="eyebrow">${esc(t.s8)}</p>
     <h2 class="title" id="s8">${esc(t.h9a)} <span class="em em--accent">${esc(t.h9i)}</span></h2>
@@ -312,7 +328,7 @@ function page(lang) {
   </div>
 </section>
 
-<section class="section section--signal close" aria-labelledby="close">
+<section class="section section--signal close" id="contact" aria-labelledby="close">
   <div class="wrap grid close__grid">
     <div>
       <h2 class="close__title" id="close">${esc(t.closeA)} <span class="em">${esc(t.closeI)}</span></h2>

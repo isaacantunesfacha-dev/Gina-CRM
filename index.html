@@ -27,6 +27,7 @@
   <link rel="stylesheet" href="css/styles.css">
   <script src="js/keyed-video.js" defer></script>
   <script src="js/journey.js" defer></script>
+  <script src="js/nav.js" defer></script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -37,14 +38,17 @@
   <div class="wrap">
     <div class="hero__meta"><span>Lifecycle marketing · customer retention</span><span>Tool-agnostic · CRM or spreadsheet</span></div>
     <div class="hero__grid">
-      <div>
+      <div class="hero__head">
         <p class="hero__fun">A fun way to grow through CRM.</p>
         <h1 class="hero__title">Your CRM should <span class="em em--signal">know your customers</span> as well as you do.</h1>
-        <div class="hero__lead"><p>Small businesses grow when the customers they already have come back. No need to chase new ones every morning.</p><p>But between one customer and the next, there's rarely time to organise that. That's where I help: together we figure out who your customers are, what stage each one is in, and what to say, and when, to bring them back. It runs on the CRM you already use, from HubSpot to RD Station, or even a spreadsheet.</p><p>And the heavy lifting goes to Gina: a crew of agents you can explain in one sentence.</p></div>
+      </div>
+      <div class="hero__body">
+        <div class="hero__lead"><p>Small businesses grow when the customers they already have come back. No need to chase new ones every morning.</p></div>
         <div class="hero__ctas">
           <a class="btn btn--primary" href="mailto:iantunessp@gmail.com?subject=CRM%20diagnosis%20-%20Gina">Book a 30-min diagnosis</a>
-          <a class="btn btn--ghost" href="#method">See the method</a>
+          <a class="btn btn--ghost" href="demo/">See Gina at work</a>
         </div>
+        <div class="hero__lead hero__lead--more"><p>But between one customer and the next, there's rarely time to organise that. That's where I help: together we figure out who your customers are, what stage each one is in, and what to say, and when, to bring them back. It runs on the CRM you already use, from HubSpot to RD Station, or even a spreadsheet.</p><p>And the heavy lifting goes to Gina: a crew of agents you can explain in one sentence.</p></div>
         <div class="who">
           <p class="eyebrow">Who's behind this</p>
           <p>I'm <span class="em">Isaac Antunes</span>. Gina came from long stretches of running operations and strategy at the same time. CRM was always the thing that could help and the thing nobody wanted to open. Gina is how I explain it: a character who walks the customer journey, asks one question per channel and hands back one decision at a time. The business in the examples changes with each client. The method doesn't.</p>
@@ -57,6 +61,16 @@
     </div>
   </div>
 </header>
+
+<nav class="jump" aria-label="Sections" data-jump>
+  <div class="jump__inner">
+    <a href="#method">Method</a>
+    <a href="#journey">Journey</a>
+    <a href="demo/">Demo</a>
+    <a href="#critique">Self-critique</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
 
 <main id="main">
 
@@ -181,7 +195,7 @@
   </div>
 </section>
 
-<section class="section" aria-labelledby="sJ" data-journey>
+<section class="section" id="journey" aria-labelledby="sJ" data-journey>
   <div class="wrap">
     <p class="eyebrow">03b — 360° journey</p>
     <h2 class="title" id="sJ">Gina walks every channel to <span class="em em--underline">know one customer.</span></h2>
@@ -416,7 +430,7 @@
   </ol>
 </section>
 
-<section class="section section--sand" aria-labelledby="s8">
+<section class="section section--sand" id="critique" aria-labelledby="s8">
   <div class="wrap">
     <p class="eyebrow">09 — Self-critique</p>
     <h2 class="title" id="s8">Where this method <span class="em em--accent">falls short.</span></h2>
@@ -494,7 +508,7 @@
   </div>
 </section>
 
-<section class="section section--signal close" aria-labelledby="close">
+<section class="section section--signal close" id="contact" aria-labelledby="close">
   <div class="wrap grid close__grid">
     <div>
       <h2 class="close__title" id="close">Tag me <span class="em">in.</span></h2>

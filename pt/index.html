@@ -27,6 +27,7 @@
   <link rel="stylesheet" href="../css/styles.css">
   <script src="../js/keyed-video.js" defer></script>
   <script src="../js/journey.js" defer></script>
+  <script src="../js/nav.js" defer></script>
 </head>
 <body>
 <a class="skip" href="#main">Pular para o conteúdo</a>
@@ -37,14 +38,17 @@
   <div class="wrap">
     <div class="hero__meta"><span>CRM e retenção de clientes · régua de relacionamento</span><span>Qualquer ferramenta · CRM ou planilha</span></div>
     <div class="hero__grid">
-      <div>
+      <div class="hero__head">
         <p class="hero__fun">Um jeito divertido de crescer através do CRM.</p>
         <h1 class="hero__title">Seu CRM deveria <span class="em em--signal">conhecer seus clientes</span> tão bem quanto você.</h1>
-        <div class="hero__lead"><p>Pequeno negócio cresce quando o cliente que já veio volta. Não precisa correr atrás de cliente novo todo dia.</p><p>Só que, na correria do dia a dia, quase não sobra tempo pra organizar isso. É aí que eu ajudo: a gente descobre junto quem são seus clientes, em que fase cada um está e o que dizer, e quando, pra eles voltarem. Funciona no CRM que você já usa, do HubSpot ao RD Station, ou até numa planilha.</p><p>E o trabalho pesado fica com a Gina: uma equipe de agentes que cabe numa frase.</p></div>
+      </div>
+      <div class="hero__body">
+        <div class="hero__lead"><p>Pequeno negócio cresce quando o cliente que já veio volta. Não precisa correr atrás de cliente novo todo dia.</p></div>
         <div class="hero__ctas">
           <a class="btn btn--primary" href="mailto:iantunessp@gmail.com?subject=Diagn%C3%B3stico%20de%20CRM%20-%20Gina">Agendar diagnóstico (30 min)</a>
-          <a class="btn btn--ghost" href="#method">Ver o método</a>
+          <a class="btn btn--ghost" href="demo/">Ver a Gina funcionando</a>
         </div>
+        <div class="hero__lead hero__lead--more"><p>Só que, na correria do dia a dia, quase não sobra tempo pra organizar isso. É aí que eu ajudo: a gente descobre junto quem são seus clientes, em que fase cada um está e o que dizer, e quando, pra eles voltarem. Funciona no CRM que você já usa, do HubSpot ao RD Station, ou até numa planilha.</p><p>E o trabalho pesado fica com a Gina: uma equipe de agentes que cabe numa frase.</p></div>
         <div class="who">
           <p class="eyebrow">Quem está por trás</p>
           <p>Eu sou <span class="em">Isaac Antunes</span>. A Gina nasceu de longos períodos tocando operação e estratégia ao mesmo tempo. O CRM era sempre o que podia ajudar e o que ninguém queria abrir. A Gina é o jeito que eu encontrei de explicar: uma personagem que percorre a jornada do cliente, faz uma pergunta por canal e devolve uma decisão por vez. O negócio dos exemplos muda a cada cliente. O método, não.</p>
@@ -57,6 +61,16 @@
     </div>
   </div>
 </header>
+
+<nav class="jump" aria-label="Seções" data-jump>
+  <div class="jump__inner">
+    <a href="#method">Método</a>
+    <a href="#journey">Jornada</a>
+    <a href="demo/">Demo</a>
+    <a href="#critique">Autocrítica</a>
+    <a href="#contact">Contato</a>
+  </div>
+</nav>
 
 <main id="main">
 
@@ -181,7 +195,7 @@
   </div>
 </section>
 
-<section class="section" aria-labelledby="sJ" data-journey>
+<section class="section" id="journey" aria-labelledby="sJ" data-journey>
   <div class="wrap">
     <p class="eyebrow">03b — Jornada 360°</p>
     <h2 class="title" id="sJ">A Gina percorre cada canal para <span class="em em--underline">conhecer um cliente.</span></h2>
@@ -416,7 +430,7 @@
   </ol>
 </section>
 
-<section class="section section--sand" aria-labelledby="s8">
+<section class="section section--sand" id="critique" aria-labelledby="s8">
   <div class="wrap">
     <p class="eyebrow">09 — Autocrítica</p>
     <h2 class="title" id="s8">Onde este método <span class="em em--accent">não dá conta.</span></h2>
@@ -494,7 +508,7 @@
   </div>
 </section>
 
-<section class="section section--signal close" aria-labelledby="close">
+<section class="section section--signal close" id="contact" aria-labelledby="close">
   <div class="wrap grid close__grid">
     <div>
       <h2 class="close__title" id="close">Me marca <span class="em">aí.</span></h2>

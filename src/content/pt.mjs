@@ -14,7 +14,15 @@ export default {
   "h1b": "tão bem quanto você.",
   "lead": "Pequeno negócio cresce quando o cliente que já veio volta. Não precisa correr atrás de cliente novo todo dia.\n\nSó que, na correria do dia a dia, quase não sobra tempo pra organizar isso. É aí que eu ajudo: a gente descobre junto quem são seus clientes, em que fase cada um está e o que dizer, e quando, pra eles voltarem. Funciona no CRM que você já usa, do HubSpot ao RD Station, ou até numa planilha.\n\nE o trabalho pesado fica com a Gina: uma equipe de agentes que cabe numa frase.",
   "cta": "Agendar diagnóstico (30 min)",
-  "cta2": "Ver o método",
+  "cta2": "Ver a Gina funcionando",
+  "jump": {
+    "label": "Seções",
+    "method": "Método",
+    "journey": "Jornada",
+    "demo": "Demo",
+    "critique": "Autocrítica",
+    "contact": "Contato"
+  },
   "s1": "01 — Por que o CRM fica abandonado",
   "h2a": "O problema quase nunca é o software. É o",
   "h2s": "sistema",
