@@ -13,6 +13,8 @@
 <p align="center">
   <a href="https://isaacantunesfacha-dev.github.io/gina-crm/"><b>Open the page</b></a>
   &nbsp;·&nbsp;
+  <a href="https://isaacantunesfacha-dev.github.io/gina-crm/demo/"><b>Try the demo</b></a>
+  &nbsp;·&nbsp;
   <a href="https://isaacantunesfacha-dev.github.io/gina-crm/pt/">Versão em português</a>
   &nbsp;·&nbsp;
   <a href="https://www.linkedin.com/in/isaacnandes/">Isaac Antunes on LinkedIn</a>
@@ -73,6 +75,19 @@ flowchart LR
 
 A/B test: “your usual” against a discount. Primary KPI: win-back rate.
 
+## Gina, running the method
+
+The [demo](https://isaacantunesfacha-dev.github.io/gina-crm/demo/) turns the rules above into working code.
+Paste a list of orders (name, date, amount) or use the example bakery, and Gina:
+
+- reads each customer's own rhythm: the median days between their orders;
+- scores RFV and flags who missed their usual date, who went quiet and who is new;
+- picks the next action and channel, drafts the message and names the behavior principle behind it;
+- closes with the three-line Monday report: who to contact, who to leave alone, who is fine.
+
+It runs entirely in the browser. No AI model, nothing is sent or stored. The rules live in
+[`js/gina.js`](js/gina.js), apart from the interface, so they can be read and checked.
+
 ## What the page covers
 
 `01` Why CRMs get abandoned · `02` A five-step method, tool-agnostic · `03` Lifecycle model with an entry rule per stage ·
@@ -96,6 +111,9 @@ index.html, pt/index.html   generated pages (EN, PT)
 css/styles.css              tokens and components
 js/keyed-video.js           hero video with the background removed live
 js/journey.js               360° journey animation
+js/gina.js                  the method as code: rhythm, RFV, status, next action
+js/demo.js                  demo interface
+demo/, pt/demo/             generated demo pages (EN, PT)
 assets/                     Gina art, walk frames, hero video
 src/content/                all copy, one file per language
 src/site.mjs                contact, legal text, public URL
