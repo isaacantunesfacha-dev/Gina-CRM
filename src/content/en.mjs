@@ -650,6 +650,21 @@ export default {
     "exampleShop": "Forno da Vila · example bakery, fictional"
   },
   "fixesHead": "{n} problems, {n} answers",
+  "sCost": "12 — Cost",
+  "hCostA": "At the end of the day,",
+  "hCostI": "the bill can get smaller.",
+  "pCost": "Gina isn't one more tool to pay for. She works on costs the business already has.",
+  "costToday": "Today",
+  "costWith": "With Gina",
+  "costs": [
+    { "k": "Acquisition", "a": "Paying for ads to replace customers who quietly left.", "b": "Bringing back people who already know you, before they drift away for good." },
+    { "k": "Owner time", "a": "Hours building lists and writing messages by hand.", "b": "A short list of who to contact, with the message drafted. You approve it." },
+    { "k": "Wasted sends", "a": "The same message to the whole list. Every SMS and push costs something.", "b": "Messages only to whoever is slipping out of rhythm, within a weekly limit." },
+    { "k": "Software", "a": "A new platform, a new licence, a team to learn it.", "b": "Runs on the CRM you already have, or a spreadsheet." }
+  ],
+  "costFK": "How to measure it",
+  "costF": "avoided cost = customers won back × cost to win a new one",
+  "costFN": "In the diagnosis we fill this in with your own numbers.",
   "ctaNote": "One click opens an email to me. No form, no signup.",
   "breakFixK": "What I do",
   "breakProofK": "Real work"

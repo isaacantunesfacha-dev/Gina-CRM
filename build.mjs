@@ -362,6 +362,24 @@ function page(lang) {
   </div>
 </section>
 
+<section class="section wrap" aria-labelledby="sCost">
+  <p class="eyebrow">${esc(t.sCost)}</p>
+  <h2 class="title" id="sCost">${esc(t.hCostA)} <span class="em em--accent">${esc(t.hCostI)}</span></h2>
+  <p class="intro">${esc(t.pCost)}</p>
+  <div class="costs">${each(t.costs, (c) => `
+    <div class="cost">
+      <h3 class="label cost__k">${esc(c.k)}</h3>
+      <p class="cost__a"><span class="cost__tag">${esc(t.costToday)}</span>${esc(c.a)}</p>
+      <p class="cost__b"><span class="cost__tag">${esc(t.costWith)}</span>${esc(c.b)}</p>
+    </div>`)}
+  </div>
+  <div class="costs__formula">
+    <p class="label">${esc(t.costFK)}</p>
+    <p class="costs__eq">${esc(t.costF)}</p>
+    <p class="costs__note">${esc(t.costFN)}</p>
+  </div>
+</section>
+
 <section class="section section--signal close" id="contact" aria-labelledby="close">
   <div class="wrap grid close__grid">
     <div>

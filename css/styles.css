@@ -292,6 +292,23 @@ main [id] { scroll-margin-top: 64px; }
 
 /* ── 01 Diagnosis ───────────────────────────────────── */
 /* Problem, then the answer on the same row. The panel is the loudest thing in the section on purpose. */
+/* ── Cost: today vs with Gina, then how to measure it ── */
+.costs { margin-top: 40px; border-top: 1px solid var(--line); }
+.cost { display: grid; gap: 14px; padding: 28px 0; border-bottom: 1px solid var(--line); }
+.cost__k { color: var(--green); }
+.cost__tag { display: block; margin-bottom: 6px; font: 700 11px/1.3 var(--mono); letter-spacing: .14em; text-transform: uppercase; }
+.cost__a { font-size: 17px; line-height: 1.5; color: var(--muted); text-wrap: pretty; }
+.cost__b { padding-left: 16px; border-left: 3px solid var(--signal); font-size: 20px; line-height: 1.4; letter-spacing: -.01em; text-wrap: pretty; }
+.cost__b .cost__tag { color: var(--green); }
+.costs__formula { margin-top: 40px; padding: 28px 24px; border-radius: 18px; background: var(--forest); color: var(--paper); display: flex; flex-direction: column; gap: 12px; }
+.costs__formula .label { color: var(--signal); }
+.costs__eq { font: 700 clamp(15px, 3.9vw, 22px)/1.5 var(--mono); color: var(--paper); text-wrap: balance; }
+.costs__note { font-size: 15px; line-height: 1.5; color: rgba(245, 243, 237, .78); }
+@media (min-width: 960px) {
+  .cost { grid-template-columns: 200px minmax(0, 1fr) minmax(0, 1fr); gap: 40px; align-items: start; }
+  .costs__formula { padding: 36px 40px; }
+}
+
 .fixes__head { margin-top: 48px; display: flex; align-items: center; gap: 16px; font: 700 12px/1 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--green); }
 .fixes__head::after { content: ''; flex: 1; height: 1px; background: var(--line); }
 .fixes { margin-top: 32px; display: flex; flex-direction: column; gap: 56px; }

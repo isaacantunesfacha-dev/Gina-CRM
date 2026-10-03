@@ -650,6 +650,21 @@ export default {
     "exampleShop": "Forno da Vila · padaria de exemplo, fictícia"
   },
   "fixesHead": "{n} problemas, {n} respostas",
+  "sCost": "12 — Custo",
+  "hCostA": "No fim do dia,",
+  "hCostI": "a conta pode ficar menor.",
+  "pCost": "A Gina não é mais uma ferramenta para pagar. Ela trabalha em custos que o negócio já tem.",
+  "costToday": "Hoje",
+  "costWith": "Com a Gina",
+  "costs": [
+    { "k": "Aquisição", "a": "Pagar anúncio para repor o cliente que sumiu sem avisar.", "b": "Trazer de volta quem já conhece você, antes de esfriar de vez." },
+    { "k": "Tempo do dono", "a": "Horas montando lista e escrevendo mensagem na mão.", "b": "Uma lista curta de quem chamar, com a mensagem já rascunhada. Você aprova." },
+    { "k": "Envio desperdiçado", "a": "A mesma mensagem para a base inteira. Cada SMS e push custa.", "b": "Mensagem só para quem está saindo do ritmo, dentro de um limite semanal." },
+    { "k": "Software", "a": "Plataforma nova, licença nova, equipe para aprender.", "b": "Roda no CRM que você já tem, ou numa planilha." }
+  ],
+  "costFK": "Como medir",
+  "costF": "custo evitado = clientes recuperados × custo de conquistar um novo",
+  "costFN": "No diagnóstico, a gente preenche isso com os seus números.",
   "ctaNote": "Um clique abre um e-mail para mim. Sem formulário, sem cadastro.",
   "breakFixK": "O que eu faço",
   "breakProofK": "Trabalho real"
