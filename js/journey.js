@@ -31,7 +31,10 @@
       current = stop;
       dots.forEach((el, i) => el.classList.toggle('is-reached', i <= stop));
       traits.forEach((el, i) => el.classList.toggle('is-reached', i <= stop));
-      cards.forEach((el, i) => el.classList.toggle('is-current', i === stop));
+      cards.forEach((el, i) => {
+        el.classList.toggle('is-reached', i <= stop);
+        el.classList.toggle('is-current', i === stop);
+      });
     }
 
     function render(x, frame, stop) {
