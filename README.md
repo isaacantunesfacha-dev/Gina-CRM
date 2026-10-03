@@ -111,7 +111,10 @@ checked in the CRM. Known limits, each covered by a test:
 
 Plain HTML, CSS and JavaScript. No framework, no dependencies, no tracking.
 
-- The hero video loses its paper background live, frame by frame, in a canvas.
+- The hero starts as a still image in the HTML. After the page has loaded, a silent video replaces it
+  and loses its paper background live, frame by frame, in a canvas. Phones get a 85 KB pre-cropped copy
+  (desktop: 795 KB). With reduced motion, Save-Data, a 2G connection or no JavaScript, the still stays;
+  if a device can't key frames fast enough, the still comes back.
 - The journey animation is one small script that only runs while it's on screen.
 - Reduced motion shows the finished journey. Without JavaScript, the page still reads in full.
 - English and Portuguese are written separately, not translated.
@@ -122,14 +125,14 @@ Plain HTML, CSS and JavaScript. No framework, no dependencies, no tracking.
 ```
 index.html, pt/index.html   generated pages (EN, PT)
 css/styles.css              tokens and components
-js/keyed-video.js           hero video with the background removed live
+js/keyed-video.js           hero video with the background removed live, loaded after the page
 js/journey.js               360° journey animation
 js/nav.js                   section bar: highlights the section on screen
 js/gina.js                  the method as code: rhythm, RFV, status, next action
 js/demo.js                  demo interface
 demo/, pt/demo/             generated demo pages (EN, PT)
 404.html                    generated not-found page
-assets/                     Gina art (WebP), walk frames, hero video, link-preview cards (og-en/og-pt.jpg)
+assets/                     Gina art (WebP), walk frames, hero video (desktop and phone copies, no audio), link-preview cards (og-en/og-pt.jpg)
 src/content/                all copy, one file per language
 src/site.mjs                contact, legal text, public URL
 src/markup.mjs              shared pieces: channel mocks, phones, win-back flow

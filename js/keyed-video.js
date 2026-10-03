@@ -2,17 +2,31 @@
  * Gina · CRM Strategy — <keyed-video>
  * © 2026 Isaac Antunes. All rights reserved.
  *
- * <keyed-video src crop="x,y,w,h" masks="x,y,w,h|…" scale="0.6" poster>
+ * <keyed-video src crop="x,y,w,h" masks="x,y,w,h|…" scale="0.6"
+ *              mobile-src mobile-crop mobile-masks mobile-scale>
  * Plays a muted looping video and removes its light paper background frame by
  * frame. The flood fill starts at the crop edges, so enclosed whites (the eyes)
- * survive. The poster stays visible until the first keyed frame is drawn, which
- * is also the fallback for reduced motion and for file:// (canvas is tainted).
+ * survive. The poster is the page's first frame and stays until the first keyed
+ * frame is drawn. It is also the fallback when the video is not worth its cost:
+ * reduced motion, Save-Data or a 2G connection, file:// (canvas is tainted), or a
+ * device that can't key a frame fast enough. The video loads only after the page
+ * has finished loading, and phones get a small pre-cropped copy (mobile-*).
  */
 (function () {
   'use strict';
   if (customElements.get('keyed-video')) return;
 
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const conn = navigator.connection || {};
+  const saveData = conn.saveData === true || /(^|-)2g$/.test(conn.effectiveType || '');
+  const FRAME_BUDGET_MS = 30; // slower than this and the loop can't hold 30 fps
+  const SLOW_WINDOWS = 2;     // consecutive 30-frame windows over budget before giving up
+
+  // Run after the page has loaded and the browser is idle, so the video never competes with content.
+  const whenIdle = (fn) => {
+    const go = () => ('requestIdleCallback' in window ? requestIdleCallback(fn, { timeout: 1500 }) : setTimeout(fn, 200));
+    if (document.readyState === 'complete') go(); else window.addEventListener('load', go, { once: true });
+  };
   const fill = 'position:absolute;inset:0;width:100%;height:100%;object-fit:contain';
 
   // Background = light and nearly grey (paper tone).
@@ -29,21 +43,22 @@
       this.style.display = 'block';
       this.style.position = 'relative';
 
-      const poster = this.getAttribute('poster');
-      if (poster) {
-        this._poster = document.createElement('img');
-        this._poster.src = poster;
-        this._poster.alt = '';
-        this._poster.style.cssText = fill;
-        this.appendChild(this._poster);
-      }
-      if (reduceMotion) return;
+      // The page ships the poster as a plain <img>, so the first frame needs no script.
+      this._poster = this._posterEl = this.querySelector('img');
+      if (this._poster) this._poster.style.cssText = fill;
+      if (reduceMotion || saveData) return;
+      whenIdle(() => { if (this.isConnected) this._start(); });
+    }
 
-      const crop = (this.getAttribute('crop') || '0,0,1280,720').split(',').map(Number);
-      const scale = Number(this.getAttribute('scale') || 0.6);
+    _start() {
+      // Phones get the small pre-cropped video when the page provides one.
+      const small = this.hasAttribute('mobile-src') && window.matchMedia('(max-width: 719px)').matches;
+      const attr = (name) => this.getAttribute((small ? 'mobile-' : '') + name);
+      const crop = (attr('crop') || '0,0,1280,720').split(',').map(Number);
+      const scale = Number(attr('scale') || 0.6);
       this._crop = crop;
       this._scale = scale;
-      this._masks = (this.getAttribute('masks') || '').split('|').filter(Boolean).map((m) => m.split(',').map(Number));
+      this._masks = (attr('masks') || '').split('|').filter(Boolean).map((m) => m.split(',').map(Number));
       this._w = Math.round(crop[2] * scale);
       this._h = Math.round(crop[3] * scale);
       this._seen = new Uint8Array(this._w * this._h);
@@ -53,20 +68,30 @@
       canvas.width = this._w;
       canvas.height = this._h;
       canvas.style.cssText = fill;
+      this._canvas = canvas;
       this.appendChild(canvas);
       this._ctx = canvas.getContext('2d', { willReadFrequently: true });
 
       const v = document.createElement('video');
       v.muted = true; v.loop = true; v.playsInline = true; v.preload = 'auto';
+      v.disableRemotePlayback = true;
       v.setAttribute('muted', '');
       v.setAttribute('playsinline', '');
-      v.src = this.getAttribute('src');
+      v.src = attr('src');
       v.style.cssText = fill + ';opacity:0;pointer-events:none';
       this.appendChild(v);
       this._v = v;
 
+      let spent = 0, frames = 0, slow = 0;
       const loop = () => {
+        const t0 = performance.now();
         this._frame();
+        spent += performance.now() - t0;
+        if (++frames === 30) {
+          slow = spent / frames > FRAME_BUDGET_MS ? slow + 1 : 0;
+          spent = frames = 0;
+          if (slow >= SLOW_WINDOWS) return this._giveUp();
+        }
         if (!v.paused) v.requestVideoFrameCallback ? v.requestVideoFrameCallback(loop) : requestAnimationFrame(loop);
         else this._running = false;
       };
@@ -79,6 +104,16 @@
         else v.pause();
       }));
       this._io.observe(this);
+    }
+
+    // The device can't key frames fast enough: put the poster back and stop decoding.
+    _giveUp() {
+      if (this._io) this._io.disconnect();
+      this._v.pause();
+      this._v.remove();
+      this._canvas.remove();
+      if (this._posterEl) this.appendChild(this._posterEl);
+      this._poster = null;
     }
 
     disconnectedCallback() {
