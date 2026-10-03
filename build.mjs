@@ -10,7 +10,7 @@ import { fileURLToPath } from 'node:url';
 
 import en from './src/content/en.mjs';
 import pt from './src/content/pt.mjs';
-import { esc, pad, each, channelMocks, phoneScreens, winbackFlow, PHONE_CAPTIONS } from './src/markup.mjs';
+import { esc, pad, each, channelMocks, phoneScreens, winbackFlow, problemRows, PHONE_CAPTIONS } from './src/markup.mjs';
 import { AUTHOR, EMAIL, LINKEDIN, SITE_URL, MAIL_SUBJECT, LANGS, UI } from './src/site.mjs';
 
 const ROOT = dirname(fileURLToPath(import.meta.url));
@@ -180,15 +180,7 @@ function page(lang) {
 <section class="section wrap" aria-labelledby="s1">
   <p class="eyebrow">${esc(t.s1)}</p>
   <h2 class="title title--narrow" id="s1">${esc(t.h2a)} <s class="strike">${esc(t.h2s)}</s> <span class="em em--accent">${esc(t.h2i)}</span></h2>
-  <div class="grid hairline breaks">${each(t.breaks, (b) => `
-    <article class="break">
-      <span class="break__k">${b.k}</span>
-      <h3 class="break__t">${esc(b.a)} <span class="em">${esc(b.i)}</span></h3>
-      <p class="break__d">${esc(b.d)}</p>
-      <p class="break__fix"><span class="label">${esc(t.breakFixK)}</span>${esc(b.fix)}</p>
-      <p class="break__proof"><b>${esc(t.breakProofK)}</b> ${esc(b.proof)}</p>
-    </article>`)}
-  </div>
+  ${problemRows(t)}
 </section>
 
 <section class="section section--dark" id="method" aria-labelledby="s2">
