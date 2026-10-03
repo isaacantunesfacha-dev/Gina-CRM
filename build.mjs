@@ -151,6 +151,7 @@ function page(lang) {
           <a class="btn btn--primary" href="${mailto}">${esc(t.cta)}</a>
           <a class="btn btn--ghost" href="demo/">${esc(t.cta2)}</a>
         </div>
+        <p class="cta-note">${esc(t.ctaNote)}</p>
         <div class="hero__lead hero__lead--more">${each(leadMore, (p) => `<p>${esc(p)}</p>`)}</div>
         <div class="who">
           <p class="eyebrow">${esc(t.whoK)}</p>
@@ -367,6 +368,7 @@ function page(lang) {
       <h2 class="close__title" id="close">${esc(t.closeA)} <span class="em">${esc(t.closeI)}</span></h2>
       <p class="close__p">${esc(t.closeP)}</p>
       <a class="btn btn--dark" href="${mailto}">${esc(t.cta)}</a>
+      <p class="cta-note">${esc(t.ctaNote)}</p>
       <p class="close__tools">${esc(t.closeTools)}</p>
     </div>
     <img class="close__art" src="${a('assets/gina-flat.webp')}" alt="Gina" width="460" height="539" loading="lazy">

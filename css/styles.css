@@ -16,7 +16,7 @@
   --mint-2: #cfe3bd;
   --sand: #efe7d8;
   --chat: #ece7dc;
-  --rust: #b03a22;
+  --rust: #9a321e;
   --coral: #e0533d;
   --device: #1a1a14;
 
@@ -228,6 +228,9 @@ a:hover { color: var(--green); }
 @media (min-width: 960px) { .hero__lead:first-child { margin-top: 32px; } }
 .hero__ctas { margin-top: 28px; display: flex; flex-wrap: wrap; gap: 12px; }
 .hero__ctas .btn--ghost:hover { color: var(--signal); }
+.cta-note { margin-top: 14px; font: 400 12px/1.5 var(--mono); letter-spacing: .04em; }
+.hero .cta-note { color: rgba(245, 243, 237, .78); }
+.close .cta-note { margin-top: 14px; color: rgba(6, 31, 22, .92); }
 
 .who {
   margin-top: 48px; padding-top: 24px; max-width: 52ch;
@@ -340,7 +343,7 @@ main [id] { scroll-margin-top: 64px; }
 .step__name { font-size: clamp(28px, 3vw, 40px); font-style: italic; letter-spacing: -.03em; line-height: 1; }
 .step__what { font-size: 16px; line-height: 1.6; color: var(--muted); text-wrap: pretty; }
 .step__col { display: flex; flex-direction: column; gap: 10px; }
-.step__label { font: 400 12px/1.4 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: rgba(245, 243, 237, .55); }
+.step__label { font: 400 12px/1.4 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: rgba(245, 243, 237, .7); }
 .step__tool { font: 400 13px/1.55 var(--mono); }
 .step__out { font-size: 17px; line-height: 1.4; }
 
@@ -502,7 +505,7 @@ keyed-video > img { position: absolute; inset: 0; width: 100%; height: 100%; obj
 .node--big { font-size: 20px; line-height: 1.25; }
 .node--stack { display: flex; flex-direction: column; gap: 14px; }
 .node__code { margin-top: 10px; font: 400 12px/1.5 var(--mono); color: var(--signal-soft); }
-.node__wait { font: 400 12px/1.4 var(--mono); color: rgba(13, 26, 20, .6); }
+.node__wait { font: 400 12px/1.4 var(--mono); color: rgba(13, 26, 20, .72); }
 .flow__run { display: flex; gap: 14px; align-items: center; }
 .flow__run img { width: 64px; height: auto; flex: none; }
 .flow__run p { font: 400 12px/1.5 var(--mono); color: var(--muted); }
@@ -596,7 +599,7 @@ keyed-video > img { position: absolute; inset: 0; width: 100%; height: 100%; obj
 .level:nth-child(2) { --h: 290px; --bg: var(--mint-2); }
 .level:nth-child(3) { --h: 360px; --bg: var(--signal); }
 .level:nth-child(4) { --h: 430px; --bg: var(--forest); color: var(--paper); }
-.level__n { font: 700 12px/1 var(--mono); color: var(--green); }
+.level__n { font: 700 12px/1 var(--mono); color: #195a27; }
 .level__name { font-size: 26px; font-style: italic; letter-spacing: -.02em; }
 .level__d { font-size: 15px; line-height: 1.5; color: var(--muted); }
 .level:nth-child(3) .level__n, .level:nth-child(3) .level__d { color: var(--forest); }

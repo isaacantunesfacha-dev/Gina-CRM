@@ -13,7 +13,7 @@ export default {
   "h1a": "Your CRM should",
   "h1i": "know your customers",
   "h1b": "as well as you do.",
-  "lead": "Small businesses grow when the customers they already have come back. No need to chase new ones every morning.\n\nBut between one customer and the next, there's rarely time to organise that. That's where I help: together we figure out who your customers are, what stage each one is in, and what to say, and when, to bring them back. It runs on the CRM you already use, from HubSpot to RD Station, or even a spreadsheet.\n\nThe heavy lifting goes to Gina: a set of agent roles, each with a job that fits in one sentence. The demo runs her decision rules in your browser; the agents are the proposal, not a live product.",
+  "lead": "Small businesses grow when the customers they already have come back. No need to chase new ones every morning.\n\nBut between one customer and the next, there's rarely time to organise that. That's where I help: together we figure out who your customers are, what stage each one is in, and what to say, and when, to bring them back. It runs on the CRM you already use, from HubSpot to RD Station, or even a spreadsheet.\n\nThe heavy lifting goes to Gina: a set of roles, each with a job you can explain in one sentence. Try her decision rules in the demo, right in your browser.",
   "cta": "Book a 30-min diagnosis",
   "cta2": "See Gina at work",
   "jump": {
@@ -58,7 +58,7 @@ export default {
   "h3a": "Model first. Build second.",
   "h3b": "Automate",
   "h3c": "_last",
-  "rolesNote": "@ marks the role that would own each step in a Gina setup. The roles are a proposal; today only the demo's decision rules run.",
+  "rolesNote": "The @ shows which role would own each step in a Gina setup. They're a proposal for now; what runs today are the demo's decision rules.",
   "inAny": "In any CRM",
   "deliv": "Deliverable",
   "steps": [
@@ -650,6 +650,7 @@ export default {
     "exampleShop": "Forno da Vila · example bakery, fictional"
   },
   "fixesHead": "{n} problems, {n} answers",
+  "ctaNote": "One click opens an email to me. No form, no signup.",
   "breakFixK": "What I do",
   "breakProofK": "Real work"
 };
