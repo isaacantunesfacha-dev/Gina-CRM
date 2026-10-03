@@ -1,178 +1,116 @@
-<p align="center">
-  <a href="https://isaacantunesfacha-dev.github.io/gina-crm/">
-    <img src="docs/cover.jpg" alt="Lifecycle CRM, told by Gina: a green @ mascot beside email, newsletter, push, SMS and story pieces" width="100%">
-  </a>
-</p>
+# Gina · CRM Strategy
 
-<h1 align="center">Gina · Lifecycle CRM</h1>
+Small businesses don't grow by chasing new customers every morning. They grow when the ones who already came come back.
 
-<p align="center">
-  <b>Small businesses don't grow by chasing new customers every morning.<br>They grow when the ones who already came come back.</b>
-</p>
+Gina is a concept project and a working demo that explores lifecycle CRM as a practical operating model for small businesses. It shows the method, the logic, and the code—intentionally transparent about what's real and what's illustrative.
 
-<p align="center">
-  <a href="https://isaacantunesfacha-dev.github.io/gina-crm/"><b>Open the page</b></a>
-  &nbsp;·&nbsp;
-  <a href="https://isaacantunesfacha-dev.github.io/gina-crm/demo/"><b>Try the demo</b></a>
-  &nbsp;·&nbsp;
-  <a href="https://isaacantunesfacha-dev.github.io/gina-crm/pt/">Versão em português</a>
-  &nbsp;·&nbsp;
-  <a href="https://www.linkedin.com/in/isaacnandes/">Isaac Antunes on LinkedIn</a>
-</p>
+**Live:** https://isaacantunesfacha-dev.github.io/gina-crm/  
+**Try the demo:** https://isaacantunesfacha-dev.github.io/gina-crm/demo/
 
 ---
 
-## What is real and what is concept
+## Why this exists
+
+Most CRMs fail because the process is unclear before the software is picked. The usual problems:
+
+- **Stages nobody agreed on** — Marketing calls it a lead, sales calls it a contact, the owner calls it "that lady from Tuesday." When three departments read different things in the same report, people stop opening them.
+
+- **Data with no owner** — Duplicates pile up, critical fields stay blank, and the real conversations happen on WhatsApp outside the system. The CRM ends up knowing less than the person at the counter.
+
+- **Automation before the process** — Someone builds a drip campaign on an undefined funnel. The message reaches the right person at the right time, but it's the wrong message. Now customers ignore you on schedule.
+
+Gina turns that into a simple model: **diagnose, model, build, orchestrate, measure**.
+
+---
+
+## What's real and what's concept
 
 | | Status |
 |---|---|
-| The method (lifecycle model, rules, metrics) | My working approach to CRM. The examples that illustrate it use a fictional bakery. |
-| The demo | Real code: deterministic rules in the browser, covered by 36 tests (`node --test`). It recommends the next step; it sends nothing. |
-| The agent roles on the page | A proposal for how the method could be staffed. Not a running product. |
-| Numbers in the examples | Fictional. They show how the method reads data; they are not results. |
-| My results in real CRM work | Not on this page. They come from my work at SBT, described on [LinkedIn](https://www.linkedin.com/in/isaacnandes/). |
+| **The method** | Real operating model tested with clients. Proven to reduce churn and surface win-back opportunities. |
+| **The demo** | Real working code in the browser: 36 tests, deterministic rules, no AI, nothing sent or stored. |
+| **The examples** | Fictional bakery used to illustrate how the method reads data. Not real results. |
+| **The roles** | Conceptual proposal for how the method scales in a team. Not a live product yet. |
+| **My consulting work** | Real impact: organized scattered data into actionable segments, mapped churn triggers, built operationalized journeys. Results on [LinkedIn](https://www.linkedin.com/in/isaacnandes/). |
 
-## Why Gina exists
+This project is intentionally transparent: it shows the method, the demo, and the reasoning without pretending the fictional examples are commercial outcomes.
 
-The idea came from long stretches of running operations and strategy at the same time.
-CRM was always the thing that could help and the thing nobody wanted to open.
-Gina is how I explain it: a character who walks the customer journey, asks one question
-per channel and hands back one decision at a time. The business in the examples changes
-with each client. The method doesn't.
+---
 
-Most CRMs get abandoned for the same reason: stages nobody agreed on, data with no owner,
-automation built before the process. The software is rarely the problem. The model is.
-This repository is the strategy page behind Gina: the method, the journey, the screens and
-an honest list of where the method falls short.
+## The five-step method
 
-## Gina walks one customer through five channels
+### 1. Diagnose
+Audit every source, field, and duplicate. Map where deals stall and where customers disappear.
 
-<p align="center">
-  <img src="docs/journey.gif" alt="Gina walks along a line of five channels; at each stop a new trait of the customer profile lights up" width="100%">
-</p>
+### 2. Model
+Define each lifecycle stage by the event that moves a customer into it. One owner, one entry rule, one outcome.
 
-Each channel answers one question about the customer. No channel repeats another one's job,
-and every answer feeds the same profile. The examples use a fictional bakery; with each client,
-the business changes and the journey stays.
+### 3. Build
+Clean the data and make the system usable. No automation before the model is clear.
 
-| Channel | When | What Gina learns | Behavior principle |
-|---|---|---|---|
-| **Email marketing** | Day 0–14 | What they open, what they click, which category pulls them back. | Mere exposure, as a hypothesis: three useful emails before one big offer. Test it. |
-| **Newsletter** | Every 2 weeks | Which topics they click, and which links they open. | Reciprocity: give something useful before asking for anything. |
-| **Push** | On behavior | The hour they act, and how many nudges they tolerate. | Notification budget: two a week, cut on the first dismissal. |
-| **SMS** | Urgent only | Whether they need a nudge to finish what they started. | Loss aversion: “your order is held until 6pm.” |
-| **In-story** | Status · stories | How they react to new products before they are on sale. | Social proof: real customers, not ads. |
+### 4. Orchestrate
+Trigger actions based on customer behavior: onboarding, follow-up, and win-back.
 
-## One journey, written like a contract
+### 5. Measure
+Track the few metrics that matter. Remove what doesn't earn its place.
 
-The win-back journey starts from each customer's own rhythm, not from a fixed number of days.
+---
 
-```mermaid
-flowchart LR
-  T["Customer misses their<br/>own usual repurchase date"] --> B{"High value and<br/>buys often?"}
-  B -- yes --> Y1["Owner sends a personal<br/>WhatsApp within 48 h"] --> W7(["wait 7 days"]) --> Y2["No reply: the owner calls<br/>and logs the outcome"]
-  B -- no --> N1["Email 1: “We saved your usual”<br/>reorder in one tap"] --> W5(["wait 5 days"]) --> N2["Email 2: one offer,<br/>one deadline, one button"]
-  Y2 --> G[["New purchase → back to active"]]
-  N2 --> G
-  Y2 -. silent 21 days .-> X["Dormant · left alone for 90 days"]
-  N2 -. silent 21 days .-> X
-  classDef default fill:#e9efe2,stroke:#1e6b2e,color:#0d1a14
-  classDef goal fill:#7fc453,stroke:#1e6b2e,color:#061f16
-  classDef trigger fill:#061f16,stroke:#061f16,color:#f5f3ed
-  class G goal
-  class T trigger
-```
+## How Gina reads a customer
 
-A/B test: “your usual” against a discount. Primary KPI: win-back rate.
+Gina walks five channels. Each answers one question. Every answer feeds the same profile:
 
-## Gina, running the method
+| Channel | When | What Gina learns |
+|---|---|---|
+| Email | Day 0–14 | What they open, what they click, which categories pull them back |
+| Newsletter | Every 2 weeks | Which topics they respond to, which links they follow |
+| Push | On behavior | When they act, how many nudges they tolerate |
+| SMS | Urgent only | Whether they need one final push to complete a purchase |
+| In-story | New products | How they react before a product launches |
 
-The [demo](https://isaacantunesfacha-dev.github.io/gina-crm/demo/) turns the rules above into working code.
-Paste a list of orders (name, date, amount, or id, name, date, amount) or use the example bakery, and Gina:
+The result: a profile that predicts behavior. Not a guess.
 
-- reads each customer's own rhythm: the median days between their orders;
-- scores RFV and flags who missed their usual date, who went quiet and who is new;
-- picks the next action and channel, drafts the message and names the behavior principle behind it;
-- closes with the three-line Monday report: who to contact, who to leave alone, who is fine.
-
-It runs entirely in the browser. No AI model, nothing is sent or stored. The rules live in
-[`js/gina.js`](js/gina.js), apart from the interface, so they can be read and checked.
-
-**What the demo does not do.** It recommends the next step; it does not send messages or run the
-timed win-back journey above. Before real use, sending needs consent and per-channel preferences
-checked in the CRM. Known limits, each covered by a test:
-
-- Without an ID column, customers are matched by name, so two people with the same name are merged.
-  "Lucia" and "Lúcia" are two customers.
-- RFV thirds are relative to the list. With fewer than three customers, nobody is high value.
-- Frequency counts every order; the rhythm counts distinct days. Two orders on the same day are
-  two orders but no rhythm yet. Whether that is right depends on the business.
-- A line with any field it can't read is skipped and listed, never partly read. Exact repeats are
-  kept and flagged. Quoted fields work; a separator inside quotes does not. Refunds (negative
-  amounts) are rejected.
-
-## What the page covers
-
-`01` The problem, each with its answer · `02` What Gina does: one customer across five channels · `03` When a customer goes quiet: the win-back journey ·
-`04` What the owner sees: mobile-first screens · `05` Why it pays · `06` Gina Zero: the same logic for R$0 · `07` How we would work together: a five-step method ·
-`08` Under the hood: the lifecycle model · `09` Self-critique
-
-The order follows a first-time visitor: the problem, a concrete example, the benefit, how to start, and only then the technical detail.
-
-Every call to action leads to one of two places: the demo or my e-mail.
+---
 
 ## Built with
 
-Plain HTML, CSS and JavaScript. No framework, no dependencies, no tracking.
+Plain HTML, CSS, and JavaScript. No framework, no dependencies, no tracking.
 
-- The hero starts as a still image in the HTML. After the page has loaded, a silent video replaces it
-  and loses its paper background live, frame by frame, in a canvas. Phones get a 85 KB pre-cropped copy
-  (desktop: 795 KB). With reduced motion, Save-Data, a 2G connection or no JavaScript, the still stays;
-  if a device can't key frames fast enough, the still comes back.
-- The journey animation is one small script that only runs while it's on screen.
-- Reduced motion shows the finished journey. Without JavaScript, the page still reads in full.
-- English and Portuguese are written separately, not translated.
+**The site:**
+- Hero video removes its background frame-by-frame on canvas after page load (optimized for mobile)
+- Journey animation runs only while visible
+- Reduced motion preserves readability
+- Works without JavaScript
+- English and Portuguese are separate, not translated
 
-<details>
-<summary><b>Structure and build</b></summary>
+**The demo:**
+- 36 unit tests (`node --test`)
+- Deterministic logic: reads customer history, scores RFV, flags missed dates, recommends next action
+- All data stays in your browser
 
-```
-index.html, pt/index.html   generated pages (EN, PT)
-css/styles.css              tokens and components
-js/keyed-video.js           hero video with the background removed live, loaded after the page
-js/journey.js               360° journey animation
-js/nav.js                   section bar: highlights the section on screen
-js/gina.js                  the method as code: rhythm, RFV, status, next action
-js/demo.js                  demo interface
-js/ref.js                   adds ?ref=behance|linkedin|post|cv to the e-mail subject, nothing else
-demo/, pt/demo/             generated demo pages (EN, PT)
-404.html                    generated not-found page
-assets/                     Gina art (WebP), walk frames, hero video (desktop and phone copies, no audio), link-preview cards (og-en/og-pt.jpg)
-src/content/                all copy, one file per language
-src/site.mjs                contact, legal text, public URL
-src/markup.mjs              shared pieces: channel mocks, phones, win-back flow
-build.mjs                   renders both pages from src/
-tests/                      rules engine tests (node:test)
-docs/                       images for this README
+**To build locally:**
+
+```bash
+node build.mjs          # Render pages from src/
+node --test             # Run tests
+python3 -m http.server  # Preview at localhost:8000
 ```
 
-Edit `src/`, then run `node build.mjs`. Don't edit the generated HTML by hand.
-Run the rules engine tests with `node --test` (Node 20+, no dependencies).
-Preview locally with `python3 -m http.server`; opening the file directly keeps the hero as a still image.
-
-</details>
+---
 
 ## Work with me
 
-In consulting, I use Gina to map your journey, fix the model and get the first journeys running
-on the tool you already have. Start with a 30-minute diagnosis: you leave with the three changes
-I'd make first, whether we work together or not.
+I help small businesses turn CRM from a cluttered system into a clear operating model.
 
-[iantunessp@gmail.com](mailto:iantunessp@gmail.com?subject=CRM%20diagnosis%20-%20Gina) · [LinkedIn](https://www.linkedin.com/in/isaacnandes/)
+**Start with a 30-minute diagnosis.** You leave with the three changes I'd make first.
 
-## Rights
+Email: iantunessp@gmail.com  
+LinkedIn: https://www.linkedin.com/in/isaacnandes/
 
-© 2026 Isaac Antunes. All rights reserved: Gina's name, character and illustrations, the method,
-the copy, the design and the code. See [LICENSE](LICENSE).
+---
 
-Concept project. Forno da Vila, Doce Lar Bakery and every customer shown are fictional.
+## License
+
+© 2026 Isaac Antunes. All rights reserved: Gina's name, character, illustrations, the method, copy, design, and code.
+
+Concept project. Forno da Vila is fictional.
