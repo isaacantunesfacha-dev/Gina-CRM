@@ -185,6 +185,8 @@ function page(lang) {
       <span class="break__k">${b.k}</span>
       <h3 class="break__t">${esc(b.a)} <span class="em">${esc(b.i)}</span></h3>
       <p class="break__d">${esc(b.d)}</p>
+      <p class="break__fix"><span class="label">${esc(t.breakFixK)}</span>${esc(b.fix)}</p>
+      <p class="break__proof"><b>${esc(t.breakProofK)}</b> ${esc(b.proof)}</p>
     </article>`)}
   </div>
 </section>

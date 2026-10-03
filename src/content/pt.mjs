@@ -33,19 +33,25 @@ export default {
       "k": "A",
       "a": "Etapas que ninguém",
       "i": "combinou",
-      "d": "Pro marketing é lead, pra vendas é contato, pro dono é \"aquela moça de terça\". Quando os relatórios não batem, ninguém mais abre."
+      "d": "Pro marketing é lead, pra vendas é contato, pro dono é \"aquela moça de terça\". Quando os relatórios não batem, ninguém mais abre.",
+      "fix": "Defino a etapa pelo evento, não pelo calendário. Um dono e uma regra de entrada por etapa.",
+      "proof": "SBT: alinhei as áreas envolvidas e geri campanhas de ponta a ponta."
     },
     {
       "k": "B",
       "a": "Dado",
       "i": "sem dono",
-      "d": "Cadastro duplicado, campo vazio e a conversa de verdade acontecendo no WhatsApp, fora do sistema. O CRM acaba sabendo menos que o balcão."
+      "d": "Cadastro duplicado, campo vazio e a conversa de verdade acontecendo no WhatsApp, fora do sistema. O CRM acaba sabendo menos que o balcão.",
+      "fix": "Audito fonte, campo e duplicado, e dou um dono a cada campo.",
+      "proof": "Brasil Futebol Expo: organizei dados dispersos de várias universidades e gerei milhões em vendas ativas."
     },
     {
       "k": "C",
       "a": "Automação",
       "i": "antes do processo",
-      "d": "Disparo automático em cima de um funil indefinido manda a mensagem errada pra pessoa certa, no horário. É um jeito rápido de ensinar o cliente a te ignorar."
+      "d": "Disparo automático em cima de um funil indefinido manda a mensagem errada pra pessoa certa, no horário. É um jeito rápido de ensinar o cliente a te ignorar.",
+      "fix": "Nenhuma régua vai ao ar sem etapa, meta e saída definidas.",
+      "proof": "Método de testes aplicado antes de qualquer ação comercial em grandes projetos."
     }
   ],
   "s2": "02 — Método",
@@ -642,6 +648,7 @@ export default {
       "A Gina recomenda o próximo passo. Enviar, e checar consentimento e preferência de canal, fica com você ou com o seu CRM."
     ],
     "exampleShop": "Forno da Vila · padaria de exemplo, fictícia"
-  }
-
+  },
+  "breakFixK": "O que eu faço",
+  "breakProofK": "Trabalho real"
 };

@@ -293,6 +293,11 @@ main [id] { scroll-margin-top: 64px; }
 .break__k { font: 700 12px/1 var(--mono); color: var(--green); }
 .break__t { font-size: 26px; line-height: 1.15; letter-spacing: -.02em; }
 .break__d { font-size: 16px; line-height: 1.6; color: var(--muted); text-wrap: pretty; }
+/* The answer to the problem, then where it was done for real (not the fictional bakery). */
+.break__fix { margin-top: 4px; padding-top: 16px; border-top: 1px solid var(--line); display: flex; flex-direction: column; gap: 6px; font-size: 17px; line-height: 1.45; text-wrap: pretty; }
+.break__fix .label { color: var(--green); }
+.break__proof { font: 400 12px/1.55 var(--mono); letter-spacing: .02em; color: rgba(13, 26, 20, .78); text-wrap: pretty; }
+.break__proof b { color: var(--green); letter-spacing: .1em; text-transform: uppercase; }
 
 /* ── 02 Method ──────────────────────────────────────── */
 .title--narrow { max-width: 17ch; }
