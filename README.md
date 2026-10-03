@@ -22,6 +22,16 @@
 
 ---
 
+## What is real and what is concept
+
+| | Status |
+|---|---|
+| The method (lifecycle model, rules, metrics) | My working approach to CRM. The examples that illustrate it use a fictional bakery. |
+| The demo | Real code: deterministic rules in the browser, covered by 36 tests (`node --test`). It recommends the next step; it sends nothing. |
+| The agent roles on the page | A proposal for how the method could be staffed. Not a running product. |
+| Numbers in the examples | Fictional. They show how the method reads data; they are not results. |
+| My results in real CRM work | Not on this page. They come from my work at SBT, described on [LinkedIn](https://www.linkedin.com/in/isaacnandes/). |
+
 ## Why Gina exists
 
 The idea came from long stretches of running operations and strategy at the same time.
@@ -130,6 +140,7 @@ js/journey.js               360° journey animation
 js/nav.js                   section bar: highlights the section on screen
 js/gina.js                  the method as code: rhythm, RFV, status, next action
 js/demo.js                  demo interface
+js/ref.js                   adds ?ref=behance|linkedin|post|cv to the e-mail subject, nothing else
 demo/, pt/demo/             generated demo pages (EN, PT)
 404.html                    generated not-found page
 assets/                     Gina art (WebP), walk frames, hero video (desktop and phone copies, no audio), link-preview cards (og-en/og-pt.jpg)

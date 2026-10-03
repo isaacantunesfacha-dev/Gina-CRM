@@ -130,6 +130,7 @@ function page(lang) {
   <script src="${a('js/keyed-video.js')}" defer></script>
   <script src="${a('js/journey.js')}" defer></script>
   <script src="${a('js/nav.js')}" defer></script>
+  <script src="${a('js/ref.js')}" defer></script>
 </head>
 <body>
 <a class="skip" href="#main">${ui.skip}</a>
@@ -200,6 +201,7 @@ function page(lang) {
         <div class="step__col"><p class="step__label">${esc(t.deliv)}</p><p class="step__out">${esc(s.out)}</p><span class="chip">@${esc(s.agent)}</span></div>
       </li>`)}
     </ol>
+    <p class="steps__note">${esc(t.rolesNote)}</p>
   </div>
 </section>
 
@@ -426,6 +428,7 @@ function demoPage(lang) {
   <link rel="stylesheet" href="${a('css/styles.css')}">
   <script src="${a('js/gina.js')}" defer></script>
   <script src="${a('js/demo.js')}" defer></script>
+  <script src="${a('js/ref.js')}" defer></script>
 </head>
 <body>
 <a class="skip" href="#main">${ui.skip}</a>

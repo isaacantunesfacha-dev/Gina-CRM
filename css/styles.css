@@ -299,6 +299,7 @@ main [id] { scroll-margin-top: 64px; }
 .title--method { line-height: 1.02; }
 .title .tag-mono { font-size: .62em; vertical-align: .12em; }
 .steps { margin-top: 56px; }
+.steps__note { margin-top: 24px; max-width: 62ch; font: 400 12px/1.6 var(--mono); letter-spacing: .04em; color: rgba(245, 243, 237, .7); }
 .step {
   --col: 220px;
   gap: 20px 40px;
