@@ -107,3 +107,32 @@ export const winbackFlow = (wf, asset) => `<div class="grid flow">
         <div class="flow__run"><img src="${asset('assets/gina-flat.webp')}" alt="" width="64" height="75" loading="lazy"><p>${esc(wf.run)}</p></div>
       </div>
     </div>`;
+
+/**
+ * The three problems, each answered on the same row: problem, arrow, what I do,
+ * and where it was done for real. "Who: what" proofs split at the first colon,
+ * so the place can stand out; a proof without a place stays plain text.
+ */
+export function problemRows(t) {
+  const proof = (text) => {
+    const i = text.indexOf(': ');
+    return i < 0 ? esc(text) : `<b>${esc(text.slice(0, i))}</b> ${esc(text.slice(i + 2))}`;
+  };
+  const n = t.breaks.length;
+  return `<p class="fixes__head">${esc(t.fixesHead.replace(/\{n\}/g, n))}</p>
+  <ol class="fixes">${each(t.breaks, (b) => `
+    <li class="fix">
+      <div class="fix__problem">
+        <span class="fix__k">${b.k}</span>
+        <h3 class="fix__t">${esc(b.a)} <span class="em">${esc(b.i)}</span></h3>
+        <p class="fix__d">${esc(b.d)}</p>
+      </div>
+      <span class="fix__arrow" aria-hidden="true"></span>
+      <div class="fix__answer">
+        <p class="fix__label">${esc(t.breakFixK)}</p>
+        <p class="fix__a">${esc(b.fix)}</p>
+        <p class="fix__proof"><span>${esc(t.breakProofK)}</span> ${proof(b.proof)}</p>
+      </div>
+    </li>`)}
+  </ol>`;
+}

@@ -288,11 +288,40 @@ a:hover { color: var(--green); }
 main [id] { scroll-margin-top: 64px; }
 
 /* ── 01 Diagnosis ───────────────────────────────────── */
-.breaks { --col: 300px; margin-top: 56px; }
-.break { background: var(--paper); padding: 32px 28px; display: flex; flex-direction: column; gap: 14px; }
-.break__k { font: 700 12px/1 var(--mono); color: var(--green); }
-.break__t { font-size: 26px; line-height: 1.15; letter-spacing: -.02em; }
-.break__d { font-size: 16px; line-height: 1.6; color: var(--muted); text-wrap: pretty; }
+/* Problem, then the answer on the same row. The panel is the loudest thing in the section on purpose. */
+.fixes__head { margin-top: 48px; display: flex; align-items: center; gap: 16px; font: 700 12px/1 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--green); }
+.fixes__head::after { content: ''; flex: 1; height: 1px; background: var(--line); }
+.fixes { margin-top: 32px; display: flex; flex-direction: column; gap: 56px; }
+.fix { display: grid; grid-template-columns: minmax(0, 1fr); }
+.fix__k { font: 700 12px/1 var(--mono); letter-spacing: .14em; color: var(--green); }
+.fix__t { margin-top: 14px; font-size: clamp(30px, 8vw, 44px); line-height: 1.05; letter-spacing: -.03em; font-weight: 300; text-wrap: balance; }
+.fix__d { margin-top: 14px; max-width: 46ch; font-size: 17px; line-height: 1.6; color: var(--muted); text-wrap: pretty; }
+/* Arrow: a line with a head, pointing from the problem to the answer (down on phones, right on desktop). */
+.fix__arrow { position: relative; display: block; width: 2px; height: 44px; margin: 20px 0 20px 6px; background: var(--green); transform-origin: top; }
+.fix__arrow::after {
+  content: ''; position: absolute; left: -7px; bottom: -1px; width: 14px; height: 14px;
+  border-right: 2px solid var(--green); border-bottom: 2px solid var(--green); transform: rotate(45deg) translate(-1px, -1px);
+}
+.fix__answer { padding: 28px 24px; border-radius: 18px; background: var(--forest); color: var(--paper); display: flex; flex-direction: column; gap: 14px; }
+.fix__label { font: 700 12px/1 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--signal); }
+.fix__a { font-size: clamp(24px, 6.4vw, 30px); line-height: 1.22; letter-spacing: -.02em; font-weight: 300; text-wrap: balance; }
+.fix__proof { margin-top: 6px; padding-top: 16px; border-top: 1px solid rgba(245, 243, 237, .2); font: 400 12px/1.65 var(--mono); letter-spacing: .02em; color: rgba(245, 243, 237, .78); text-wrap: pretty; }
+.fix__proof span { margin-right: 6px; letter-spacing: .12em; text-transform: uppercase; color: var(--signal); }
+.fix__proof b { color: var(--paper); }
+@media (min-width: 960px) {
+  .fixes { gap: 40px; }
+  .fix { grid-template-columns: minmax(0, 1fr) 96px minmax(0, 1.1fr); align-items: center; }
+  .fix__arrow { width: 96px; height: 2px; margin: 0; transform-origin: left; }
+  .fix__arrow::after { left: auto; right: -1px; bottom: -7px; transform: rotate(-45deg) translate(1px, 1px); }
+  .fix__answer { padding: 36px 40px; }
+}
+/* Where the browser can tie animation to scroll, the arrow draws itself as the row enters. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .fix__arrow { animation: fix-draw linear both; animation-timeline: view(); animation-range: entry 10% cover 35%; }
+    @keyframes fix-draw { from { transform: scale(0, 0); } to { transform: scale(1, 1); } }
+  }
+}
 
 /* ── 02 Method ──────────────────────────────────────── */
 .title--narrow { max-width: 17ch; }
@@ -772,7 +801,7 @@ keyed-video > img { position: absolute; inset: 0; width: 100%; height: 100%; obj
 @media (max-width: 560px) {
   .hero__meta { padding-right: 104px; }
   .hero__meta span:last-child { display: none; }
-  .break, .metric, .crit__item { padding: 24px 20px; }
+  .metric, .crit__item { padding: 24px 20px; }
   .list-row--pair { grid-template-columns: 1fr; gap: 6px; }
   .level { min-height: 0; }
 }

@@ -33,19 +33,25 @@ export default {
       "k": "A",
       "a": "Stages nobody",
       "i": "agreed on",
-      "d": "Marketing calls it a lead, sales calls it a contact, the owner calls it \"that lady from Tuesday\". When reports disagree, people stop opening them."
+      "d": "Marketing calls it a lead, sales calls it a contact, the owner calls it \"that lady from Tuesday\". When reports disagree, people stop opening them.",
+      "fix": "I define each stage by the event, not the calendar. One owner and one entry rule per stage.",
+      "proof": "SBT: aligned the teams involved and ran campaigns end to end."
     },
     {
       "k": "B",
       "a": "Data with",
       "i": "no owner",
-      "d": "Duplicates, blank fields and the real conversations happening on WhatsApp, outside the system. The CRM ends up knowing less than the person at the counter."
+      "d": "Duplicates, blank fields and the real conversations happening on WhatsApp, outside the system. The CRM ends up knowing less than the person at the counter.",
+      "fix": "I audit every source, field and duplicate, and give each field an owner.",
+      "proof": "Brasil Futebol Expo: organized scattered data from several universities and generated millions in active sales."
     },
     {
       "k": "C",
       "a": "Automation",
       "i": "before process",
-      "d": "A drip campaign built on an undefined funnel sends the wrong message to the right person, on schedule. That's a quick way to teach customers to ignore you."
+      "d": "A drip campaign built on an undefined funnel sends the wrong message to the right person, on schedule. That's a quick way to teach customers to ignore you.",
+      "fix": "No journey goes live without a stage, a goal and an exit.",
+      "proof": "Testing method applied before any commercial action on large projects."
     }
   ],
   "s2": "02 — Method",
@@ -642,6 +648,8 @@ export default {
       "Gina recommends the next step. Sending it, and checking consent and channel preferences, stays with you or your CRM."
     ],
     "exampleShop": "Forno da Vila · example bakery, fictional"
-  }
-
+  },
+  "fixesHead": "{n} problems, {n} answers",
+  "breakFixK": "What I do",
+  "breakProofK": "Real work"
 };
