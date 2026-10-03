@@ -118,7 +118,9 @@ export function problemRows(t) {
     const i = text.indexOf(': ');
     return i < 0 ? esc(text) : `<b>${esc(text.slice(0, i))}</b> ${esc(text.slice(i + 2))}`;
   };
-  return `<ol class="fixes">${each(t.breaks, (b) => `
+  const n = t.breaks.length;
+  return `<p class="fixes__head">${esc(t.fixesHead.replace(/\{n\}/g, n))}</p>
+  <ol class="fixes">${each(t.breaks, (b) => `
     <li class="fix">
       <div class="fix__problem">
         <span class="fix__k">${b.k}</span>

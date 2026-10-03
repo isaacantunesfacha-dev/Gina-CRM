@@ -649,6 +649,7 @@ export default {
     ],
     "exampleShop": "Forno da Vila · example bakery, fictional"
   },
+  "fixesHead": "{n} problems, {n} answers",
   "breakFixK": "What I do",
   "breakProofK": "Real work"
 };
