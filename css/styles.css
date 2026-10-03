@@ -139,10 +139,11 @@ a:hover { color: var(--green); }
   font: 700 13px/1.2 var(--mono);
   letter-spacing: .1em;
   text-transform: uppercase;
+  box-shadow: 0 1px 0 rgba(6, 31, 22, .08);
 }
 .btn--primary { background: var(--signal); color: var(--forest); }
 .btn--primary:hover { background: var(--paper); color: var(--forest); }
-.btn--ghost { border: 1px solid rgba(245, 243, 237, .4); }
+.btn--ghost { border: 1px solid rgba(245, 243, 237, .4); background: transparent; }
 .btn--ghost:hover { border-color: var(--signal); }
 .btn--dark { background: var(--forest); color: var(--paper); }
 .btn--dark:hover { background: var(--paper); color: var(--forest); }
@@ -150,11 +151,12 @@ a:hover { color: var(--green); }
 
 .chip {
   align-self: flex-start;
-  padding: 5px 10px;
+  padding: 6px 10px;
+  border: 1px solid rgba(127, 196, 83, .45);
   border-radius: 99px;
-  font: 700 12px/1.3 var(--mono);
+  font: 700 11px/1.3 var(--mono);
   letter-spacing: .08em;
-  background: rgba(127, 196, 83, .16);
+  background: rgba(127, 196, 83, .12);
   color: var(--signal-soft);
 }
 
@@ -270,7 +272,6 @@ a:hover { color: var(--green); }
   display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none;
   padding: 6px var(--gutter);
 }
-/* Small screens: stop short of the EN/PT switch and fade the edge to hint at sideways scroll. */
 @media (max-width: 959px) {
   .jump__inner {
     margin-right: 124px; padding-right: 24px;
@@ -291,7 +292,6 @@ a:hover { color: var(--green); }
 main [id] { scroll-margin-top: 64px; }
 
 /* ── 01 Diagnosis ───────────────────────────────────── */
-/* Problem, then the answer on the same row. The panel is the loudest thing in the section on purpose. */
 .fixes__head { margin-top: 48px; display: flex; align-items: center; gap: 16px; font: 700 12px/1 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--green); }
 .fixes__head::after { content: ''; flex: 1; height: 1px; background: var(--line); }
 .fixes { margin-top: 32px; display: flex; flex-direction: column; gap: 56px; }
@@ -299,7 +299,6 @@ main [id] { scroll-margin-top: 64px; }
 .fix__k { font: 700 12px/1 var(--mono); letter-spacing: .14em; color: var(--green); }
 .fix__t { margin-top: 14px; font-size: clamp(30px, 8vw, 44px); line-height: 1.05; letter-spacing: -.03em; font-weight: 300; text-wrap: balance; }
 .fix__d { margin-top: 14px; max-width: 46ch; font-size: 17px; line-height: 1.6; color: var(--muted); text-wrap: pretty; }
-/* Arrow: a line with a head, pointing from the problem to the answer (down on phones, right on desktop). */
 .fix__arrow { position: relative; display: block; width: 2px; height: 44px; margin: 20px 0 20px 6px; background: var(--green); transform-origin: top; }
 .fix__arrow::after {
   content: ''; position: absolute; left: -7px; bottom: -1px; width: 14px; height: 14px;
@@ -318,7 +317,6 @@ main [id] { scroll-margin-top: 64px; }
   .fix__arrow::after { left: auto; right: -1px; bottom: -7px; transform: rotate(-45deg) translate(1px, 1px); }
   .fix__answer { padding: 36px 40px; }
 }
-/* Where the browser can tie animation to scroll, the arrow draws itself as the row enters. */
 @supports (animation-timeline: view()) {
   @media (prefers-reduced-motion: no-preference) {
     .fix__arrow { animation: fix-draw linear both; animation-timeline: view(); animation-range: entry 10% cover 35%; }
@@ -367,7 +365,7 @@ keyed-video > img { position: absolute; inset: 0; width: 100%; height: 100%; obj
 .track__line {
   position: absolute; left: 0; right: 0; bottom: 22px; height: 2px;
   background: repeating-linear-gradient(90deg, var(--green) 0 8px, transparent 8px 16px);
-  opacity: .75; /* 3.5:1 on paper; was .5 (2.2:1), too faint to read as a path */
+  opacity: .75;
 }
 .track__stop {
   position: absolute; bottom: 14px; left: var(--x);
@@ -386,7 +384,6 @@ keyed-video > img { position: absolute; inset: 0; width: 100%; height: 100%; obj
 }
 
 .channels { --col: 200px; margin-top: 28px; gap: 12px; }
-/* Phones: one column with a vertical axis, so the order reads as a path. */
 @media (max-width: 639px) {
   .channels { grid-template-columns: 1fr; position: relative; padding-left: 28px; gap: 16px; }
   .channels::before {
@@ -438,7 +435,7 @@ keyed-video > img { position: absolute; inset: 0; width: 100%; height: 100%; obj
 .mock--news .mock__mast { display: flex; justify-content: space-between; align-items: baseline; padding-bottom: 8px; border-bottom: 2px solid var(--forest); }
 .mock--news .mock__mast span:first-child { font-size: 18px; font-style: italic; letter-spacing: -.02em; }
 .mock--news .mock__mast span:last-child { font: 700 9px/1 var(--mono); color: var(--green); }
-.mock--news .mock__img { height: 70px; border-radius: 8px; background: var(--mint); display: flex; align-items: flex-end; padding: 8px; font: 400 9px/1 var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--green); }
+.mock--news .mock__img { height: 70px; border-radius: 8px; background: var(--mint); display: flex; align-items: flex-end; padding: 8px; font: 400 9px/1 var(--mono); letter-spacing: .12em; text-transform: uppercase; }
 .mock--news .mock__title { font-size: 17px; line-height: 1.15; letter-spacing: -.01em; }
 .mock--news .mock__text { font-size: 12px; line-height: 1.45; color: rgba(13, 26, 20, .7); }
 
@@ -467,7 +464,7 @@ keyed-video > img { position: absolute; inset: 0; width: 100%; height: 100%; obj
 .mock--story .mock__logo { width: 22px; height: 22px; background: var(--signal); color: var(--forest); font-size: 11px; font-weight: 400; }
 .mock--story .mock__k { margin-top: 10px; color: var(--signal-pale); }
 .mock--story .mock__quote { font-size: 22px; font-weight: 300; line-height: 1.05; letter-spacing: -.02em; }
-.mock--story .mock__poll { margin-top: auto; padding: 10px; border-radius: 12px; background: var(--paper); color: var(--forest); display: flex; flex-direction: column; gap: 6px; font-size: 12px; text-align: center; }
+.mock--story .mock__poll { margin-top: auto; padding: 10px; border-radius: 12px; background: var(--paper); color: var(--forest); display: flex; flex-direction: column; gap: 6px; font-size: 12px; }
 .mock--story .mock__poll strong { font-weight: 600; }
 .mock--story .mock__poll div { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
 .mock--story .mock__poll span { padding: 6px; border-radius: 8px; background: var(--mint); }
@@ -482,12 +479,11 @@ keyed-video > img { position: absolute; inset: 0; width: 100%; height: 100%; obj
 .profile__traits { display: flex; flex-wrap: wrap; gap: 10px; }
 .profile__traits li {
   padding: 10px 16px; border-radius: 99px;
-  border: 1px solid rgba(127, 196, 83, .5); /* 3:1 on forest */
+  border: 1px solid rgba(127, 196, 83, .5);
+  background: rgba(255, 255, 255, .02);
   font-size: 16px;
   transition: color .5s, background-color .5s, border-color .5s;
 }
-/* Traits light up as Gina reaches each channel (only when the animation runs).
-   Waiting traits stay readable (6.3:1); "reached" adds a fill and a solid border, not just brightness. */
 .is-live .profile__traits li { color: rgba(245, 243, 237, .6); }
 .is-live .profile__traits li.is-reached { color: var(--paper); background: rgba(127, 196, 83, .14); border-color: var(--signal); }
 
@@ -560,8 +556,8 @@ keyed-video > img { position: absolute; inset: 0; width: 100%; height: 100%; obj
 .screen-home__prog { margin-top: 12px; font: 400 10px/1.3 var(--mono); color: rgba(6, 31, 22, .65); }
 .progress { margin-top: 6px; height: 6px; border-radius: 99px; background: rgba(6, 31, 22, .08); }
 .progress span { display: block; width: 78%; height: 100%; border-radius: 99px; background: var(--signal); }
-.screen-home__primary { position: absolute; left: 14px; right: 14px; bottom: 62px; padding: 14px; border-radius: 16px; background: var(--forest); color: var(--paper); text-align: center; font: 700 12px/1.2 var(--mono); letter-spacing: .06em; }
-.tabbar { position: absolute; left: 0; right: 0; bottom: 0; height: 52px; display: grid; grid-template-columns: repeat(3, 1fr); place-items: center; border-top: 1px solid rgba(6, 31, 22, .1); background: #fff; font: 700 10px/1 var(--mono); color: rgba(6, 31, 22, .45); }
+.screen-home__primary { position: absolute; left: 14px; right: 14px; bottom: 62px; padding: 14px; border-radius: 16px; background: var(--forest); color: var(--paper); text-align: center; font: 700 12px/1.3 var(--mono); letter-spacing: .1em; text-transform: uppercase; }
+.tabbar { position: absolute; left: 0; right: 0; bottom: 0; height: 52px; display: grid; grid-template-columns: repeat(3, 1fr); place-items: center; border-top: 1px solid rgba(6, 31, 22, .1); background: rgba(245, 243, 237, .94); }
 .tabbar span:first-child { color: var(--green); }
 
 /* Phone 3 · customer chat */
@@ -674,7 +670,7 @@ keyed-video > img { position: absolute; inset: 0; width: 100%; height: 100%; obj
 }
 
 .demo-hero { padding: 24px var(--gutter) 40px; }
-.demo-hero__back { display: inline-flex; align-items: center; min-height: 44px; margin-bottom: 20px; font: 700 12px/1.4 var(--mono); letter-spacing: .1em; text-transform: uppercase; color: rgba(245, 243, 237, .7); }
+.demo-hero__back { display: inline-flex; align-items: center; min-height: 44px; margin-bottom: 20px; font: 700 12px/1.4 var(--mono); letter-spacing: .1em; text-transform: uppercase; color: rgba(245, 243, 237, .8); }
 .demo-hero__title { margin-top: 16px; font-weight: 200; font-size: clamp(40px, 11vw, 96px); line-height: .95; letter-spacing: -.05em; text-wrap: balance; }
 .demo-hero__intro { margin-top: 20px; max-width: 52ch; font-size: clamp(17px, 4.4vw, 21px); line-height: 1.55; color: rgba(245, 243, 237, .8); text-wrap: pretty; }
 .demo-hero__privacy { margin-top: 16px; font: 400 12px/1.5 var(--mono); letter-spacing: .04em; color: var(--signal-soft); }
@@ -753,7 +749,7 @@ keyed-video > img { position: absolute; inset: 0; width: 100%; height: 100%; obj
 .demo__form textarea {
   width: 100%; min-height: 220px; padding: 14px 16px; resize: vertical;
   border: 1px solid rgba(13, 26, 20, .2); border-radius: 14px; background: #fff; color: var(--ink);
-  font: 400 16px/1.6 var(--mono); /* 16px keeps iOS from zooming in */
+  font: 400 16px/1.6 var(--mono);
 }
 .demo__form textarea:focus-visible { outline: 2px solid var(--signal); outline-offset: 2px; }
 .demo__help { font-size: 14px; line-height: 1.5; color: var(--muted); }
