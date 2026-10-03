@@ -146,6 +146,7 @@ a:hover { color: var(--green); }
 .btn--ghost:hover { border-color: var(--signal); }
 .btn--dark { background: var(--forest); color: var(--paper); }
 .btn--dark:hover { background: var(--paper); color: var(--forest); }
+.btn:active { transform: translateY(1px); }
 
 .chip {
   align-self: flex-start;
@@ -298,6 +299,7 @@ main [id] { scroll-margin-top: 64px; }
 .title--method { line-height: 1.02; }
 .title .tag-mono { font-size: .62em; vertical-align: .12em; }
 .steps { margin-top: 56px; }
+.steps__note { margin-top: 24px; max-width: 62ch; font: 400 12px/1.6 var(--mono); letter-spacing: .04em; color: rgba(245, 243, 237, .7); }
 .step {
   --col: 220px;
   gap: 20px 40px;
@@ -324,12 +326,16 @@ main [id] { scroll-margin-top: 64px; }
 .rule { padding: 22px 24px; border: 1px solid rgba(13, 26, 20, .16); border-radius: 14px; font-size: 16px; line-height: 1.55; text-wrap: pretty; }
 .rule .label { letter-spacing: .14em; color: var(--green); }
 
+/* Hero art: the poster is a plain <img> in the HTML; keyed-video.js swaps it for the keyed canvas. */
+keyed-video { display: block; position: relative; }
+keyed-video > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
+
 /* ── 03b Journey 360 ────────────────────────────────── */
 .track { position: relative; margin-top: 56px; height: clamp(120px, 18vw, 200px); }
 .track__line {
   position: absolute; left: 0; right: 0; bottom: 22px; height: 2px;
   background: repeating-linear-gradient(90deg, var(--green) 0 8px, transparent 8px 16px);
-  opacity: .5;
+  opacity: .75; /* 3.5:1 on paper; was .5 (2.2:1), too faint to read as a path */
 }
 .track__stop {
   position: absolute; bottom: 14px; left: var(--x);
@@ -348,6 +354,24 @@ main [id] { scroll-margin-top: 64px; }
 }
 
 .channels { --col: 200px; margin-top: 28px; gap: 12px; }
+/* Phones: one column with a vertical axis, so the order reads as a path. */
+@media (max-width: 639px) {
+  .channels { grid-template-columns: 1fr; position: relative; padding-left: 28px; gap: 16px; }
+  .channels::before {
+    content: ''; position: absolute; left: 7px; top: 24px; bottom: 24px; width: 2px;
+    border-radius: 2px; background: var(--green); opacity: .75;
+  }
+  .channel { position: relative; }
+  .channel::before {
+    content: ''; position: absolute; left: -28px; top: 17px; z-index: 1;
+    width: 16px; height: 16px; box-sizing: border-box;
+    border: 2px solid var(--green); border-radius: 99px; background: var(--signal);
+    transition: background-color .4s, box-shadow .4s;
+  }
+  .is-live .channel::before { background: var(--paper); }
+  .is-live .channel.is-reached::before { background: var(--signal); }
+  .is-live .channel.is-current::before { background: var(--signal); box-shadow: 0 0 0 5px rgba(127, 196, 83, .3); }
+}
 .channel {
   display: flex; flex-direction: column; gap: 14px;
   padding: 16px; border-radius: 16px;
@@ -426,13 +450,14 @@ main [id] { scroll-margin-top: 64px; }
 .profile__traits { display: flex; flex-wrap: wrap; gap: 10px; }
 .profile__traits li {
   padding: 10px 16px; border-radius: 99px;
-  border: 1px solid rgba(127, 196, 83, .5);
+  border: 1px solid rgba(127, 196, 83, .5); /* 3:1 on forest */
   font-size: 16px;
-  transition: opacity .5s;
+  transition: color .5s, background-color .5s, border-color .5s;
 }
-/* Traits fade in as Gina reaches each channel (only when the animation runs). */
-.is-live .profile__traits li { opacity: .18; }
-.is-live .profile__traits li.is-reached { opacity: 1; }
+/* Traits light up as Gina reaches each channel (only when the animation runs).
+   Waiting traits stay readable (6.3:1); "reached" adds a fill and a solid border, not just brightness. */
+.is-live .profile__traits li { color: rgba(245, 243, 237, .6); }
+.is-live .profile__traits li.is-reached { color: var(--paper); background: rgba(127, 196, 83, .14); border-color: var(--signal); }
 
 /* ── 04 Win-back ────────────────────────────────────── */
 .flow { --col: 280px; margin-top: 56px; gap: 16px; align-items: start; }

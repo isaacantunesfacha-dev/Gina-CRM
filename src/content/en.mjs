@@ -52,6 +52,7 @@ export default {
   "h3a": "Model first. Build second.",
   "h3b": "Automate",
   "h3c": "_last",
+  "rolesNote": "@ marks the role that would own each step in a Gina setup. The roles are a proposal; today only the demo's decision rules run.",
   "inAny": "In any CRM",
   "deliv": "Deliverable",
   "steps": [

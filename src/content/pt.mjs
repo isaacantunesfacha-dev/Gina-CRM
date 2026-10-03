@@ -52,6 +52,7 @@ export default {
   "h3a": "Primeiro o modelo. Depois a construção.",
   "h3b": "Automação",
   "h3c": "_por último",
+  "rolesNote": "@ marca o papel que cuidaria de cada etapa num setup com a Gina. Os papéis são uma proposta; hoje só as regras de decisão da demo rodam.",
   "inAny": "Em qualquer CRM",
   "deliv": "Entrega",
   "steps": [

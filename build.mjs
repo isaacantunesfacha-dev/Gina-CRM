@@ -18,6 +18,20 @@ const COPY = { en, pt };
 
 // Lifecycle bar colours, light → dark, one per stage.
 const STAGE_COLORS = ['#e9efe2', '#d9e7cc', '#c3dcae', '#a8d08a', '#7fc453', '#3f9a3a', '#1e6b2e', '#061f16'];
+// Hero video: the region of the 1280×720 source that Gina occupies, and the paper-coloured
+// areas (logos, captions) painted out before keying. The mobile copy is that region
+// pre-cropped and pre-scaled (assets/gina-anim-wave-m.mp4, 420×360), so its masks are
+// the same rectangles moved and scaled to match.
+const HERO_VIDEO = (() => {
+  const crop = [290, 30, 700, 600], scale = 0.6;
+  const masks = [[842, 0, 200, 180], [280, 576, 225, 144], [945, 0, 60, 720]];
+  const toMobile = ([x, y, w, h]) => [(x - crop[0]) * scale, (y - crop[1]) * scale, w * scale, h * scale].map(Math.round);
+  const join = (list) => list.map((m) => m.join(',')).join('|');
+  return {
+    crop: crop.join(','), scale, masks: join(masks),
+    mobileCrop: `0,0,${crop[2] * scale},${crop[3] * scale}`, mobileMasks: join(masks.map(toMobile)),
+  };
+})();
 // Horizontal position (%) of each channel stop on the journey track.
 const STOPS = [10, 30, 50, 70, 90];
 
@@ -116,6 +130,7 @@ function page(lang) {
   <script src="${a('js/keyed-video.js')}" defer></script>
   <script src="${a('js/journey.js')}" defer></script>
   <script src="${a('js/nav.js')}" defer></script>
+  <script src="${a('js/ref.js')}" defer></script>
 </head>
 <body>
 <a class="skip" href="#main">${ui.skip}</a>
@@ -144,7 +159,7 @@ function page(lang) {
         </div>
       </div>
       <div class="hero__art">
-        <keyed-video src="${a('assets/gina-anim-wave.mp4')}" crop="290,30,700,600" masks="842,0,200,180|280,576,225,144|945,0,60,720" poster="${a('assets/gina-flat.webp')}" aria-hidden="true"></keyed-video>
+        <keyed-video src="${a('assets/gina-anim-wave.mp4')}" crop="${HERO_VIDEO.crop}" masks="${HERO_VIDEO.masks}" scale="${HERO_VIDEO.scale}" mobile-src="${a('assets/gina-anim-wave-m.mp4')}" mobile-crop="${HERO_VIDEO.mobileCrop}" mobile-masks="${HERO_VIDEO.mobileMasks}" mobile-scale="1" aria-hidden="true"><img src="${a('assets/gina-flat.webp')}" alt="" width="460" height="539" fetchpriority="high"></keyed-video>
       </div>
     </div>
   </div>
@@ -186,6 +201,7 @@ function page(lang) {
         <div class="step__col"><p class="step__label">${esc(t.deliv)}</p><p class="step__out">${esc(s.out)}</p><span class="chip">@${esc(s.agent)}</span></div>
       </li>`)}
     </ol>
+    <p class="steps__note">${esc(t.rolesNote)}</p>
   </div>
 </section>
 
@@ -412,6 +428,7 @@ function demoPage(lang) {
   <link rel="stylesheet" href="${a('css/styles.css')}">
   <script src="${a('js/gina.js')}" defer></script>
   <script src="${a('js/demo.js')}" defer></script>
+  <script src="${a('js/ref.js')}" defer></script>
 </head>
 <body>
 <a class="skip" href="#main">${ui.skip}</a>
