@@ -113,8 +113,11 @@ checked in the CRM. Known limits, each covered by a test:
 
 ## What the page covers
 
-`01` Why CRMs get abandoned, each problem with its answer · `02` A five-step method, tool-agnostic · `03` Lifecycle model with an entry rule per stage ·
-`04` The 360° journey · `05` Win-back journey · `06` Mobile-first product screens · `07` **Self-critique** · `08` **Gina Zero**, the same logic for R$0 · `09` Where the bill can get smaller
+`01` The problem, each with its answer · `02` What Gina does: one customer across five channels · `03` When a customer goes quiet: the win-back journey ·
+`04` What the owner sees: mobile-first screens · `05` Why it pays · `06` Gina Zero: the same logic for R$0 · `07` How we would work together: a five-step method ·
+`08` Under the hood: the lifecycle model · `09` Self-critique
+
+The order follows a first-time visitor: the problem, a concrete example, the benefit, how to start, and only then the technical detail.
 
 Every call to action leads to one of two places: the demo or my e-mail.
 

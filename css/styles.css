@@ -319,6 +319,9 @@ main [id] { scroll-margin-top: 64px; }
   .cta-band { flex-direction: row; align-items: center; justify-content: space-between; gap: 56px; }
 }
 
+.hero__gloss { margin-top: 18px; max-width: 46ch; font-size: 15px; line-height: 1.55; color: rgba(245, 243, 237, .78); text-wrap: pretty; }
+.step__plain { margin-bottom: 10px; font-size: clamp(20px, 5vw, 24px); line-height: 1.25; font-weight: 300; letter-spacing: -.01em; color: var(--paper); text-wrap: balance; }
+
 .fixes__head { margin-top: 48px; display: flex; align-items: center; gap: 16px; font: 700 12px/1 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--green); }
 .fixes__head::after { content: ''; flex: 1; height: 1px; background: var(--line); }
 .fixes { margin-top: 32px; display: flex; flex-direction: column; gap: 56px; }

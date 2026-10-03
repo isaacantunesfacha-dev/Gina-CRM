@@ -2,9 +2,9 @@
 // © 2026 Isaac Antunes. All rights reserved.
 
 export default {
-  "kicker": "Lifecycle marketing · customer retention",
+  "kicker": "Customer retention for small businesses",
   "closeTools": "HubSpot · RD Station · Pipedrive · Kommo · Zoho · Google Sheets",
-  "tools": "Tool-agnostic · CRM or spreadsheet",
+  "tools": "Works with your CRM or a spreadsheet",
   "fun": "A fun way to grow through CRM.",
   "whoK": "Who's behind this",
   "whoA": "I'm",
@@ -18,13 +18,13 @@ export default {
   "cta2": "See Gina at work",
   "jump": {
     "label": "Sections",
-    "method": "Method",
-    "journey": "Journey",
+    "method": "How we work",
+    "journey": "What she does",
     "demo": "Demo",
     "critique": "Self-critique",
     "contact": "Contact"
   },
-  "s1": "01 — Why CRMs get abandoned",
+  "s1": "01 — The problem",
   "h2a": "The problem is rarely the",
   "h2s": "software.",
   "h2i": "It's the model.",
@@ -54,7 +54,7 @@ export default {
       "proof": "Testing method applied before any commercial action on large projects."
     }
   ],
-  "s2": "02 — Method",
+  "s2": "07 — How we would work together",
   "h3a": "Model first. Build second.",
   "h3b": "Automate",
   "h3c": "_last",
@@ -68,7 +68,8 @@ export default {
       "what": "Audit every source, field and duplicate. Map where deals stall, where customers go quiet, and how long each step really takes.",
       "tool": "Duplicate report · stage history · source breakdown · cohort view",
       "out": "CRM health report with the three fixes that matter most",
-      "agent": "Gina"
+      "agent": "Gina",
+      "plain": "I look at what you have and find where customers slip away."
     },
     {
       "n": "02",
@@ -76,7 +77,8 @@ export default {
       "what": "Define each lifecycle stage by the event that moves a customer into it, not by how many days have passed. Agree on owners and required fields.",
       "tool": "Lifecycle field · pipelines · RFV segments · data dictionary",
       "out": "Lifecycle map and data dictionary",
-      "agent": "Gina"
+      "agent": "Gina",
+      "plain": "We agree on the stages a customer goes through and what moves them."
     },
     {
       "n": "03",
@@ -84,7 +86,8 @@ export default {
       "what": "Configure records, associations, required fields and one view per role, so nobody has to filter to find their work. Import, merge, clean.",
       "tool": "Custom fields · saved views · import and merge",
       "out": "A clean system people actually open",
-      "agent": "Chats"
+      "agent": "Chats",
+      "plain": "I set up your records so anyone can find what they need."
     },
     {
       "n": "04",
@@ -92,7 +95,8 @@ export default {
       "what": "Event-triggered journeys for onboarding, follow-up and win-back. Each message is checked against motivation, effort and timing before it ships.",
       "tool": "Workflows · sequences · shared inbox · tasks",
       "out": "Documented journey library with goals and exits",
-      "agent": "Follow-up"
+      "agent": "Follow-up",
+      "plain": "I write the messages that go out at the right moment."
     },
     {
       "n": "05",
@@ -100,10 +104,11 @@ export default {
       "what": "One dashboard per question. A monthly review with the owner where every journey earns its place or gets switched off.",
       "tool": "Reports · dashboards · source attribution · A/B tests",
       "out": "Weekly operating dashboard",
-      "agent": "Numbers"
+      "agent": "Numbers",
+      "plain": "Each month we check what works and switch off what does not."
     }
   ],
-  "sJ": "04 — 360° journey",
+  "sJ": "02 — What Gina does",
   "hJa": "Gina walks every channel to",
   "hJi": "know one customer.",
   "pJ": "Each channel answers one question about the customer. No channel repeats another one's job, and every answer goes back into the same profile.",
@@ -169,7 +174,7 @@ export default {
       "trait": "Trusts other customers over discounts"
     }
   ],
-  "s3": "03 — Lifecycle model",
+  "s3": "08 — Under the hood: the lifecycle model",
   "h4a": "Every stage has an",
   "h4i": "entry rule.",
   "h4b": "No exceptions.",
@@ -221,7 +226,7 @@ export default {
       "v": "For a business like the one in this example, the second purchase is the conversion to watch. Repeat and Advocate are where small businesses grow, and where they rarely measure."
     }
   ],
-  "s4": "05 — Win-back journey",
+  "s4": "03 — When a customer goes quiet",
   "h5a": "One journey, written down",
   "h5i": "like a contract.",
   "wf": {
@@ -243,7 +248,7 @@ export default {
     "exitT": "Silent for 21 days → marked dormant and left alone for 90. Fewer messages keep the list warm.",
     "run": "Run by @Win-back. A/B test: \"your usual\" vs. a discount. Primary KPI: win-back rate."
   },
-  "sM": "06 — Mobile-first product · concept",
+  "sM": "04 — What the owner sees · concept",
   "hMa": "Designed for the",
   "hMi": "thumb,",
   "hMb": "between two customers.",
@@ -364,7 +369,7 @@ export default {
       }
     ]
   },
-  "s8": "07 — Self-critique",
+  "s8": "09 — Self-critique",
   "h9a": "Where this method",
   "h9i": "falls short.",
   "critLead": "The method above assumes a team. For a business of one, parts of it are too heavy, and a method that can't admit that isn't mature yet. These are the gaps I see and what I'd change.",
@@ -407,7 +412,7 @@ export default {
       "fix": "Hand over a 15-minute weekly ritual the owner can run alone."
     }
   ],
-  "s9": "08 — Zero-budget version",
+  "s9": "06 — Start free",
   "zeroLead": "The same retention logic on free tools: an AI chat bot playing Gina, a spreadsheet as the CRM and one weekly message that says who to call. It costs time, not money, and it gets a business started without a licence.",
   "stack": [
     {
@@ -573,7 +578,7 @@ export default {
     "exampleShop": "Forno da Vila · example bakery, fictional"
   },
   "fixesHead": "{n} problems, {n} answers",
-  "sCost": "09 — Cost",
+  "sCost": "05 — Why it pays",
   "hCostA": "At the end of the day,",
   "hCostI": "the bill can get smaller.",
   "pCost": "Gina isn't one more tool to pay for. She works on costs the business already has.",
@@ -609,5 +614,6 @@ export default {
   "breakProofK": "Real work",
   "ctaDemo": "Try the demo",
   "ctaA": "See the method run: paste a customer list and Gina tells you who to contact this week.",
-  "ctaB": "Like what you see? Start with a 30-minute diagnosis."
+  "ctaB": "Like what you see? Start with a 30-minute diagnosis.",
+  "crmGloss": "New to the term? A CRM is just where a business keeps who its customers are and what they bought. A notebook counts."
 };
