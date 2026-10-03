@@ -292,6 +292,36 @@ a:hover { color: var(--green); }
 main [id] { scroll-margin-top: 64px; }
 
 /* ── 01 Diagnosis ───────────────────────────────────── */
+/* ── Cost: today vs with Gina, then how to measure it ── */
+.costs { margin-top: 40px; border-top: 1px solid var(--line); }
+.cost { display: grid; gap: 14px; padding: 28px 0; border-bottom: 1px solid var(--line); }
+.cost__k { color: var(--green); }
+.cost__tag { display: block; margin-bottom: 6px; font: 700 11px/1.3 var(--mono); letter-spacing: .14em; text-transform: uppercase; }
+.cost__a { font-size: 17px; line-height: 1.5; color: var(--muted); text-wrap: pretty; }
+.cost__b { padding-left: 16px; border-left: 3px solid var(--signal); font-size: 20px; line-height: 1.4; letter-spacing: -.01em; text-wrap: pretty; }
+.cost__b .cost__tag { color: var(--green); }
+.costs__formula { margin-top: 40px; padding: 28px 24px; border-radius: 18px; background: var(--forest); color: var(--paper); display: flex; flex-direction: column; gap: 12px; }
+.costs__formula .label { color: var(--signal); }
+.costs__eq { font: 700 clamp(15px, 3.9vw, 22px)/1.5 var(--mono); color: var(--paper); text-wrap: balance; }
+.costs__note { font-size: 15px; line-height: 1.5; color: rgba(245, 243, 237, .78); }
+@media (min-width: 960px) {
+  .cost { grid-template-columns: 200px minmax(0, 1fr) minmax(0, 1fr); gap: 40px; align-items: start; }
+  .costs__formula { padding: 36px 40px; }
+}
+
+/* ── Call to action bands: text on the left, two buttons on the right ── */
+.cta-band { display: flex; flex-direction: column; gap: 24px; }
+.cta-band--dark { margin-top: 56px; padding-top: 32px; border-top: 1px solid rgba(245, 243, 237, .2); }
+.cta-band__t { max-width: 30ch; font-size: clamp(24px, 6vw, 32px); line-height: 1.2; font-weight: 300; letter-spacing: -.02em; text-wrap: balance; }
+.cta-band .hero__ctas { margin-top: 0; }
+.cta-band--light .cta-note { color: rgba(13, 26, 20, .78); }
+@media (min-width: 960px) {
+  .cta-band { flex-direction: row; align-items: center; justify-content: space-between; gap: 56px; }
+}
+
+.hero__gloss { margin-top: 18px; max-width: 46ch; font-size: 15px; line-height: 1.55; color: rgba(245, 243, 237, .78); text-wrap: pretty; }
+.step__plain { margin-bottom: 10px; font-size: clamp(20px, 5vw, 24px); line-height: 1.25; font-weight: 300; letter-spacing: -.01em; color: var(--paper); text-wrap: balance; }
+
 .fixes__head { margin-top: 48px; display: flex; align-items: center; gap: 16px; font: 700 12px/1 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--green); }
 .fixes__head::after { content: ''; flex: 1; height: 1px; background: var(--line); }
 .fixes { margin-top: 32px; display: flex; flex-direction: column; gap: 56px; }
@@ -588,35 +618,6 @@ keyed-video > img { position: absolute; inset: 0; width: 100%; height: 100%; obj
 .list-row--kpi .list-row__k { font-style: normal; font-size: 18px; letter-spacing: -.01em; color: inherit; }
 .list-row__f { font: 400 12px/1.5 var(--mono); color: var(--signal-soft); }
 
-/* ── 06 Maturity ────────────────────────────────────── */
-.levels { --col: 230px; margin-top: 56px; gap: 12px; align-items: end; }
-.level { min-height: var(--h); border-radius: 16px; padding: 24px; display: flex; flex-direction: column; justify-content: flex-end; gap: 10px; background: var(--bg); }
-.level:nth-child(1) { --h: 220px; --bg: var(--mint); }
-.level:nth-child(2) { --h: 290px; --bg: var(--mint-2); }
-.level:nth-child(3) { --h: 360px; --bg: var(--signal); }
-.level:nth-child(4) { --h: 430px; --bg: var(--forest); color: var(--paper); }
-.level__n { font: 700 12px/1 var(--mono); color: #195a27; }
-.level__name { font-size: 26px; font-style: italic; letter-spacing: -.02em; }
-.level__d { font-size: 15px; line-height: 1.5; color: var(--muted); }
-.level:nth-child(3) .level__n, .level:nth-child(3) .level__d { color: var(--forest); }
-.level:nth-child(4) .level__n { color: var(--signal); }
-.level:nth-child(4) .level__d { color: rgba(245, 243, 237, .8); }
-
-/* ── 07 Metrics ─────────────────────────────────────── */
-.title .num { font-family: var(--mono); font-size: .8em; letter-spacing: -.04em; color: var(--signal); }
-.metrics { --col: 340px; margin-top: 56px; }
-.metric { background: var(--forest); padding: 28px; display: flex; flex-direction: column; gap: 12px; }
-.metric__name { font-size: 24px; letter-spacing: -.02em; }
-.metric__f { font: 400 13px/1.6 var(--mono); color: var(--signal-soft); }
-.metric__why { font-size: 15px; line-height: 1.55; color: rgba(245, 243, 237, .7); text-wrap: pretty; }
-
-/* ── 08 Engagement ──────────────────────────────────── */
-.phases { --col: 300px; margin-top: 56px; gap: 20px; }
-.phase { border-top: 3px solid var(--green); padding-top: 24px; display: flex; flex-direction: column; gap: 12px; }
-.phase__d { font: 700 13px/1 var(--mono); color: var(--green); }
-.phase__n { font-size: 26px; line-height: 1.15; letter-spacing: -.02em; }
-.phase__o { font-size: 16px; line-height: 1.6; color: var(--muted); }
-
 /* ── 09 Self-critique ───────────────────────────────── */
 .section--sand .intro { font-size: 19px; line-height: 1.6; color: rgba(13, 26, 20, .75); }
 .crit { --col: 360px; --line: rgba(13, 26, 20, .16); margin-top: 48px; }
@@ -800,7 +801,6 @@ keyed-video > img { position: absolute; inset: 0; width: 100%; height: 100%; obj
 @media (max-width: 560px) {
   .hero__meta { padding-right: 104px; }
   .hero__meta span:last-child { display: none; }
-  .metric, .crit__item { padding: 24px 20px; }
+  .crit__item { padding: 24px 20px; }
   .list-row--pair { grid-template-columns: 1fr; gap: 6px; }
-  .level { min-height: 0; }
 }

@@ -2,9 +2,9 @@
 // © 2026 Isaac Antunes. All rights reserved.
 
 export default {
-  "kicker": "CRM e retenção de clientes · régua de relacionamento",
+  "kicker": "Retenção de clientes para pequenos negócios",
   "closeTools": "HubSpot · RD Station · Pipedrive · Kommo · Zoho · Planilhas Google",
-  "tools": "Qualquer ferramenta · CRM ou planilha",
+  "tools": "Funciona com o seu CRM ou uma planilha",
   "fun": "Um jeito divertido de crescer através do CRM.",
   "whoK": "Quem está por trás",
   "whoA": "Eu sou",
@@ -18,13 +18,13 @@ export default {
   "cta2": "Ver a Gina funcionando",
   "jump": {
     "label": "Seções",
-    "method": "Método",
-    "journey": "Jornada",
+    "method": "Como trabalho",
+    "journey": "O que ela faz",
     "demo": "Demo",
     "critique": "Autocrítica",
     "contact": "Contato"
   },
-  "s1": "01 — Por que o CRM fica abandonado",
+  "s1": "01 — O problema",
   "h2a": "O problema quase nunca é o",
   "h2s": "software.",
   "h2i": "É o modelo.",
@@ -54,7 +54,7 @@ export default {
       "proof": "Método de testes aplicado antes de qualquer ação comercial em grandes projetos."
     }
   ],
-  "s2": "02 — Método",
+  "s2": "07 — Como a gente trabalharia junto",
   "h3a": "Primeiro o modelo. Depois a construção.",
   "h3b": "Automação",
   "h3c": "_por último",
@@ -68,7 +68,8 @@ export default {
       "what": "Auditar cada origem, campo e duplicado. Mapear onde a venda trava, onde o cliente some e quanto tempo cada etapa leva de verdade.",
       "tool": "Relatório de duplicados · histórico de etapas · origens · coortes",
       "out": "Diagnóstico do CRM com as três correções que mais importam",
-      "agent": "Gina"
+      "agent": "Gina",
+      "plain": "Eu olho o que você tem e vejo onde o cliente escapa."
     },
     {
       "n": "02",
@@ -76,7 +77,8 @@ export default {
       "what": "Definir cada etapa da jornada pelo comportamento que leva o cliente até ela, e não por dias corridos. Combinar donos e campos obrigatórios.",
       "tool": "Campo de etapa · funis · segmentos RFV · dicionário de dados",
       "out": "Mapa da jornada e dicionário de dados",
-      "agent": "Gina"
+      "agent": "Gina",
+      "plain": "A gente combina as etapas que o cliente percorre e o que faz ele avançar."
     },
     {
       "n": "03",
@@ -84,7 +86,8 @@ export default {
       "what": "Configurar registros, vínculos, campos obrigatórios e uma visão por função, pra ninguém precisar filtrar pra achar o próprio trabalho. Importar, unificar, limpar.",
       "tool": "Campos personalizados · visões salvas · importação e mesclagem",
       "out": "Um sistema que as pessoas abrem de verdade",
-      "agent": "Chats"
+      "agent": "Chats",
+      "plain": "Eu organizo os seus registros pra qualquer pessoa achar o que precisa."
     },
     {
       "n": "04",
@@ -92,7 +95,8 @@ export default {
       "what": "Réguas disparadas por comportamento: boas-vindas, follow-up e recuperação de clientes inativos. Cada mensagem é testada contra motivação, esforço e momento antes de sair.",
       "tool": "Automações · sequências · caixa compartilhada · tarefas",
       "out": "Biblioteca de réguas com meta e saída documentadas",
-      "agent": "Follow-up"
+      "agent": "Follow-up",
+      "plain": "Eu escrevo as mensagens que saem na hora certa."
     },
     {
       "n": "05",
@@ -100,10 +104,11 @@ export default {
       "what": "Um painel por pergunta. Uma revisão mensal com o dono em que cada régua prova que merece continuar, ou é desligada.",
       "tool": "Relatórios · painéis · atribuição de origem · testes A/B",
       "out": "Painel semanal de operação",
-      "agent": "Números"
+      "agent": "Números",
+      "plain": "Todo mês a gente vê o que funciona e desliga o que não funciona."
     }
   ],
-  "sJ": "04 — Jornada 360°",
+  "sJ": "02 — O que a Gina faz",
   "hJa": "A Gina percorre cada canal para",
   "hJi": "conhecer um cliente.",
   "pJ": "Cada canal responde uma pergunta sobre o cliente. Nenhum canal faz o trabalho do outro, e toda resposta volta para o mesmo perfil.",
@@ -169,7 +174,7 @@ export default {
       "trait": "Confia mais em cliente que em desconto"
     }
   ],
-  "s3": "03 — Modelo de jornada",
+  "s3": "08 — Por baixo do capô: o modelo de jornada",
   "h4a": "Toda etapa tem uma",
   "h4i": "regra de entrada.",
   "h4b": "Sem exceção.",
@@ -221,7 +226,7 @@ export default {
       "v": "Num negócio como o do exemplo, a conversão a acompanhar é a segunda compra. Recompra e Promotor são onde o pequeno negócio cresce, e onde quase ninguém mede."
     }
   ],
-  "s4": "05 — Régua de reativação",
+  "s4": "03 — Quando o cliente some",
   "h5a": "Uma régua, escrita",
   "h5i": "como um contrato.",
   "wf": {
@@ -243,7 +248,7 @@ export default {
     "exitT": "Silêncio por 21 dias → marcado como inativo e deixado em paz por 90. Menos mensagem mantém a base quente.",
     "run": "Operada pela @Reativação. Teste A/B: \"o de sempre\" contra desconto. KPI principal: taxa de reativação."
   },
-  "sM": "06 — Produto mobile-first · conceito",
+  "sM": "04 — O que o dono vê · conceito",
   "hMa": "Feito pro",
   "hMi": "polegar,",
   "hMb": "entre um cliente e outro.",
@@ -364,84 +369,7 @@ export default {
       }
     ]
   },
-  "s5": "07 — Maturidade de CRM",
-  "h6a": "Quatro níveis. A maioria",
-  "h6i": "pula o primeiro.",
-  "lv": [
-    {
-      "n": "Organizado",
-      "d": "Uma fonte da verdade. Todo contato tem dono, origem e etapa."
-    },
-    {
-      "n": "Responsivo",
-      "d": "Toda mensagem recebida tem prazo de resposta. Nada espera mais de um dia útil."
-    },
-    {
-      "n": "Proativo",
-      "d": "Boas-vindas, follow-up e reativação rodam por evento, sem ninguém precisar lembrar."
-    },
-    {
-      "n": "Preditivo",
-      "d": "Segmentos RFV e um score de risco de churn dizem pro dono quem ligar esta semana, antes de o cliente ir embora."
-    }
-  ],
-  "s6": "08 — O que eu meço",
-  "h7n": "6",
-  "h7a": "números, definidos",
-  "h7i": "antes do primeiro painel.",
-  "metrics": [
-    {
-      "name": "Tempo de primeira resposta",
-      "f": "primeira resposta − primeira mensagem",
-      "why": "Costuma ser uma das alavancas de conversão mais baratas. O interesse esfria rápido."
-    },
-    {
-      "name": "Conversão por etapa",
-      "f": "entraram na etapa n+1 ÷ entraram na etapa n",
-      "why": "Mostra exatamente onde o funil vaza, pra corrigir uma etapa em vez de tudo."
-    },
-    {
-      "name": "Taxa de recompra",
-      "f": "clientes com 2+ pedidos ÷ total de clientes",
-      "why": "Um bom sinal de ativação pra varejo e serviço. Compare com o seu próprio histórico antes de tratar como meta."
-    },
-    {
-      "name": "Churn",
-      "f": "clientes que passaram da data de volta ÷ clientes ativos",
-      "why": "Medido pelo ritmo de cada cliente, não por um calendário fixo."
-    },
-    {
-      "name": "LTV · valor do cliente",
-      "f": "ticket médio × pedidos por ano × anos de relacionamento",
-      "why": "Diz quanto vale manter um cliente, e quanto faz sentido gastar pra conquistar um novo."
-    },
-    {
-      "name": "Saúde dos dados",
-      "f": "% de contatos com dono + origem + etapa",
-      "why": "Se este estiver baixo, todos os outros números da lista estão errados."
-    }
-  ],
-  "s7": "09 — Projeto",
-  "h8a": "Noventa dias,",
-  "h8i": "depois é do seu time.",
-  "phases": [
-    {
-      "d": "Dia 0–30",
-      "n": "Diagnosticar e modelar",
-      "o": "Diagnóstico, mapa da jornada, funil com critérios de saída, dicionário de dados."
-    },
-    {
-      "d": "Dia 31–60",
-      "n": "Construir e orquestrar",
-      "o": "Sistema limpo, distribuição de leads, réguas de boas-vindas, follow-up e reativação, visões por equipe."
-    },
-    {
-      "d": "Dia 61–90",
-      "n": "Medir e entregar",
-      "o": "Painel de operação, primeiros resultados de teste A/B, ritual mensal de revisão, playbook escrito."
-    }
-  ],
-  "s8": "10 — Autocrítica",
+  "s8": "09 — Autocrítica",
   "h9a": "Onde este método",
   "h9i": "não dá conta.",
   "critLead": "O método acima parte do princípio de que existe uma equipe. Para um negócio de uma pessoa só, parte dele pesa demais, e método que não admite isso ainda não está maduro. Estes são os buracos que eu vejo e o que eu mudaria.",
@@ -455,7 +383,7 @@ export default {
     },
     {
       "n": "02",
-      "p": "Noventa dias é tempo demais pra provar valor.",
+      "p": "Esperar semanas por prova é tempo demais.",
       "why": "O pequeno negócio decide na primeira semana se aquilo vale o tempo dele. A motivação acaba antes do cronograma.",
       "fix": "Entregar uma vitória visível em sete dias: a lista de clientes pra chamar de volta."
     },
@@ -484,8 +412,8 @@ export default {
       "fix": "Entregar um ritual semanal de 15 minutos que o dono faz sozinho."
     }
   ],
-  "s9": "11 — Versão sem orçamento",
-  "zeroLead": "A mesma lógica de retenção com ferramentas gratuitas: um bot de IA fazendo o papel da Gina, uma planilha como CRM e uma mensagem por semana dizendo quem chamar. Custa tempo, não dinheiro, e leva o negócio até o nível 2 de maturidade sem pagar licença.",
+  "s9": "06 — Comece de graça",
+  "zeroLead": "A mesma lógica de retenção com ferramentas gratuitas: um bot de IA fazendo o papel da Gina, uma planilha como CRM e uma mensagem por semana dizendo quem chamar. Custa tempo, não dinheiro, e coloca o negócio pra rodar sem pagar licença.",
   "stack": [
     {
       "k": "CRM",
@@ -650,7 +578,42 @@ export default {
     "exampleShop": "Forno da Vila · padaria de exemplo, fictícia"
   },
   "fixesHead": "{n} problemas, {n} respostas",
+  "sCost": "05 — Por que compensa",
+  "hCostA": "No fim do dia,",
+  "hCostI": "a conta pode ficar menor.",
+  "pCost": "A Gina não é mais uma ferramenta para pagar. Ela trabalha em custos que o negócio já tem.",
+  "costToday": "Hoje",
+  "costWith": "Com a Gina",
+  "costs": [
+    {
+      "k": "Aquisição",
+      "a": "Pagar anúncio para repor o cliente que sumiu sem avisar.",
+      "b": "Trazer de volta quem já conhece você, antes de esfriar de vez."
+    },
+    {
+      "k": "Tempo do dono",
+      "a": "Horas montando lista e escrevendo mensagem na mão.",
+      "b": "Uma lista curta de quem chamar, com a mensagem já rascunhada. Você aprova."
+    },
+    {
+      "k": "Envio desperdiçado",
+      "a": "A mesma mensagem para a base inteira. Cada SMS e push custa.",
+      "b": "Mensagem só para quem está saindo do ritmo, dentro de um limite semanal."
+    },
+    {
+      "k": "Software",
+      "a": "Plataforma nova, licença nova, equipe para aprender.",
+      "b": "Roda no CRM que você já tem, ou numa planilha."
+    }
+  ],
+  "costFK": "Como medir",
+  "costF": "custo evitado = clientes recuperados × custo de conquistar um novo",
+  "costFN": "No diagnóstico, a gente preenche isso com os seus números.",
   "ctaNote": "Um clique abre um e-mail para mim. Sem formulário, sem cadastro.",
   "breakFixK": "O que eu faço",
-  "breakProofK": "Trabalho real"
+  "breakProofK": "Trabalho real",
+  "ctaDemo": "Testar a demo",
+  "ctaA": "Veja o método rodando: cole uma lista de clientes e a Gina diz quem chamar nesta semana.",
+  "ctaB": "Gostou do que viu? Comece por um diagnóstico de 30 minutos.",
+  "crmGloss": "Não conhece o termo? CRM é só o lugar onde o negócio guarda quem são os clientes e o que compraram. Um caderno conta."
 };

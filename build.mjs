@@ -36,6 +36,20 @@ const HERO_VIDEO = (() => {
 const STOPS = [10, 30, 50, 70, 90];
 
 
+// Call to action row: only two destinations, the demo or the contact e-mail.
+const ctaBand = ({ title, t, mailto, first, tone }) => {
+  const dark = tone === 'dark';
+  const demo = `<a class="btn ${first === 'demo' ? (dark ? 'btn--primary' : 'btn--dark') : (dark ? 'btn--ghost' : 'btn--line')}" href="demo/">${esc(t.ctaDemo)}</a>`;
+  const contact = `<a class="btn ${first === 'contact' ? (dark ? 'btn--primary' : 'btn--dark') : (dark ? 'btn--ghost' : 'btn--line')}" href="${mailto}">${esc(t.cta)}</a>`;
+  return `<div class="cta-band cta-band--${tone}">
+      <p class="cta-band__t">${esc(title)}</p>
+      <div class="cta-band__act">
+        <div class="hero__ctas">${first === 'demo' ? demo + contact : contact + demo}</div>
+        ${first === 'contact' ? `<p class="cta-note">${esc(t.ctaNote)}</p>` : ''}
+      </div>
+    </div>`;
+};
+
 // Link-preview card (LinkedIn, WhatsApp): 1200×627 image per language, absolute URL.
 const ogTags = (lang, title, desc, path) => {
   const base = SITE_URL.replace(/\/$/, '');
@@ -152,6 +166,7 @@ function page(lang) {
           <a class="btn btn--ghost" href="demo/">${esc(t.cta2)}</a>
         </div>
         <p class="cta-note">${esc(t.ctaNote)}</p>
+        <p class="hero__gloss">${esc(t.crmGloss)}</p>
         <div class="hero__lead hero__lead--more">${each(leadMore, (p) => `<p>${esc(p)}</p>`)}</div>
         <div class="who">
           <p class="eyebrow">${esc(t.whoK)}</p>
@@ -168,9 +183,9 @@ function page(lang) {
 
 <nav class="jump" aria-label="${esc(t.jump.label)}" data-jump>
   <div class="jump__inner">
-    <a href="#method">${esc(t.jump.method)}</a>
     <a href="#journey">${esc(t.jump.journey)}</a>
     <a href="demo/">${esc(t.jump.demo)}</a>
+    <a href="#method">${esc(t.jump.method)}</a>
     <a href="#critique">${esc(t.jump.critique)}</a>
     <a href="#contact">${esc(t.jump.contact)}</a>
   </div>
@@ -182,38 +197,6 @@ function page(lang) {
   <p class="eyebrow">${esc(t.s1)}</p>
   <h2 class="title title--narrow" id="s1">${esc(t.h2a)} <s class="strike">${esc(t.h2s)}</s> <span class="em em--accent">${esc(t.h2i)}</span></h2>
   ${problemRows(t)}
-</section>
-
-<section class="section section--dark" id="method" aria-labelledby="s2">
-  <div class="wrap">
-    <p class="eyebrow">${esc(t.s2)}</p>
-    <h2 class="title title--method" id="s2">${esc(t.h3a)} <span class="em">${esc(t.h3b)}</span> <span class="tag-mono">${esc(t.h3c)}</span></h2>
-    <ol class="steps">${each(t.steps, (s) => `
-      <li class="grid step">
-        <div class="step__head"><span class="step__n">${s.n}</span><h3 class="step__name">${esc(s.name)}</h3></div>
-        <p class="step__what">${esc(s.what)}</p>
-        <div class="step__col"><p class="step__label">${esc(t.inAny)}</p><p class="step__tool">${esc(s.tool)}</p></div>
-        <div class="step__col"><p class="step__label">${esc(t.deliv)}</p><p class="step__out">${esc(s.out)}</p><span class="chip">@${esc(s.agent)}</span></div>
-      </li>`)}
-    </ol>
-    <p class="steps__note">${esc(t.rolesNote)}</p>
-  </div>
-</section>
-
-<section class="section wrap" aria-labelledby="s3">
-  <p class="eyebrow">${esc(t.s3)}</p>
-  <h2 class="title" id="s3">${esc(t.h4a)} <span class="em em--underline">${esc(t.h4i)}</span> ${esc(t.h4b)}</h2>
-  <ol class="grid stages">${each(t.stages, (st, i) => `
-    <li class="stage" style="--c:${STAGE_COLORS[i]}">
-      <span class="stage__bar"></span>
-      <span class="stage__n">${pad(i)}</span>
-      <h3 class="stage__name">${esc(st.name)}</h3>
-      <p class="stage__rule">${esc(st.rule)}</p>
-    </li>`)}
-  </ol>
-  <div class="grid rules">${each(t.rules, (r) => `
-    <p class="rule"><span class="label">${esc(r.k)} · </span>${esc(r.v)}</p>`)}
-  </div>
 </section>
 
 <section class="section" id="journey" aria-labelledby="sJ" data-journey>
@@ -293,44 +276,27 @@ function page(lang) {
   </div>
 </section>
 
-<section class="section wrap" aria-labelledby="s5">
-  <p class="eyebrow">${esc(t.s5)}</p>
-  <h2 class="title" id="s5">${esc(t.h6a)} <span class="em em--accent">${esc(t.h6i)}</span></h2>
-  <ol class="grid levels">${each(t.lv, (l, i) => `
-    <li class="level"><span class="level__n">L${i + 1}</span><h3 class="level__name">${esc(l.n)}</h3><p class="level__d">${esc(l.d)}</p></li>`)}
-  </ol>
-</section>
-
-<section class="section section--dark" aria-labelledby="s6">
+<section class="section section--mint" aria-label="${esc(t.ctaA)}">
   <div class="wrap">
-    <p class="eyebrow">${esc(t.s6)}</p>
-    <h2 class="title" id="s6"><span class="num">${esc(t.h7n)}</span> ${esc(t.h7a)} <span class="em">${esc(t.h7i)}</span></h2>
-    <div class="grid hairline metrics">${each(t.metrics, (m) => `
-      <article class="metric"><h3 class="metric__name">${esc(m.name)}</h3><p class="metric__f">${esc(m.f)}</p><p class="metric__why">${esc(m.why)}</p></article>`)}
-    </div>
+    ${ctaBand({ title: t.ctaA, t, mailto, first: 'demo', tone: 'light' })}
   </div>
 </section>
 
-<section class="section wrap" aria-labelledby="s7">
-  <p class="eyebrow">${esc(t.s7)}</p>
-  <h2 class="title" id="s7">${esc(t.h8a)} <span class="em em--accent">${esc(t.h8i)}</span></h2>
-  <ol class="grid phases">${each(t.phases, (p) => `
-    <li class="phase"><p class="phase__d">${esc(p.d)}</p><h3 class="phase__n">${esc(p.n)}</h3><p class="phase__o">${esc(p.o)}</p></li>`)}
-  </ol>
-</section>
-
-<section class="section section--sand" id="critique" aria-labelledby="s8">
-  <div class="wrap">
-    <p class="eyebrow">${esc(t.s8)}</p>
-    <h2 class="title" id="s8">${esc(t.h9a)} <span class="em em--accent">${esc(t.h9i)}</span></h2>
-    <p class="intro">${esc(t.critLead)}</p>
-    <div class="grid hairline crit">${each(t.crit, (c) => `
-      <article class="crit__item">
-        <h3 class="crit__p"><span class="crit__n">${c.n}</span>${esc(c.p)}</h3>
-        <p class="crit__why">${esc(c.why)}</p>
-        <p class="crit__fix"><span class="label">${esc(t.fix)} → </span><span class="em">${esc(c.fix)}</span></p>
-      </article>`)}
-    </div>
+<section class="section wrap" aria-labelledby="sCost">
+  <p class="eyebrow">${esc(t.sCost)}</p>
+  <h2 class="title" id="sCost">${esc(t.hCostA)} <span class="em em--accent">${esc(t.hCostI)}</span></h2>
+  <p class="intro">${esc(t.pCost)}</p>
+  <div class="costs">${each(t.costs, (c) => `
+    <div class="cost">
+      <h3 class="label cost__k">${esc(c.k)}</h3>
+      <p class="cost__a"><span class="cost__tag">${esc(t.costToday)}</span>${esc(c.a)}</p>
+      <p class="cost__b"><span class="cost__tag">${esc(t.costWith)}</span>${esc(c.b)}</p>
+    </div>`)}
+  </div>
+  <div class="costs__formula">
+    <p class="label">${esc(t.costFK)}</p>
+    <p class="costs__eq">${esc(t.costF)}</p>
+    <p class="costs__note">${esc(t.costFN)}</p>
   </div>
 </section>
 
@@ -358,6 +324,59 @@ function page(lang) {
         </ul>
         <p class="prompt">${esc(t.prompt)}</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--mint" aria-label="${esc(t.ctaB)}">
+  <div class="wrap">
+    ${ctaBand({ title: t.ctaB, t, mailto, first: 'contact', tone: 'light' })}
+  </div>
+</section>
+
+<section class="section section--dark" id="method" aria-labelledby="s2">
+  <div class="wrap">
+    <p class="eyebrow">${esc(t.s2)}</p>
+    <h2 class="title title--method" id="s2">${esc(t.h3a)} <span class="em">${esc(t.h3b)}</span> <span class="tag-mono">${esc(t.h3c)}</span></h2>
+    <ol class="steps">${each(t.steps, (s) => `
+      <li class="grid step">
+        <div class="step__head"><span class="step__n">${s.n}</span><h3 class="step__name">${esc(s.name)}</h3></div>
+        <div class="step__main"><p class="step__plain">${esc(s.plain)}</p><p class="step__what">${esc(s.what)}</p></div>
+        <div class="step__col"><p class="step__label">${esc(t.inAny)}</p><p class="step__tool">${esc(s.tool)}</p></div>
+        <div class="step__col"><p class="step__label">${esc(t.deliv)}</p><p class="step__out">${esc(s.out)}</p><span class="chip">@${esc(s.agent)}</span></div>
+      </li>`)}
+    </ol>
+    <p class="steps__note">${esc(t.rolesNote)}</p>
+  </div>
+</section>
+
+<section class="section wrap" aria-labelledby="s3">
+  <p class="eyebrow">${esc(t.s3)}</p>
+  <h2 class="title" id="s3">${esc(t.h4a)} <span class="em em--underline">${esc(t.h4i)}</span> ${esc(t.h4b)}</h2>
+  <ol class="grid stages">${each(t.stages, (st, i) => `
+    <li class="stage" style="--c:${STAGE_COLORS[i]}">
+      <span class="stage__bar"></span>
+      <span class="stage__n">${pad(i)}</span>
+      <h3 class="stage__name">${esc(st.name)}</h3>
+      <p class="stage__rule">${esc(st.rule)}</p>
+    </li>`)}
+  </ol>
+  <div class="grid rules">${each(t.rules, (r) => `
+    <p class="rule"><span class="label">${esc(r.k)} · </span>${esc(r.v)}</p>`)}
+  </div>
+</section>
+
+<section class="section section--sand" id="critique" aria-labelledby="s8">
+  <div class="wrap">
+    <p class="eyebrow">${esc(t.s8)}</p>
+    <h2 class="title" id="s8">${esc(t.h9a)} <span class="em em--accent">${esc(t.h9i)}</span></h2>
+    <p class="intro">${esc(t.critLead)}</p>
+    <div class="grid hairline crit">${each(t.crit, (c) => `
+      <article class="crit__item">
+        <h3 class="crit__p"><span class="crit__n">${c.n}</span>${esc(c.p)}</h3>
+        <p class="crit__why">${esc(c.why)}</p>
+        <p class="crit__fix"><span class="label">${esc(t.fix)} → </span><span class="em">${esc(c.fix)}</span></p>
+      </article>`)}
     </div>
   </div>
 </section>
