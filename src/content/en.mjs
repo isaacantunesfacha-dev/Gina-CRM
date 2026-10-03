@@ -364,84 +364,7 @@ export default {
       }
     ]
   },
-  "s5": "07 — CRM maturity",
-  "h6a": "Four levels. Most businesses",
-  "h6i": "skip the first one.",
-  "lv": [
-    {
-      "n": "Organised",
-      "d": "One source of truth. Every contact has an owner, a source and a stage."
-    },
-    {
-      "n": "Responsive",
-      "d": "Every inbound message has a reply-time target. Nothing waits more than a business day."
-    },
-    {
-      "n": "Proactive",
-      "d": "Onboarding, follow-up and win-back run on events, without anyone having to remember."
-    },
-    {
-      "n": "Predictive",
-      "d": "RFV segments and a churn risk score tell the owner who to call this week, before they leave."
-    }
-  ],
-  "s6": "08 — What I measure",
-  "h7n": "6",
-  "h7a": "numbers, defined",
-  "h7i": "before the first dashboard.",
-  "metrics": [
-    {
-      "name": "Speed to lead",
-      "f": "first reply − first message",
-      "why": "Usually one of the cheapest conversion levers a small business has. Interest fades fast."
-    },
-    {
-      "name": "Stage conversion",
-      "f": "entered stage n+1 ÷ entered stage n",
-      "why": "Shows exactly where the funnel leaks, so you fix one stage instead of everything."
-    },
-    {
-      "name": "Repeat purchase rate",
-      "f": "customers with 2+ orders ÷ all customers",
-      "why": "A strong activation signal for retail and services. Compare it with your own history before treating it as the goal."
-    },
-    {
-      "name": "Churn rate",
-      "f": "customers past their expected return ÷ active customers",
-      "why": "Measured against each customer's own rhythm, not a fixed calendar."
-    },
-    {
-      "name": "Customer lifetime value",
-      "f": "avg order value × orders per year × years retained",
-      "why": "Tells you how much a customer is worth keeping, and how much to spend getting one."
-    },
-    {
-      "name": "Data health",
-      "f": "% contacts with owner + source + stage",
-      "why": "If this one is low, every other number on this list is wrong."
-    }
-  ],
-  "s7": "09 — Engagement",
-  "h8a": "Ninety days,",
-  "h8i": "then your team owns it.",
-  "phases": [
-    {
-      "d": "Day 0–30",
-      "n": "Diagnose and model",
-      "o": "Health report, lifecycle map, pipeline with exit criteria, data dictionary."
-    },
-    {
-      "d": "Day 31–60",
-      "n": "Build and orchestrate",
-      "o": "Clean system, lead routing, onboarding, follow-up and win-back journeys, team views."
-    },
-    {
-      "d": "Day 61–90",
-      "n": "Measure and hand over",
-      "o": "Operating dashboard, first A/B results, monthly review ritual, written playbook."
-    }
-  ],
-  "s8": "10 — Self-critique",
+  "s8": "07 — Self-critique",
   "h9a": "Where this method",
   "h9i": "falls short.",
   "critLead": "The method above assumes a team. For a business of one, parts of it are too heavy, and a method that can't admit that isn't mature yet. These are the gaps I see and what I'd change.",
@@ -455,7 +378,7 @@ export default {
     },
     {
       "n": "02",
-      "p": "Ninety days is too long to wait for proof.",
+      "p": "Waiting weeks for proof is too long.",
       "why": "A micro business decides in the first week whether something is worth its time. Motivation fades faster than the project plan.",
       "fix": "Ship one visible win in seven days: a list of customers to call back."
     },
@@ -484,8 +407,8 @@ export default {
       "fix": "Hand over a 15-minute weekly ritual the owner can run alone."
     }
   ],
-  "s9": "11 — Zero-budget version",
-  "zeroLead": "The same retention logic on free tools: an AI chat bot playing Gina, a spreadsheet as the CRM and one weekly message that says who to call. It costs time, not money, and it gets a business to maturity level 2 without a licence.",
+  "s9": "08 — Zero-budget version",
+  "zeroLead": "The same retention logic on free tools: an AI chat bot playing Gina, a spreadsheet as the CRM and one weekly message that says who to call. It costs time, not money, and it gets a business started without a licence.",
   "stack": [
     {
       "k": "CRM",
@@ -650,22 +573,41 @@ export default {
     "exampleShop": "Forno da Vila · example bakery, fictional"
   },
   "fixesHead": "{n} problems, {n} answers",
-  "sCost": "12 — Cost",
+  "sCost": "09 — Cost",
   "hCostA": "At the end of the day,",
   "hCostI": "the bill can get smaller.",
   "pCost": "Gina isn't one more tool to pay for. She works on costs the business already has.",
   "costToday": "Today",
   "costWith": "With Gina",
   "costs": [
-    { "k": "Acquisition", "a": "Paying for ads to replace customers who quietly left.", "b": "Bringing back people who already know you, before they drift away for good." },
-    { "k": "Owner time", "a": "Hours building lists and writing messages by hand.", "b": "A short list of who to contact, with the message drafted. You approve it." },
-    { "k": "Wasted sends", "a": "The same message to the whole list. Every SMS and push costs something.", "b": "Messages only to whoever is slipping out of rhythm, within a weekly limit." },
-    { "k": "Software", "a": "A new platform, a new licence, a team to learn it.", "b": "Runs on the CRM you already have, or a spreadsheet." }
+    {
+      "k": "Acquisition",
+      "a": "Paying for ads to replace customers who quietly left.",
+      "b": "Bringing back people who already know you, before they drift away for good."
+    },
+    {
+      "k": "Owner time",
+      "a": "Hours building lists and writing messages by hand.",
+      "b": "A short list of who to contact, with the message drafted. You approve it."
+    },
+    {
+      "k": "Wasted sends",
+      "a": "The same message to the whole list. Every SMS and push costs something.",
+      "b": "Messages only to whoever is slipping out of rhythm, within a weekly limit."
+    },
+    {
+      "k": "Software",
+      "a": "A new platform, a new licence, a team to learn it.",
+      "b": "Runs on the CRM you already have, or a spreadsheet."
+    }
   ],
   "costFK": "How to measure it",
   "costF": "avoided cost = customers won back × cost to win a new one",
   "costFN": "In the diagnosis we fill this in with your own numbers.",
   "ctaNote": "One click opens an email to me. No form, no signup.",
   "breakFixK": "What I do",
-  "breakProofK": "Real work"
+  "breakProofK": "Real work",
+  "ctaDemo": "Try the demo",
+  "ctaA": "See the method run: paste a customer list and Gina tells you who to contact this week.",
+  "ctaB": "Like what you see? Start with a 30-minute diagnosis."
 };

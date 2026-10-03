@@ -364,84 +364,7 @@ export default {
       }
     ]
   },
-  "s5": "07 — Maturidade de CRM",
-  "h6a": "Quatro níveis. A maioria",
-  "h6i": "pula o primeiro.",
-  "lv": [
-    {
-      "n": "Organizado",
-      "d": "Uma fonte da verdade. Todo contato tem dono, origem e etapa."
-    },
-    {
-      "n": "Responsivo",
-      "d": "Toda mensagem recebida tem prazo de resposta. Nada espera mais de um dia útil."
-    },
-    {
-      "n": "Proativo",
-      "d": "Boas-vindas, follow-up e reativação rodam por evento, sem ninguém precisar lembrar."
-    },
-    {
-      "n": "Preditivo",
-      "d": "Segmentos RFV e um score de risco de churn dizem pro dono quem ligar esta semana, antes de o cliente ir embora."
-    }
-  ],
-  "s6": "08 — O que eu meço",
-  "h7n": "6",
-  "h7a": "números, definidos",
-  "h7i": "antes do primeiro painel.",
-  "metrics": [
-    {
-      "name": "Tempo de primeira resposta",
-      "f": "primeira resposta − primeira mensagem",
-      "why": "Costuma ser uma das alavancas de conversão mais baratas. O interesse esfria rápido."
-    },
-    {
-      "name": "Conversão por etapa",
-      "f": "entraram na etapa n+1 ÷ entraram na etapa n",
-      "why": "Mostra exatamente onde o funil vaza, pra corrigir uma etapa em vez de tudo."
-    },
-    {
-      "name": "Taxa de recompra",
-      "f": "clientes com 2+ pedidos ÷ total de clientes",
-      "why": "Um bom sinal de ativação pra varejo e serviço. Compare com o seu próprio histórico antes de tratar como meta."
-    },
-    {
-      "name": "Churn",
-      "f": "clientes que passaram da data de volta ÷ clientes ativos",
-      "why": "Medido pelo ritmo de cada cliente, não por um calendário fixo."
-    },
-    {
-      "name": "LTV · valor do cliente",
-      "f": "ticket médio × pedidos por ano × anos de relacionamento",
-      "why": "Diz quanto vale manter um cliente, e quanto faz sentido gastar pra conquistar um novo."
-    },
-    {
-      "name": "Saúde dos dados",
-      "f": "% de contatos com dono + origem + etapa",
-      "why": "Se este estiver baixo, todos os outros números da lista estão errados."
-    }
-  ],
-  "s7": "09 — Projeto",
-  "h8a": "Noventa dias,",
-  "h8i": "depois é do seu time.",
-  "phases": [
-    {
-      "d": "Dia 0–30",
-      "n": "Diagnosticar e modelar",
-      "o": "Diagnóstico, mapa da jornada, funil com critérios de saída, dicionário de dados."
-    },
-    {
-      "d": "Dia 31–60",
-      "n": "Construir e orquestrar",
-      "o": "Sistema limpo, distribuição de leads, réguas de boas-vindas, follow-up e reativação, visões por equipe."
-    },
-    {
-      "d": "Dia 61–90",
-      "n": "Medir e entregar",
-      "o": "Painel de operação, primeiros resultados de teste A/B, ritual mensal de revisão, playbook escrito."
-    }
-  ],
-  "s8": "10 — Autocrítica",
+  "s8": "07 — Autocrítica",
   "h9a": "Onde este método",
   "h9i": "não dá conta.",
   "critLead": "O método acima parte do princípio de que existe uma equipe. Para um negócio de uma pessoa só, parte dele pesa demais, e método que não admite isso ainda não está maduro. Estes são os buracos que eu vejo e o que eu mudaria.",
@@ -455,7 +378,7 @@ export default {
     },
     {
       "n": "02",
-      "p": "Noventa dias é tempo demais pra provar valor.",
+      "p": "Esperar semanas por prova é tempo demais.",
       "why": "O pequeno negócio decide na primeira semana se aquilo vale o tempo dele. A motivação acaba antes do cronograma.",
       "fix": "Entregar uma vitória visível em sete dias: a lista de clientes pra chamar de volta."
     },
@@ -484,8 +407,8 @@ export default {
       "fix": "Entregar um ritual semanal de 15 minutos que o dono faz sozinho."
     }
   ],
-  "s9": "11 — Versão sem orçamento",
-  "zeroLead": "A mesma lógica de retenção com ferramentas gratuitas: um bot de IA fazendo o papel da Gina, uma planilha como CRM e uma mensagem por semana dizendo quem chamar. Custa tempo, não dinheiro, e leva o negócio até o nível 2 de maturidade sem pagar licença.",
+  "s9": "08 — Versão sem orçamento",
+  "zeroLead": "A mesma lógica de retenção com ferramentas gratuitas: um bot de IA fazendo o papel da Gina, uma planilha como CRM e uma mensagem por semana dizendo quem chamar. Custa tempo, não dinheiro, e coloca o negócio pra rodar sem pagar licença.",
   "stack": [
     {
       "k": "CRM",
@@ -650,22 +573,41 @@ export default {
     "exampleShop": "Forno da Vila · padaria de exemplo, fictícia"
   },
   "fixesHead": "{n} problemas, {n} respostas",
-  "sCost": "12 — Custo",
+  "sCost": "09 — Custo",
   "hCostA": "No fim do dia,",
   "hCostI": "a conta pode ficar menor.",
   "pCost": "A Gina não é mais uma ferramenta para pagar. Ela trabalha em custos que o negócio já tem.",
   "costToday": "Hoje",
   "costWith": "Com a Gina",
   "costs": [
-    { "k": "Aquisição", "a": "Pagar anúncio para repor o cliente que sumiu sem avisar.", "b": "Trazer de volta quem já conhece você, antes de esfriar de vez." },
-    { "k": "Tempo do dono", "a": "Horas montando lista e escrevendo mensagem na mão.", "b": "Uma lista curta de quem chamar, com a mensagem já rascunhada. Você aprova." },
-    { "k": "Envio desperdiçado", "a": "A mesma mensagem para a base inteira. Cada SMS e push custa.", "b": "Mensagem só para quem está saindo do ritmo, dentro de um limite semanal." },
-    { "k": "Software", "a": "Plataforma nova, licença nova, equipe para aprender.", "b": "Roda no CRM que você já tem, ou numa planilha." }
+    {
+      "k": "Aquisição",
+      "a": "Pagar anúncio para repor o cliente que sumiu sem avisar.",
+      "b": "Trazer de volta quem já conhece você, antes de esfriar de vez."
+    },
+    {
+      "k": "Tempo do dono",
+      "a": "Horas montando lista e escrevendo mensagem na mão.",
+      "b": "Uma lista curta de quem chamar, com a mensagem já rascunhada. Você aprova."
+    },
+    {
+      "k": "Envio desperdiçado",
+      "a": "A mesma mensagem para a base inteira. Cada SMS e push custa.",
+      "b": "Mensagem só para quem está saindo do ritmo, dentro de um limite semanal."
+    },
+    {
+      "k": "Software",
+      "a": "Plataforma nova, licença nova, equipe para aprender.",
+      "b": "Roda no CRM que você já tem, ou numa planilha."
+    }
   ],
   "costFK": "Como medir",
   "costF": "custo evitado = clientes recuperados × custo de conquistar um novo",
   "costFN": "No diagnóstico, a gente preenche isso com os seus números.",
   "ctaNote": "Um clique abre um e-mail para mim. Sem formulário, sem cadastro.",
   "breakFixK": "O que eu faço",
-  "breakProofK": "Trabalho real"
+  "breakProofK": "Trabalho real",
+  "ctaDemo": "Testar a demo",
+  "ctaA": "Veja o método rodando: cole uma lista de clientes e a Gina diz quem chamar nesta semana.",
+  "ctaB": "Gostou do que viu? Comece por um diagnóstico de 30 minutos."
 };

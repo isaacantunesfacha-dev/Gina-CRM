@@ -36,6 +36,20 @@ const HERO_VIDEO = (() => {
 const STOPS = [10, 30, 50, 70, 90];
 
 
+// Call to action row: only two destinations, the demo or the contact e-mail.
+const ctaBand = ({ title, t, mailto, first, tone }) => {
+  const dark = tone === 'dark';
+  const demo = `<a class="btn ${first === 'demo' ? (dark ? 'btn--primary' : 'btn--dark') : (dark ? 'btn--ghost' : 'btn--line')}" href="demo/">${esc(t.ctaDemo)}</a>`;
+  const contact = `<a class="btn ${first === 'contact' ? (dark ? 'btn--primary' : 'btn--dark') : (dark ? 'btn--ghost' : 'btn--line')}" href="${mailto}">${esc(t.cta)}</a>`;
+  return `<div class="cta-band cta-band--${tone}">
+      <p class="cta-band__t">${esc(title)}</p>
+      <div class="cta-band__act">
+        <div class="hero__ctas">${first === 'demo' ? demo + contact : contact + demo}</div>
+        ${first === 'contact' ? `<p class="cta-note">${esc(t.ctaNote)}</p>` : ''}
+      </div>
+    </div>`;
+};
+
 // Link-preview card (LinkedIn, WhatsApp): 1200×627 image per language, absolute URL.
 const ogTags = (lang, title, desc, path) => {
   const base = SITE_URL.replace(/\/$/, '');
@@ -197,6 +211,7 @@ function page(lang) {
       </li>`)}
     </ol>
     <p class="steps__note">${esc(t.rolesNote)}</p>
+    ${ctaBand({ title: t.ctaA, t, mailto, first: 'demo', tone: 'dark' })}
   </div>
 </section>
 
@@ -293,30 +308,10 @@ function page(lang) {
   </div>
 </section>
 
-<section class="section wrap" aria-labelledby="s5">
-  <p class="eyebrow">${esc(t.s5)}</p>
-  <h2 class="title" id="s5">${esc(t.h6a)} <span class="em em--accent">${esc(t.h6i)}</span></h2>
-  <ol class="grid levels">${each(t.lv, (l, i) => `
-    <li class="level"><span class="level__n">L${i + 1}</span><h3 class="level__name">${esc(l.n)}</h3><p class="level__d">${esc(l.d)}</p></li>`)}
-  </ol>
-</section>
-
-<section class="section section--dark" aria-labelledby="s6">
+<section class="section section--mint" aria-label="${esc(t.ctaB)}">
   <div class="wrap">
-    <p class="eyebrow">${esc(t.s6)}</p>
-    <h2 class="title" id="s6"><span class="num">${esc(t.h7n)}</span> ${esc(t.h7a)} <span class="em">${esc(t.h7i)}</span></h2>
-    <div class="grid hairline metrics">${each(t.metrics, (m) => `
-      <article class="metric"><h3 class="metric__name">${esc(m.name)}</h3><p class="metric__f">${esc(m.f)}</p><p class="metric__why">${esc(m.why)}</p></article>`)}
-    </div>
+    ${ctaBand({ title: t.ctaB, t, mailto, first: 'contact', tone: 'light' })}
   </div>
-</section>
-
-<section class="section wrap" aria-labelledby="s7">
-  <p class="eyebrow">${esc(t.s7)}</p>
-  <h2 class="title" id="s7">${esc(t.h8a)} <span class="em em--accent">${esc(t.h8i)}</span></h2>
-  <ol class="grid phases">${each(t.phases, (p) => `
-    <li class="phase"><p class="phase__d">${esc(p.d)}</p><h3 class="phase__n">${esc(p.n)}</h3><p class="phase__o">${esc(p.o)}</p></li>`)}
-  </ol>
 </section>
 
 <section class="section section--sand" id="critique" aria-labelledby="s8">

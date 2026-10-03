@@ -113,9 +113,10 @@ checked in the CRM. Known limits, each covered by a test:
 
 ## What the page covers
 
-`01` Why CRMs get abandoned · `02` A five-step method, tool-agnostic · `03` Lifecycle model with an entry rule per stage ·
-`04` The 360° journey · `05` Win-back journey · `06` Mobile-first product screens · `07` CRM maturity in four levels ·
-`08` Six metrics, defined before the first dashboard · `09` A 90-day engagement · `10` **Self-critique** · `11` **Gina Zero**, the same logic for R$0
+`01` Why CRMs get abandoned, each problem with its answer · `02` A five-step method, tool-agnostic · `03` Lifecycle model with an entry rule per stage ·
+`04` The 360° journey · `05` Win-back journey · `06` Mobile-first product screens · `07` **Self-critique** · `08` **Gina Zero**, the same logic for R$0 · `09` Where the bill can get smaller
+
+Every call to action leads to one of two places: the demo or my e-mail.
 
 ## Built with
 
