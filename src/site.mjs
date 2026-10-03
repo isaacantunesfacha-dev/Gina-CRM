@@ -30,7 +30,7 @@ export const UI = {
     walkerAlt: 'Gina walking along the channel line',
     rights: `© ${YEAR} ${AUTHOR}. All rights reserved.`,
     rightsDetail: 'Gina (name, character and illustrations), method, copy and page design are original work by the author. Reproduction, adaptation or commercial use requires written permission.',
-    fiction: 'Gina is a concept project and a rules demo. The businesses, customers and figures in the examples are fictional: they illustrate the method and are not results.',
+    fiction: "Gina is a concept project and a rules demo. The businesses, customers and numbers in the examples are made up to show the method; they aren't results.",
     top: 'Back to top ↑',
   },
   pt: {
@@ -42,7 +42,7 @@ export const UI = {
     walkerAlt: 'Gina andando pela linha de canais',
     rights: `© ${YEAR} ${AUTHOR}. Todos os direitos reservados.`,
     rightsDetail: 'Gina (nome, personagem e ilustrações), método, textos e design da página são obra original do autor. Reprodução, adaptação ou uso comercial dependem de autorização por escrito.',
-    fiction: 'A Gina é um projeto conceitual e uma demo de regras. Negócios, clientes e números dos exemplos são fictícios: ilustram o método e não são resultados.',
+    fiction: 'A Gina é um projeto conceitual e uma demo de regras. Negócios, clientes e números dos exemplos são inventados para mostrar o método; não são resultados.',
     top: 'Voltar ao topo ↑',
   },
 };

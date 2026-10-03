@@ -13,7 +13,7 @@ export default {
   "h1a": "Seu CRM deveria",
   "h1i": "conhecer seus clientes",
   "h1b": "tão bem quanto você.",
-  "lead": "Pequeno negócio cresce quando o cliente que já veio volta. Não precisa correr atrás de cliente novo todo dia.\n\nSó que, na correria do dia a dia, quase não sobra tempo pra organizar isso. É aí que eu ajudo: a gente descobre junto quem são seus clientes, em que fase cada um está e o que dizer, e quando, pra eles voltarem. Funciona no CRM que você já usa, do HubSpot ao RD Station, ou até numa planilha.\n\nE o trabalho pesado fica com a Gina: um conjunto de papéis de agente, cada um com uma função que cabe numa frase. A demo roda as regras de decisão dela no navegador; os agentes são a proposta, não um produto em operação.",
+  "lead": "Pequeno negócio cresce quando o cliente que já veio volta. Não precisa correr atrás de cliente novo todo dia.\n\nSó que, na correria do dia a dia, quase não sobra tempo pra organizar isso. É aí que eu ajudo: a gente descobre junto quem são seus clientes, em que fase cada um está e o que dizer, e quando, pra eles voltarem. Funciona no CRM que você já usa, do HubSpot ao RD Station, ou até numa planilha.\n\nE o trabalho pesado fica com a Gina: um conjunto de papéis, cada um com uma função que cabe numa frase. Teste as regras de decisão dela na demo, direto no navegador.",
   "cta": "Agendar diagnóstico (30 min)",
   "cta2": "Ver a Gina funcionando",
   "jump": {
@@ -58,7 +58,7 @@ export default {
   "h3a": "Primeiro o modelo. Depois a construção.",
   "h3b": "Automação",
   "h3c": "_por último",
-  "rolesNote": "@ marca o papel que cuidaria de cada etapa num setup com a Gina. Os papéis são uma proposta; hoje só as regras de decisão da demo rodam.",
+  "rolesNote": "O @ mostra qual papel cuidaria de cada etapa num setup com a Gina. Por enquanto são uma proposta; o que roda hoje são as regras de decisão da demo.",
   "inAny": "Em qualquer CRM",
   "deliv": "Entrega",
   "steps": [
@@ -650,6 +650,7 @@ export default {
     "exampleShop": "Forno da Vila · padaria de exemplo, fictícia"
   },
   "fixesHead": "{n} problemas, {n} respostas",
+  "ctaNote": "Um clique abre um e-mail para mim. Sem formulário, sem cadastro.",
   "breakFixK": "O que eu faço",
   "breakProofK": "Trabalho real"
 };
